@@ -42,9 +42,14 @@ parameters:
 
   - name: GitHubToken
     type: string
-    default: $(azuresdk-github-pat)
+    default: $(GH_TOKEN)
 
 steps:
+  - template: /eng/common/pipelines/templates/steps/login-to-github.yml
+    parameters:
+      TokenOwners:
+        - azure
+
   - bash: |
       echo "Repository Name: ${{ parameters.RepositoryName }}"
       echo "Commit ID: ${{ parameters.Sha }}"

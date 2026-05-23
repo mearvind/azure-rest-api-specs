@@ -43,10 +43,15 @@ jobs:
         # Fetch depth required to get list of changed files
         fetchDepth: 2
 
+      - template: /eng/common/pipelines/templates/steps/login-to-github.yml
+        parameters:
+          TokenOwners:
+            - azure
+
       - template: /eng/common/pipelines/templates/steps/sparse-checkout.yml
         parameters:
           SkipCheckoutNone: true
-          TokenToUseForAuth: $(azuresdk-github-pat)
+          TokenToUseForAuth: $(GH_TOKEN)
           # Path does not need to be set because sparse-checkout.yml already
           # checks out files in the repo root
           Repositories:
