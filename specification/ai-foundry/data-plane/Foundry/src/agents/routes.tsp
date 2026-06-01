@@ -33,10 +33,7 @@ interface Agents {
   @sharedRoute
   @extension("x-ms-foundry-meta", AllConditionalAgentDefinitionPreviews)
   @extension("x-ms-summary-override", "Create an agent")
-  @extension(
-    "x-ms-description-override",
-    "Creates a new agent or a new version of an existing agent."
-  )
+  @extension("x-ms-description-override", "Creates the agent.")
   @tag("Agents")
   createAgent is FoundryDataPlanePreviewOperation<
     AgentDefinitionOptInKeys,
@@ -218,10 +215,7 @@ interface Agents {
   @sharedRoute
   @extension("x-ms-foundry-meta", AllConditionalAgentDefinitionPreviews)
   @extension("x-ms-summary-override", "Create an agent version")
-  @extension(
-    "x-ms-description-override",
-    "Creates a new version for the specified agent and returns the created version resource."
-  )
+  @extension("x-ms-description-override", "Creates a new agent version.")
   @tag("Agent Versions")
   createAgentVersion is FoundryDataPlanePreviewOperation<
     AgentDefinitionOptInKeys,
