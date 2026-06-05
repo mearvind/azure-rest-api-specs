@@ -13815,7 +13815,8 @@
     "/openai/v1/assistants": {
       "get": {
         "operationId": "Assistants_listAssistants",
-        "summary": "Returns a list of assistants.",
+        "summary": "List assistants",
+        "description": "Returns the assistants available in the current project.",
         "parameters": [
           {
             "name": "limit",
@@ -13913,7 +13914,8 @@
       },
       "post": {
         "operationId": "Assistants_createAssistant",
-        "summary": "Create an assistant with a model and instructions.",
+        "summary": "Create an assistant",
+        "description": "Creates an assistant with the specified model, instructions, and tools.",
         "parameters": [],
         "responses": {
           "200": {
@@ -13997,7 +13999,8 @@
     "/openai/v1/assistants/{assistant_id}": {
       "delete": {
         "operationId": "Assistants_deleteAssistant",
-        "summary": "Delete an assistant.",
+        "summary": "Delete an assistant",
+        "description": "Deletes the specified assistant and returns its deletion status.",
         "parameters": [
           {
             "name": "assistant_id",
@@ -14063,7 +14066,8 @@
       },
       "get": {
         "operationId": "Assistants_getAssistant",
-        "summary": "Retrieves an assistant.",
+        "summary": "Get an assistant",
+        "description": "Retrieves the specified assistant by ID.",
         "parameters": [
           {
             "name": "assistant_id",
@@ -14129,7 +14133,8 @@
       },
       "post": {
         "operationId": "Assistants_modifyAssistant",
-        "summary": "Modifies an assistant.",
+        "summary": "Update an assistant",
+        "description": "Updates the specified assistant and returns the updated resource.",
         "parameters": [
           {
             "name": "assistant_id",
@@ -14207,7 +14212,8 @@
     "/openai/v1/audio/speech": {
       "post": {
         "operationId": "Audio_createSpeech",
-        "summary": "Generates audio from the input text.\n\nReturns the audio file content, or a stream of audio events.\n",
+        "summary": "Create speech",
+        "description": "Generates spoken audio from the provided text and returns audio content or streamed audio events.",
         "parameters": [],
         "responses": {
           "200": {
@@ -14297,7 +14303,8 @@
     "/openai/v1/audio/transcriptions": {
       "post": {
         "operationId": "Audio_createTranscription",
-        "summary": "Transcribes audio into the input language.\n\nReturns a transcription object in `json`, `diarized_json`, or `verbose_json`\nformat, or a stream of transcript events.\n",
+        "summary": "Create a transcription",
+        "description": "Transcribes the uploaded audio into the input language and returns a transcription payload or transcript events.",
         "parameters": [],
         "responses": {
           "200": {
@@ -14475,7 +14482,8 @@
     "/openai/v1/audio/translations": {
       "post": {
         "operationId": "Audio_createTranslation",
-        "summary": "Translates audio into English.",
+        "summary": "Create a translation",
+        "description": "Translates the uploaded audio into English and returns the translated transcript.",
         "parameters": [],
         "responses": {
           "200": {
@@ -14559,7 +14567,8 @@
     "/openai/v1/batches": {
       "get": {
         "operationId": "Batches_listBatches",
-        "summary": "List your organization's batches.",
+        "summary": "List batches",
+        "description": "Returns the batches available to the current organization.",
         "parameters": [
           {
             "name": "after",
@@ -14638,7 +14647,8 @@
       },
       "post": {
         "operationId": "Batches_createBatch",
-        "summary": "Creates and executes a batch from an uploaded file of requests",
+        "summary": "Create a batch",
+        "description": "Creates and starts a batch from an uploaded request file.",
         "parameters": [],
         "responses": {
           "200": {
@@ -14706,7 +14716,8 @@
     "/openai/v1/batches/{batch_id}": {
       "get": {
         "operationId": "Batches_retrieveBatch",
-        "summary": "Retrieves a batch.",
+        "summary": "Get a batch",
+        "description": "Retrieves the specified batch by ID.",
         "parameters": [
           {
             "name": "batch_id",
@@ -14774,7 +14785,8 @@
     "/openai/v1/batches/{batch_id}/cancel": {
       "post": {
         "operationId": "Batches_cancelBatch",
-        "summary": "Cancels an in-progress batch. The batch will be in status `cancelling` for up to 10 minutes, before changing to `cancelled`, where it will have partial results (if any) available in the output file.",
+        "summary": "Cancel a batch",
+        "description": "Cancels the specified in-progress batch and returns its updated status.",
         "parameters": [
           {
             "name": "batch_id",
@@ -14842,7 +14854,8 @@
     "/openai/v1/chat/completions": {
       "get": {
         "operationId": "Chat_listChatCompletions",
-        "summary": "List stored Chat Completions. Only Chat Completions that have been stored\nwith the `store` parameter set to `true` will be returned.\n",
+        "summary": "List chat completions",
+        "description": "Returns the stored chat completions created with the `store` parameter set to `true`.",
         "parameters": [
           {
             "name": "model",
@@ -14956,7 +14969,8 @@
       },
       "post": {
         "operationId": "Chat_createChatCompletion",
-        "summary": "**Starting a new project?** We recommend trying [Responses](/docs/api-reference/responses)\nto take advantage of the latest OpenAI platform features. Compare\n[Chat Completions with Responses](/docs/guides/responses-vs-chat-completions?api-mode=responses).\n\n---\n\nCreates a model response for the given chat conversation. Learn more in the\n[text generation](/docs/guides/text-generation), [vision](/docs/guides/vision),\nand [audio](/docs/guides/audio) guides.\n\nParameter support can differ depending on the model used to generate the\nresponse, particularly for newer reasoning models. Parameters that are only\nsupported for reasoning models are noted below. For the current state of\nunsupported parameters in reasoning models,\n[refer to the reasoning guide](/docs/guides/reasoning).\n\nReturns a chat completion object, or a streamed sequence of chat completion\nchunk objects if the request is streamed.\n",
+        "summary": "Create a chat completion",
+        "description": "Creates a chat completion for the provided conversation and returns the completion or streamed chunks.",
         "parameters": [],
         "responses": {
           "200": {
@@ -15085,7 +15099,8 @@
     "/openai/v1/chat/completions/{completion_id}": {
       "delete": {
         "operationId": "Chat_deleteChatCompletion",
-        "summary": "Delete a stored chat completion. Only Chat Completions that have been\ncreated with the `store` parameter set to `true` can be deleted.\n",
+        "summary": "Delete a chat completion",
+        "description": "Deletes the specified stored chat completion when it was created with `store=true`.",
         "parameters": [
           {
             "name": "completion_id",
@@ -15150,7 +15165,8 @@
       },
       "get": {
         "operationId": "Chat_getChatCompletion",
-        "summary": "Get a stored chat completion. Only Chat Completions that have been created\nwith the `store` parameter set to `true` will be returned.\n",
+        "summary": "Get a chat completion",
+        "description": "Retrieves the specified stored chat completion when it was created with `store=true`.",
         "parameters": [
           {
             "name": "completion_id",
@@ -15215,7 +15231,8 @@
       },
       "post": {
         "operationId": "Chat_updateChatCompletion",
-        "summary": "Modify a stored chat completion. Only Chat Completions that have been\ncreated with the `store` parameter set to `true` can be modified. Currently,\nthe only supported modification is to update the `metadata` field.\n",
+        "summary": "Update a chat completion",
+        "description": "Updates the metadata for the specified stored chat completion.",
         "parameters": [
           {
             "name": "completion_id",
@@ -15292,7 +15309,8 @@
     "/openai/v1/chat/completions/{completion_id}/messages": {
       "get": {
         "operationId": "Chat_getChatCompletionMessages",
-        "summary": "Get the messages in a stored chat completion. Only Chat Completions that\nhave been created with the `store` parameter set to `true` will be\nreturned.\n",
+        "summary": "List chat completion messages",
+        "description": "Returns the stored messages for the specified chat completion when it was created with `store=true`.",
         "parameters": [
           {
             "name": "completion_id",
@@ -15391,7 +15409,8 @@
     "/openai/v1/completions": {
       "post": {
         "operationId": "Completions_createCompletion",
-        "summary": "Creates a completion for the provided prompt and parameters.\n\nReturns a completion object, or a sequence of completion objects if the request is streamed.\n",
+        "summary": "Create a completion",
+        "description": "Creates a completion for the provided prompt and returns the result or streamed completion chunks.",
         "parameters": [],
         "responses": {
           "200": {
@@ -15476,7 +15495,8 @@
     "/openai/v1/containers": {
       "get": {
         "operationId": "Containers_ListContainers",
-        "summary": "List Containers",
+        "summary": "List containers",
+        "description": "Returns the containers available in the current project.",
         "parameters": [
           {
             "name": "limit",
@@ -15574,7 +15594,8 @@
       },
       "post": {
         "operationId": "Containers_CreateContainer",
-        "summary": "Create Container",
+        "summary": "Create a container",
+        "description": "Creates a container and returns the created resource.",
         "parameters": [],
         "responses": {
           "200": {
@@ -15642,7 +15663,8 @@
     "/openai/v1/containers/{container_id}": {
       "delete": {
         "operationId": "Containers_DeleteContainer",
-        "summary": "Delete Container",
+        "summary": "Delete a container",
+        "description": "Deletes the specified container.",
         "parameters": [
           {
             "name": "container_id",
@@ -15701,7 +15723,8 @@
       },
       "get": {
         "operationId": "Containers_RetrieveContainer",
-        "summary": "Retrieve Container",
+        "summary": "Get a container",
+        "description": "Retrieves the specified container by ID.",
         "parameters": [
           {
             "name": "container_id",
@@ -15768,7 +15791,8 @@
     "/openai/v1/containers/{container_id}/files": {
       "get": {
         "operationId": "Containers_ListContainerFiles",
-        "summary": "List Container files",
+        "summary": "List container files",
+        "description": "Returns the files associated with the specified container.",
         "parameters": [
           {
             "name": "container_id",
@@ -15875,7 +15899,8 @@
             }
           }
         ],
-        "summary": "Create a Container File\n\nYou can send either a multipart/form-data request with the raw file content, or a JSON request with a file ID.\n Create a Container File\n\nYou can send either a multipart/form-data request with the raw file content, or a JSON request with a file ID.\n",
+        "description": "Adds a file to the specified container by uploading content or referencing an existing file ID. Adds a file to the specified container by uploading content or referencing an existing file ID.",
+        "summary": "Create a container file Create a container file",
         "responses": {
           "200": {
             "description": "The request has succeeded.",
@@ -15947,7 +15972,8 @@
     "/openai/v1/containers/{container_id}/files/{file_id}": {
       "delete": {
         "operationId": "Containers_DeleteContainerFile",
-        "summary": "Delete Container File",
+        "summary": "Delete a container file",
+        "description": "Deletes the specified file association from the container.",
         "parameters": [
           {
             "name": "container_id",
@@ -16013,7 +16039,8 @@
       },
       "get": {
         "operationId": "Containers_RetrieveContainerFile",
-        "summary": "Retrieve Container File",
+        "summary": "Get a container file",
+        "description": "Retrieves the specified file association from the container.",
         "parameters": [
           {
             "name": "container_id",
@@ -16088,7 +16115,8 @@
     "/openai/v1/containers/{container_id}/files/{file_id}/content": {
       "get": {
         "operationId": "Containers_RetrieveContainerFileContent",
-        "summary": "Retrieve Container File Content",
+        "summary": "Get container file content",
+        "description": "Returns the content for the specified file in the container.",
         "parameters": [
           {
             "name": "container_id",
@@ -16156,7 +16184,8 @@
     "/openai/v1/conversations": {
       "post": {
         "operationId": "Conversations_createConversation",
-        "summary": "Create a conversation.",
+        "summary": "Create a conversation",
+        "description": "Creates a conversation and returns the created resource.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -16234,6 +16263,8 @@
       },
       "get": {
         "operationId": "listConversations",
+        "summary": "List conversations",
+        "description": "Returns conversations filtered by the provided agent criteria.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -16373,7 +16404,8 @@
     "/openai/v1/conversations/{conversation_id}": {
       "delete": {
         "operationId": "Conversations_deleteConversation",
-        "summary": "Delete a conversation. Items in the conversation will not be deleted.",
+        "summary": "Delete a conversation",
+        "description": "Deletes the specified conversation without deleting its items.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -16451,6 +16483,7 @@
       "get": {
         "operationId": "Conversations_getConversation",
         "summary": "Get a conversation",
+        "description": "Retrieves the specified conversation by ID.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -16528,6 +16561,7 @@
       "post": {
         "operationId": "Conversations_updateConversation",
         "summary": "Update a conversation",
+        "description": "Updates the specified conversation and returns the updated resource.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -16616,7 +16650,8 @@
     "/openai/v1/conversations/{conversation_id}/items": {
       "get": {
         "operationId": "Conversations_listConversationItems",
-        "summary": "List all items for a conversation with the given ID.",
+        "summary": "List conversation items",
+        "description": "Returns the items in the specified conversation.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -16736,7 +16771,8 @@
       },
       "post": {
         "operationId": "Conversations_createConversationItems",
-        "summary": "Create items in a conversation with the given ID.",
+        "summary": "Create conversation items",
+        "description": "Creates items in the specified conversation and returns the created items.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -16837,7 +16873,8 @@
     "/openai/v1/conversations/{conversation_id}/items/{item_id}": {
       "delete": {
         "operationId": "Conversations_deleteConversationItem",
-        "summary": "Delete an item from a conversation with the given IDs.",
+        "summary": "Delete a conversation item",
+        "description": "Deletes the specified item from the conversation.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -16923,7 +16960,8 @@
       },
       "get": {
         "operationId": "Conversations_getConversationItem",
-        "summary": "Get a single item from a conversation with the given IDs.",
+        "summary": "Get a conversation item",
+        "description": "Retrieves the specified item from the conversation.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -17023,7 +17061,8 @@
     "/openai/v1/embeddings": {
       "post": {
         "operationId": "Embeddings_createEmbedding",
-        "summary": "Creates an embedding vector representing the input text.",
+        "summary": "Create an embedding",
+        "description": "Creates an embedding vector for the provided input.",
         "parameters": [],
         "responses": {
           "200": {
@@ -18010,7 +18049,8 @@
     "/openai/v1/files": {
       "get": {
         "operationId": "Files_listFiles",
-        "summary": "Returns a list of files.",
+        "summary": "List files",
+        "description": "Returns the files available in the current project.",
         "parameters": [
           {
             "name": "purpose",
@@ -18108,7 +18148,8 @@
       },
       "post": {
         "operationId": "Files_createFile",
-        "summary": "Upload a file that can be used across various endpoints. Individual files\ncan be up to 512 MB, and each project can store up to 2.5 TB of files in\ntotal. There is no organization-wide storage limit. Uploads to this\nendpoint are rate-limited to 1,000 requests per minute per authenticated\nuser.\n\n- The Assistants API supports files up to 2 million tokens and of specific\n  file types. See the [Assistants Tools guide](/docs/assistants/tools) for\n  details.\n- The Fine-tuning API only supports `.jsonl` files. The input also has\n  certain required formats for fine-tuning\n  [chat](/docs/api-reference/fine-tuning/chat-input) or\n  [completions](/docs/api-reference/fine-tuning/completions-input) models.\n- The Batch API only supports `.jsonl` files up to 200 MB in size. The input\n  also has a specific required\n  [format](/docs/api-reference/batch/request-input).\n- For Retrieval or `file_search` ingestion, upload files here first. If\n  you need to attach multiple uploaded files to the same vector store, use\n  [`/vector_stores/{vector_store_id}/file_batches`](/docs/api-reference/vector-stores-file-batches/createBatch)\n  instead of attaching them one by one. Vector store attachment has separate\n  limits from file upload, including 2,000 attached files per minute per\n  organization.\n\nPlease [contact us](https://help.openai.com/) if you need to increase these\nstorage limits.\n",
+        "summary": "Upload a file",
+        "description": "Uploads a file for use with supported APIs and returns the created file resource.",
         "parameters": [],
         "responses": {
           "200": {
@@ -18185,7 +18226,8 @@
     "/openai/v1/files/{file_id}": {
       "delete": {
         "operationId": "Files_deleteFile",
-        "summary": "Delete a file and remove it from all vector stores.",
+        "summary": "Delete a file",
+        "description": "Deletes the specified file and removes it from any vector stores.",
         "parameters": [
           {
             "name": "file_id",
@@ -18251,7 +18293,8 @@
       },
       "get": {
         "operationId": "Files_retrieveFile",
-        "summary": "Returns information about a specific file.",
+        "summary": "Get a file",
+        "description": "Retrieves metadata for the specified file.",
         "parameters": [
           {
             "name": "file_id",
@@ -18319,7 +18362,8 @@
     "/openai/v1/files/{file_id}/content": {
       "get": {
         "operationId": "Files_downloadFile",
-        "summary": "Returns the contents of the specified file.",
+        "summary": "Get file content",
+        "description": "Returns the content of the specified file.",
         "parameters": [
           {
             "name": "file_id",
@@ -18387,7 +18431,8 @@
     "/openai/v1/fine_tuning/alpha/graders/run": {
       "post": {
         "operationId": "Graders_runGrader",
-        "summary": "Run a grader.\n",
+        "summary": "Run a grader",
+        "description": "Runs the specified grader and returns its evaluation results.",
         "parameters": [],
         "responses": {
           "200": {
@@ -18481,7 +18526,8 @@
     "/openai/v1/fine_tuning/alpha/graders/validate": {
       "post": {
         "operationId": "Graders_validateGrader",
-        "summary": "Validate a grader.\n",
+        "summary": "Validate a grader",
+        "description": "Validates the specified grader definition and returns the validation result.",
         "parameters": [],
         "responses": {
           "200": {
@@ -18549,7 +18595,8 @@
     "/openai/v1/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions": {
       "get": {
         "operationId": "FineTuning_listFineTuningCheckpointPermissions",
-        "summary": "**NOTE:** This endpoint requires an [admin API key](../admin-api-keys).\n\nOrganization owners can use this endpoint to view all permissions for a fine-tuned model checkpoint.\n",
+        "summary": "List checkpoint permissions",
+        "description": "Returns the permissions for the specified fine-tuned model checkpoint. This operation requires an admin API key.",
         "parameters": [
           {
             "name": "fine_tuned_model_checkpoint",
@@ -18659,7 +18706,8 @@
       },
       "post": {
         "operationId": "FineTuning_createFineTuningCheckpointPermission",
-        "summary": "**NOTE:** Calling this endpoint requires an [admin API key](../admin-api-keys).\n\nThis enables organization owners to share fine-tuned models with other projects in their organization.\n",
+        "summary": "Create a checkpoint permission",
+        "description": "Creates a permission for the specified fine-tuned model checkpoint. This operation requires an admin API key.",
         "parameters": [
           {
             "name": "fine_tuned_model_checkpoint",
@@ -18736,7 +18784,8 @@
     "/openai/v1/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions/{permission_id}": {
       "delete": {
         "operationId": "FineTuning_deleteFineTuningCheckpointPermission",
-        "summary": "**NOTE:** This endpoint requires an [admin API key](../admin-api-keys).\n\nOrganization owners can use this endpoint to delete a permission for a fine-tuned model checkpoint.\n",
+        "summary": "Delete a checkpoint permission",
+        "description": "Deletes the specified permission from the fine-tuned model checkpoint. This operation requires an admin API key.",
         "parameters": [
           {
             "name": "fine_tuned_model_checkpoint",
@@ -18812,7 +18861,8 @@
     "/openai/v1/fine_tuning/jobs": {
       "get": {
         "operationId": "FineTuning_listPaginatedFineTuningJobs",
-        "summary": "List your organization's fine-tuning jobs\n",
+        "summary": "List fine-tuning jobs",
+        "description": "Returns the fine-tuning jobs available to the current organization.",
         "parameters": [
           {
             "name": "after",
@@ -18910,7 +18960,8 @@
       },
       "post": {
         "operationId": "FineTuning_createFineTuningJob",
-        "summary": "Creates a fine-tuning job which begins the process of creating a new model from a given dataset.\n\nResponse includes details of the enqueued job including job status and the name of the fine-tuned models once complete.\n\n[Learn more about fine-tuning](/docs/guides/model-optimization)\n",
+        "summary": "Create a fine-tuning job",
+        "description": "Creates a fine-tuning job from the provided dataset and returns the enqueued job details.",
         "parameters": [],
         "responses": {
           "200": {
@@ -19043,7 +19094,8 @@
     "/openai/v1/fine_tuning/jobs/{fine_tuning_job_id}": {
       "get": {
         "operationId": "FineTuning_retrieveFineTuningJob",
-        "summary": "Get info about a fine-tuning job.\n\n[Learn more about fine-tuning](/docs/guides/model-optimization)\n",
+        "summary": "Get a fine-tuning job",
+        "description": "Retrieves the specified fine-tuning job and its current status.",
         "parameters": [
           {
             "name": "fine_tuning_job_id",
@@ -19111,7 +19163,8 @@
     "/openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/cancel": {
       "post": {
         "operationId": "FineTuning_cancelFineTuningJob",
-        "summary": "Immediately cancel a fine-tune job.\n",
+        "summary": "Cancel a fine-tuning job",
+        "description": "Cancels the specified fine-tuning job and returns its updated state.",
         "parameters": [
           {
             "name": "fine_tuning_job_id",
@@ -19179,7 +19232,8 @@
     "/openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/checkpoints": {
       "get": {
         "operationId": "FineTuning_listFineTuningJobCheckpoints",
-        "summary": "List checkpoints for a fine-tuning job.\n",
+        "summary": "List fine-tuning checkpoints",
+        "description": "Returns the checkpoints for the specified fine-tuning job.",
         "parameters": [
           {
             "name": "fine_tuning_job_id",
@@ -19268,7 +19322,8 @@
     "/openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/events": {
       "get": {
         "operationId": "FineTuning_listFineTuningEvents",
-        "summary": "Get status updates for a fine-tuning job.\n",
+        "summary": "List fine-tuning events",
+        "description": "Returns the status events for the specified fine-tuning job.",
         "parameters": [
           {
             "name": "fine_tuning_job_id",
@@ -19358,7 +19413,8 @@
     "/openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/pause": {
       "post": {
         "operationId": "FineTuning_pauseFineTuningJob",
-        "summary": "Pause a fine-tune job.\n",
+        "summary": "Pause a fine-tuning job",
+        "description": "Pauses the specified fine-tuning job and returns its updated state.",
         "parameters": [
           {
             "name": "fine_tuning_job_id",
@@ -19426,7 +19482,8 @@
     "/openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/resume": {
       "post": {
         "operationId": "FineTuning_resumeFineTuningJob",
-        "summary": "Resume a fine-tune job.\n",
+        "summary": "Resume a fine-tuning job",
+        "description": "Resumes the specified fine-tuning job and returns its updated state.",
         "parameters": [
           {
             "name": "fine_tuning_job_id",
@@ -19495,7 +19552,8 @@
       "post": {
         "operationId": "Images_createImageEditMultipart_Images_createImageEditJson",
         "parameters": [],
-        "summary": "Creates an edited or extended image given one or more source images and a prompt. This endpoint supports GPT Image models (`gpt-image-1.5`, `gpt-image-1`, `gpt-image-1-mini`, and `chatgpt-image-latest`) and `dall-e-2`. Creates an edited or extended image given one or more source images and a prompt. This endpoint supports GPT Image models (`gpt-image-1.5`, `gpt-image-1`, `gpt-image-1-mini`, and `chatgpt-image-latest`) and `dall-e-2`.",
+        "description": "Creates an edited or extended image from the provided source images and prompt. Creates an edited or extended image from the provided source images and prompt.",
+        "summary": "Edit an image Edit an image",
         "responses": {
           "200": {
             "description": "The request has succeeded.",
@@ -19620,7 +19678,8 @@
     "/openai/v1/images/generations": {
       "post": {
         "operationId": "Images_createImage",
-        "summary": "Creates an image given a prompt. [Learn more](/docs/guides/images).\n",
+        "summary": "Create an image",
+        "description": "Creates an image from the provided prompt.",
         "parameters": [],
         "responses": {
           "200": {
@@ -19704,7 +19763,8 @@
     "/openai/v1/images/variations": {
       "post": {
         "operationId": "Images_createImageVariation",
-        "summary": "Creates a variation of a given image. This endpoint only supports `dall-e-2`.",
+        "summary": "Create an image variation",
+        "description": "Creates a variation of the provided image. This operation only supports `dall-e-2`.",
         "parameters": [],
         "responses": {
           "200": {
@@ -19787,7 +19847,8 @@
     "/openai/v1/models": {
       "get": {
         "operationId": "OpenAIModels_listModels",
-        "summary": "Lists the currently available models, and provides basic information about each one such as the owner and availability.",
+        "summary": "List models",
+        "description": "Returns the models currently available in the current project.",
         "parameters": [],
         "responses": {
           "200": {
@@ -19847,7 +19908,8 @@
     "/openai/v1/models/{model}": {
       "delete": {
         "operationId": "OpenAIModels_deleteModel",
-        "summary": "Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.",
+        "summary": "Delete a model",
+        "description": "Deletes the specified fine-tuned model. This operation requires the Owner role in the organization.",
         "parameters": [
           {
             "name": "model",
@@ -19914,7 +19976,8 @@
       },
       "get": {
         "operationId": "OpenAIModels_retrieveModel",
-        "summary": "Retrieves a model instance, providing basic information about the model such as the owner and permissioning.",
+        "summary": "Get a model",
+        "description": "Retrieves the specified model and returns its basic metadata and permissions.",
         "parameters": [
           {
             "name": "model",
@@ -19983,7 +20046,8 @@
     "/openai/v1/moderations": {
       "post": {
         "operationId": "Moderations_createModeration",
-        "summary": "Classifies if text and/or image inputs are potentially harmful. Learn\nmore in the [moderation guide](/docs/guides/moderation).\n",
+        "summary": "Create a moderation",
+        "description": "Classifies the provided text or image inputs and returns moderation results.",
         "parameters": [],
         "responses": {
           "200": {
@@ -20068,7 +20132,8 @@
     "/openai/v1/realtime/calls": {
       "post": {
         "operationId": "Realtime_create-realtime-call",
-        "summary": "Create a new Realtime API call over WebRTC and receive the SDP answer needed\nto complete the peer connection.",
+        "summary": "Create a realtime call",
+        "description": "Creates a WebRTC realtime call and returns the SDP answer needed to complete the peer connection.",
         "parameters": [],
         "responses": {
           "201": {
@@ -20145,7 +20210,8 @@
     "/openai/v1/realtime/calls/{call_id}/accept": {
       "post": {
         "operationId": "Realtime_accept-realtime-call",
-        "summary": "Accept an incoming SIP call and configure the realtime session that will\nhandle it.",
+        "summary": "Accept a realtime call",
+        "description": "Accepts an incoming SIP call and applies the provided realtime session configuration.",
         "parameters": [
           {
             "name": "call_id",
@@ -20217,7 +20283,8 @@
     "/openai/v1/realtime/calls/{call_id}/hangup": {
       "post": {
         "operationId": "Realtime_hangup-realtime-call",
-        "summary": "End an active Realtime API call, whether it was initiated over SIP or\nWebRTC.",
+        "summary": "Hang up a realtime call",
+        "description": "Ends the specified realtime call, whether it was started over SIP or WebRTC.",
         "parameters": [
           {
             "name": "call_id",
@@ -20278,7 +20345,8 @@
     "/openai/v1/realtime/calls/{call_id}/refer": {
       "post": {
         "operationId": "Realtime_refer-realtime-call",
-        "summary": "Transfer an active SIP call to a new destination using the SIP REFER verb.",
+        "summary": "Refer a realtime call",
+        "description": "Transfers the specified SIP call to a new destination by issuing a SIP REFER request.",
         "parameters": [
           {
             "name": "call_id",
@@ -20350,7 +20418,8 @@
     "/openai/v1/realtime/calls/{call_id}/reject": {
       "post": {
         "operationId": "Realtime_reject-realtime-call",
-        "summary": "Decline an incoming SIP call by returning a SIP status code to the caller.",
+        "summary": "Reject a realtime call",
+        "description": "Rejects an incoming SIP call with the specified SIP status response.",
         "parameters": [
           {
             "name": "call_id",
@@ -20422,7 +20491,8 @@
     "/openai/v1/realtime/client_secrets": {
       "post": {
         "operationId": "Realtime_create-realtime-client-secret",
-        "summary": "Create a Realtime client secret with an associated session configuration.\n\nClient secrets are short-lived tokens that can be passed to a client app,\nsuch as a web frontend or mobile client, which grants access to the Realtime API without\nleaking your main API key. You can configure a custom TTL for each client secret.\n\nYou can also attach session configuration options to the client secret, which will be\napplied to any sessions created using that client secret, but these can also be overridden\nby the client connection.\n\n[Learn more about authentication with client secrets over WebRTC](/docs/guides/realtime-webrtc).\n\nReturns the created client secret and the effective session object. The client secret is a string that looks like `ek_1234`.\n",
+        "summary": "Create a realtime client secret",
+        "description": "Creates a short-lived client secret and returns the effective realtime session configuration.",
         "parameters": [],
         "responses": {
           "200": {
@@ -20490,7 +20560,8 @@
     "/openai/v1/realtime/sessions": {
       "post": {
         "operationId": "Realtime_create-realtime-session",
-        "summary": "Create an ephemeral API token for use in client-side applications with the\nRealtime API. Can be configured with the same session parameters as the\n`session.update` client event.\n\nIt responds with a session object, plus a `client_secret` key which contains\na usable ephemeral API token that can be used to authenticate browser clients\nfor the Realtime API.\n\nReturns the created Realtime session object, plus an ephemeral key.\n",
+        "summary": "Create a realtime session",
+        "description": "Creates an ephemeral API token for a client-side realtime session and returns the session details.",
         "parameters": [],
         "responses": {
           "200": {
@@ -20553,7 +20624,8 @@
     "/openai/v1/realtime/transcription_sessions": {
       "post": {
         "operationId": "Realtime_create-realtime-transcription-session",
-        "summary": "Create an ephemeral API token for use in client-side applications with the\nRealtime API specifically for realtime transcriptions.\nCan be configured with the same session parameters as the `transcription_session.update` client event.\n\nIt responds with a session object, plus a `client_secret` key which contains\na usable ephemeral API token that can be used to authenticate browser clients\nfor the Realtime API.\n\nReturns the created Realtime transcription session object, plus an ephemeral key.\n",
+        "summary": "Create a realtime transcription session",
+        "description": "Creates an ephemeral API token for a client-side realtime transcription session and returns the session details.",
         "parameters": [],
         "responses": {
           "200": {
@@ -20616,7 +20688,8 @@
     "/openai/v1/realtime/translations/client_secrets": {
       "post": {
         "operationId": "Realtime_create-realtime-translation-client-secret",
-        "summary": "Create a Realtime translation client secret with an associated translation session configuration.\n\nClient secrets are short-lived tokens that can be passed to a client app,\nsuch as a web frontend or mobile client, which grants access to the Realtime\nTranslation API without leaking your main API key. You can configure a custom\nTTL for each client secret.\n\nReturns the created client secret and the effective translation session object.\nThe client secret is a string that looks like `ek_1234`.\n",
+        "summary": "Create a realtime translation client secret",
+        "description": "Creates a short-lived client secret for the Realtime Translation API and returns the effective translation session configuration.",
         "parameters": [],
         "responses": {
           "200": {
@@ -20690,7 +20763,8 @@
             }
           }
         ],
-        "summary": "Creates a model response. Provide [text](/docs/guides/text) or\n[image](/docs/guides/images) inputs to generate [text](/docs/guides/text)\nor [JSON](/docs/guides/structured-outputs) outputs. Have the model call\nyour own [custom code](/docs/guides/function-calling) or use built-in\n[tools](/docs/guides/tools) like [web search](/docs/guides/tools-web-search)\nor [file search](/docs/guides/tools-file-search) to use your own data\nas input for the model's response.\n",
+        "description": "Creates a model response from the provided input and tools configuration. Starts a streaming response for the provided input and returns server-sent events.",
+        "summary": "Create a response Create a response stream",
         "responses": {
           "200": {
             "description": "The request has succeeded.",
@@ -21195,6 +21269,8 @@
       },
       "get": {
         "operationId": "listResponses",
+        "summary": "List responses",
+        "description": "Returns responses filtered by the provided agent or conversation criteria.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -21355,7 +21431,8 @@
             }
           }
         ],
-        "summary": "Compact a conversation. Returns a compacted response object.\n\nLearn when and how to compact long-running conversations in the [conversation state guide](/docs/guides/conversation-state#managing-the-context-window). For ZDR-compatible compaction details, see [Compaction (advanced)](/docs/guides/conversation-state#compaction-advanced).",
+        "description": "Compacts a conversation and returns the compacted response object. Compacts the current session conversation and returns the compacted response object.",
+        "summary": "Compact a conversation Compact a session conversation",
         "responses": {
           "200": {
             "description": "The request has succeeded.",
@@ -21450,7 +21527,8 @@
     "/openai/v1/responses/{response_id}": {
       "delete": {
         "operationId": "Responses_deleteResponse",
-        "summary": "Deletes a model response with the given ID.\n",
+        "summary": "Delete a response",
+        "description": "Deletes the specified model response.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -21616,7 +21694,8 @@
             }
           }
         ],
-        "summary": "Retrieves a model response with the given ID.\n",
+        "description": "Retrieves the specified model response. Streams events for the specified response starting after the requested sequence number.",
+        "summary": "Get a response Get a response stream",
         "responses": {
           "200": {
             "description": "The request has succeeded.",
@@ -22004,7 +22083,8 @@
     "/openai/v1/responses/{response_id}/cancel": {
       "post": {
         "operationId": "Responses_cancelResponse",
-        "summary": "Cancels a model response with the given ID. Only responses created with\nthe `background` parameter set to `true` can be cancelled.\n[Learn more](/docs/guides/background).\n",
+        "summary": "Cancel a response",
+        "description": "Cancels the specified background model response and returns its updated state.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -22407,7 +22487,8 @@
     "/openai/v1/responses/{response_id}/input_items": {
       "get": {
         "operationId": "Responses_listInputItems",
-        "summary": "Returns a list of input items for a given response.",
+        "summary": "List response input items",
+        "description": "Returns the input items for the specified response.",
         "parameters": [
           {
             "name": "x-ms-user-isolation-key",
@@ -22527,7 +22608,8 @@
     "/openai/v1/threads": {
       "post": {
         "operationId": "Threads_createThread",
-        "summary": "Create a thread.",
+        "summary": "Create a thread",
+        "description": "Creates a thread and returns the created resource.",
         "parameters": [],
         "responses": {
           "200": {
@@ -22613,7 +22695,8 @@
     "/openai/v1/threads/runs": {
       "post": {
         "operationId": "Threads_createThreadAndRun",
-        "summary": "Create a thread and run it in one request.",
+        "summary": "Create a thread and run",
+        "description": "Creates a thread, starts a run, and returns the created run.",
         "parameters": [],
         "responses": {
           "200": {
@@ -22712,7 +22795,8 @@
     "/openai/v1/threads/{thread_id}": {
       "delete": {
         "operationId": "Threads_deleteThread",
-        "summary": "Delete a thread.",
+        "summary": "Delete a thread",
+        "description": "Deletes the specified thread.",
         "parameters": [
           {
             "name": "thread_id",
@@ -22780,7 +22864,8 @@
       },
       "get": {
         "operationId": "Threads_getThread",
-        "summary": "Retrieves a thread.",
+        "summary": "Get a thread",
+        "description": "Retrieves the specified thread by ID.",
         "parameters": [
           {
             "name": "thread_id",
@@ -22848,7 +22933,8 @@
       },
       "post": {
         "operationId": "Threads_modifyThread",
-        "summary": "Modifies a thread.",
+        "summary": "Update a thread",
+        "description": "Updates the specified thread metadata and returns the updated resource.",
         "parameters": [
           {
             "name": "thread_id",
@@ -22928,7 +23014,8 @@
     "/openai/v1/threads/{thread_id}/messages": {
       "get": {
         "operationId": "Threads_listMessages",
-        "summary": "Returns a list of messages for a given thread.",
+        "summary": "List messages",
+        "description": "Returns the messages in the specified thread.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23046,7 +23133,8 @@
       },
       "post": {
         "operationId": "Threads_createMessage",
-        "summary": "Create a message.",
+        "summary": "Create a message",
+        "description": "Creates a message in the specified thread.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23126,7 +23214,8 @@
     "/openai/v1/threads/{thread_id}/messages/{message_id}": {
       "delete": {
         "operationId": "Threads_deleteMessage",
-        "summary": "Deletes a message.",
+        "summary": "Delete a message",
+        "description": "Deletes the specified message from the thread.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23203,7 +23292,8 @@
       },
       "get": {
         "operationId": "Threads_getMessage",
-        "summary": "Retrieve a message.",
+        "summary": "Get a message",
+        "description": "Retrieves the specified message from the thread.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23280,7 +23370,8 @@
       },
       "post": {
         "operationId": "Threads_modifyMessage",
-        "summary": "Modifies a message.",
+        "summary": "Update a message",
+        "description": "Updates the specified message and returns the updated resource.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23369,7 +23460,8 @@
     "/openai/v1/threads/{thread_id}/runs": {
       "get": {
         "operationId": "Threads_listRuns",
-        "summary": "Returns a list of runs belonging to a thread.",
+        "summary": "List runs",
+        "description": "Returns the runs for the specified thread.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23478,7 +23570,8 @@
       },
       "post": {
         "operationId": "Threads_createRun",
-        "summary": "Create a run.",
+        "summary": "Create a run",
+        "description": "Creates a run for the specified thread and returns the created run.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23602,7 +23695,8 @@
     "/openai/v1/threads/{thread_id}/runs/{run_id}": {
       "get": {
         "operationId": "Threads_getRun",
-        "summary": "Retrieves a run.",
+        "summary": "Get a run",
+        "description": "Retrieves the specified run from the thread.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23679,7 +23773,8 @@
       },
       "post": {
         "operationId": "Threads_modifyRun",
-        "summary": "Modifies a run.",
+        "summary": "Update a run",
+        "description": "Updates the specified run and returns the updated resource.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23768,7 +23863,8 @@
     "/openai/v1/threads/{thread_id}/runs/{run_id}/cancel": {
       "post": {
         "operationId": "Threads_cancelRun",
-        "summary": "Cancels a run that is `in_progress`.",
+        "summary": "Cancel a run",
+        "description": "Cancels the specified in-progress run.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23847,7 +23943,8 @@
     "/openai/v1/threads/{thread_id}/runs/{run_id}/steps": {
       "get": {
         "operationId": "Threads_listRunSteps",
-        "summary": "Returns a list of run steps belonging to a run.",
+        "summary": "List run steps",
+        "description": "Returns the steps for the specified run.",
         "parameters": [
           {
             "name": "thread_id",
@@ -23982,7 +24079,8 @@
     "/openai/v1/threads/{thread_id}/runs/{run_id}/steps/{step_id}": {
       "get": {
         "operationId": "Threads_getRunStep",
-        "summary": "Retrieves a run step.",
+        "summary": "Get a run step",
+        "description": "Retrieves the specified run step.",
         "parameters": [
           {
             "name": "thread_id",
@@ -24085,7 +24183,8 @@
     "/openai/v1/threads/{thread_id}/runs/{run_id}/submit_tool_outputs": {
       "post": {
         "operationId": "Threads_submitToolOuputsToRun",
-        "summary": "When a run has the `status: \"requires_action\"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request.\n",
+        "summary": "Submit tool outputs",
+        "description": "Submits tool outputs for a run that is waiting on `submit_tool_outputs`.",
         "parameters": [
           {
             "name": "thread_id",
@@ -24190,7 +24289,8 @@
     "/openai/v1/uploads": {
       "post": {
         "operationId": "Uploads_createUpload",
-        "summary": "Creates an intermediate [Upload](/docs/api-reference/uploads/object) object\nthat you can add [Parts](/docs/api-reference/uploads/part-object) to.\nCurrently, an Upload can accept at most 8 GB in total and expires after an\nhour after you create it.\n\nOnce you complete the Upload, we will create a\n[File](/docs/api-reference/files/object) object that contains all the parts\nyou uploaded. This File is usable in the rest of our platform as a regular\nFile object.\n\nFor certain `purpose` values, the correct `mime_type` must be specified.\nPlease refer to documentation for the\n[supported MIME types for your use case](/docs/assistants/tools/file-search#supported-files).\n\nFor guidance on the proper filename extensions for each purpose, please\nfollow the documentation on [creating a\nFile](/docs/api-reference/files/create).\n\nReturns the Upload object with status `pending`.\n",
+        "summary": "Create an upload",
+        "description": "Creates an upload container for file parts and returns it in the `pending` state.",
         "parameters": [],
         "responses": {
           "200": {
@@ -24257,7 +24357,8 @@
     "/openai/v1/uploads/{upload_id}/cancel": {
       "post": {
         "operationId": "Uploads_cancelUpload",
-        "summary": "Cancels the Upload. No Parts may be added after an Upload is cancelled.\n\nReturns the Upload object with status `cancelled`.\n",
+        "summary": "Cancel an upload",
+        "description": "Cancels the specified upload and returns it in the `cancelled` state.",
         "parameters": [
           {
             "name": "upload_id",
@@ -24324,7 +24425,8 @@
     "/openai/v1/uploads/{upload_id}/complete": {
       "post": {
         "operationId": "Uploads_completeUpload",
-        "summary": "Completes the [Upload](/docs/api-reference/uploads/object).\n\nWithin the returned Upload object, there is a nested [File](/docs/api-reference/files/object) object that is ready to use in the rest of the platform.\n\nYou can specify the order of the Parts by passing in an ordered list of the Part IDs.\n\nThe number of bytes uploaded upon completion must match the number of bytes initially specified when creating the Upload object. No Parts may be added after an Upload is completed.\nReturns the Upload object with status `completed`, including an additional `file` property containing the created usable File object.\n",
+        "summary": "Complete an upload",
+        "description": "Completes the specified upload, assembles its parts in order, and returns the resulting file resource.",
         "parameters": [
           {
             "name": "upload_id",
@@ -24401,7 +24503,8 @@
     "/openai/v1/uploads/{upload_id}/parts": {
       "post": {
         "operationId": "Uploads_addUploadPart",
-        "summary": "Adds a [Part](/docs/api-reference/uploads/part-object) to an [Upload](/docs/api-reference/uploads/object) object. A Part represents a chunk of bytes from the file you are trying to upload.\n\nEach Part can be at most 64 MB, and you can add Parts until you hit the Upload maximum of 8 GB.\n\nIt is possible to add multiple Parts in parallel. You can decide the intended order of the Parts when you [complete the Upload](/docs/api-reference/uploads/complete).\n",
+        "summary": "Add an upload part",
+        "description": "Adds a part to the specified upload and returns the created part resource.",
         "parameters": [
           {
             "name": "upload_id",
@@ -24478,7 +24581,8 @@
     "/openai/v1/vector_stores": {
       "get": {
         "operationId": "VectorStores_listVectorStores",
-        "summary": "Returns a list of vector stores.",
+        "summary": "List vector stores",
+        "description": "Returns the vector stores available in the current project.",
         "parameters": [
           {
             "name": "limit",
@@ -24576,7 +24680,8 @@
       },
       "post": {
         "operationId": "VectorStores_createVectorStore",
-        "summary": "Create a vector store.",
+        "summary": "Create a vector store",
+        "description": "Creates a vector store and returns the created resource.",
         "parameters": [],
         "responses": {
           "200": {
@@ -24644,7 +24749,8 @@
     "/openai/v1/vector_stores/{vector_store_id}": {
       "delete": {
         "operationId": "VectorStores_deleteVectorStore",
-        "summary": "Delete a vector store.",
+        "summary": "Delete a vector store",
+        "description": "Deletes the specified vector store.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -24710,7 +24816,8 @@
       },
       "get": {
         "operationId": "VectorStores_getVectorStore",
-        "summary": "Retrieves a vector store.",
+        "summary": "Get a vector store",
+        "description": "Retrieves the specified vector store by ID.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -24776,7 +24883,8 @@
       },
       "post": {
         "operationId": "VectorStores_modifyVectorStore",
-        "summary": "Modifies a vector store.",
+        "summary": "Update a vector store",
+        "description": "Updates the specified vector store and returns the updated resource.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -24854,7 +24962,8 @@
     "/openai/v1/vector_stores/{vector_store_id}/file_batches": {
       "post": {
         "operationId": "VectorStores_createVectorStoreFileBatch",
-        "summary": "Create a vector store file batch.",
+        "summary": "Create a vector store file batch",
+        "description": "Creates a file batch for the specified vector store.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -24933,7 +25042,8 @@
     "/openai/v1/vector_stores/{vector_store_id}/file_batches/{batch_id}": {
       "get": {
         "operationId": "VectorStores_getVectorStoreFileBatch",
-        "summary": "Retrieves a vector store file batch.",
+        "summary": "Get a vector store file batch",
+        "description": "Retrieves the specified file batch for the vector store.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25010,7 +25120,8 @@
     "/openai/v1/vector_stores/{vector_store_id}/file_batches/{batch_id}/cancel": {
       "post": {
         "operationId": "VectorStores_cancelVectorStoreFileBatch",
-        "summary": "Cancel a vector store file batch. This attempts to cancel the processing of files in this batch as soon as possible.",
+        "summary": "Cancel a vector store file batch",
+        "description": "Cancels the specified vector store file batch as soon as possible.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25087,7 +25198,8 @@
     "/openai/v1/vector_stores/{vector_store_id}/file_batches/{batch_id}/files": {
       "get": {
         "operationId": "VectorStores_listFilesInVectorStoreBatch",
-        "summary": "Returns a list of vector store files in a batch.",
+        "summary": "List vector store batch files",
+        "description": "Returns the files in the specified vector store file batch.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25214,7 +25326,8 @@
     "/openai/v1/vector_stores/{vector_store_id}/files": {
       "get": {
         "operationId": "VectorStores_listVectorStoreFiles",
-        "summary": "Returns a list of vector store files.",
+        "summary": "List vector store files",
+        "description": "Returns the files attached to the specified vector store.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25330,7 +25443,8 @@
       },
       "post": {
         "operationId": "VectorStores_createVectorStoreFile",
-        "summary": "Create a vector store file by attaching a [File](/docs/api-reference/files) to a [vector store](/docs/api-reference/vector-stores/object).",
+        "summary": "Create a vector store file",
+        "description": "Attaches a file to the specified vector store and returns the created file resource.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25409,7 +25523,8 @@
     "/openai/v1/vector_stores/{vector_store_id}/files/{file_id}": {
       "delete": {
         "operationId": "VectorStores_deleteVectorStoreFile",
-        "summary": "Delete a vector store file. This will remove the file from the vector store but the file itself will not be deleted. To delete the file, use the [delete file](/docs/api-reference/files/delete) endpoint.",
+        "summary": "Delete a vector store file",
+        "description": "Removes the specified file from the vector store without deleting the underlying file.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25484,7 +25599,8 @@
       },
       "get": {
         "operationId": "VectorStores_getVectorStoreFile",
-        "summary": "Retrieves a vector store file.",
+        "summary": "Get a vector store file",
+        "description": "Retrieves the specified file attachment from the vector store.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25559,7 +25675,8 @@
       },
       "post": {
         "operationId": "VectorStores_updateVectorStoreFileAttributes",
-        "summary": "Update attributes on a vector store file.",
+        "summary": "Update a vector store file",
+        "description": "Updates the attributes of the specified vector store file.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25645,7 +25762,8 @@
     "/openai/v1/vector_stores/{vector_store_id}/files/{file_id}/content": {
       "get": {
         "operationId": "VectorStores_retrieveVectorStoreFileContent",
-        "summary": "Retrieve the parsed contents of a vector store file.",
+        "summary": "Get vector store file content",
+        "description": "Returns the parsed content for the specified vector store file.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25721,7 +25839,8 @@
     "/openai/v1/vector_stores/{vector_store_id}/search": {
       "post": {
         "operationId": "VectorStores_searchVectorStore",
-        "summary": "Search a vector store for relevant chunks based on a query and file attributes filter.",
+        "summary": "Search a vector store",
+        "description": "Searches the specified vector store for chunks relevant to the provided query and filters.",
         "parameters": [
           {
             "name": "vector_store_id",
@@ -25798,7 +25917,8 @@
     "/openai/v1/videos": {
       "get": {
         "operationId": "VideoGeneration_ListVideos",
-        "summary": "List recently generated videos for the current project.",
+        "summary": "List videos",
+        "description": "Returns the recently generated videos for the current project.",
         "parameters": [
           {
             "name": "limit",
@@ -25888,7 +26008,8 @@
       },
       "post": {
         "operationId": "VideoGeneration_createVideo",
-        "summary": "Create a new video generation job from a prompt and optional reference assets.",
+        "summary": "Create a video",
+        "description": "Creates a video generation job from the provided prompt and reference assets.",
         "parameters": [],
         "responses": {
           "200": {
@@ -25971,7 +26092,8 @@
     "/openai/v1/videos/characters": {
       "post": {
         "operationId": "VideoGeneration_CreateVideoCharacter",
-        "summary": "Create a character from an uploaded video.",
+        "summary": "Create a video character",
+        "description": "Creates a reusable character from an uploaded video.",
         "parameters": [],
         "responses": {
           "200": {
@@ -26035,7 +26157,8 @@
     "/openai/v1/videos/characters/{character_id}": {
       "get": {
         "operationId": "VideoGeneration_GetVideoCharacter",
-        "summary": "Fetch a character.",
+        "summary": "Get a video character",
+        "description": "Retrieves the specified video character by ID.",
         "parameters": [
           {
             "name": "character_id",
@@ -26100,7 +26223,8 @@
       "post": {
         "operationId": "VideoGeneration_CreateVideoEditMultipart_VideoGeneration_CreateVideoEditJson",
         "parameters": [],
-        "summary": "Create a new video generation job by editing a source video or existing generated video. Create a new video generation job by editing a source video or existing generated video.",
+        "description": "Creates a video generation job by editing a source video or an existing generated video. Creates a video generation job by editing a source video or an existing generated video.",
+        "summary": "Edit a video Edit a video",
         "responses": {
           "200": {
             "description": "The request has succeeded.",
@@ -26174,7 +26298,8 @@
       "post": {
         "operationId": "VideoGeneration_CreateVideoExtendMultipart_VideoGeneration_CreateVideoExtendJson",
         "parameters": [],
-        "summary": "Create an extension of a completed video. Create an extension of a completed video.",
+        "description": "Creates an extension of the specified completed video. Creates an extension of the specified completed video.",
+        "summary": "Extend a video Extend a video",
         "responses": {
           "200": {
             "description": "The request has succeeded.",
@@ -26250,7 +26375,8 @@
     "/openai/v1/videos/{video_id}": {
       "delete": {
         "operationId": "VideoGeneration_DeleteVideo",
-        "summary": "Permanently delete a completed or failed video and its stored assets.",
+        "summary": "Delete a video",
+        "description": "Permanently deletes the specified completed or failed video and its stored assets.",
         "parameters": [
           {
             "name": "video_id",
@@ -26316,7 +26442,8 @@
       },
       "get": {
         "operationId": "VideoGeneration_GetVideo",
-        "summary": "Fetch the latest metadata for a generated video.",
+        "summary": "Get a video",
+        "description": "Retrieves the latest metadata for the specified generated video.",
         "parameters": [
           {
             "name": "video_id",
@@ -26384,7 +26511,8 @@
     "/openai/v1/videos/{video_id}/content": {
       "get": {
         "operationId": "VideoGeneration_RetrieveVideoContent",
-        "summary": "Download the generated video bytes or a derived preview asset.\n\nStreams the rendered video content for the specified video job.",
+        "summary": "Get video content",
+        "description": "Streams the rendered content or preview asset for the specified video.",
         "parameters": [
           {
             "name": "video_id",
@@ -26461,7 +26589,8 @@
     "/openai/v1/videos/{video_id}/remix": {
       "post": {
         "operationId": "VideoGeneration_CreateVideoRemix",
-        "summary": "Create a remix of a completed video using a refreshed prompt.",
+        "summary": "Create a video remix",
+        "description": "Creates a remix of the specified completed video using a refreshed prompt.",
         "parameters": [
           {
             "name": "video_id",
