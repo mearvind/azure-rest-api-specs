@@ -32,6 +32,7 @@ interface Agents {
   @route("/agents")
   @sharedRoute
   @extension("x-ms-foundry-meta", AllConditionalAgentDefinitionPreviews)
+  @tag("Agents")
   @extension("x-ms-summary-override", "Create an agent")
   @extension("x-ms-description-override", "Creates the agent.")
   @tag("Agents")
@@ -85,6 +86,7 @@ interface Agents {
   @post
   @route("/agents/{agent_name}")
   @sharedRoute
+  @tag("Agents")
   @extension("x-ms-summary-override", "Update an agent")
   @extension(
     "x-ms-description-override",
@@ -214,6 +216,7 @@ interface Agents {
   @route("/agents/{agent_name}/versions")
   @sharedRoute
   @extension("x-ms-foundry-meta", AllConditionalAgentDefinitionPreviews)
+  @tag("Agent Versions")
   @extension("x-ms-summary-override", "Create an agent version")
   @extension("x-ms-description-override", "Creates a new agent version.")
   @tag("Agent Versions")
