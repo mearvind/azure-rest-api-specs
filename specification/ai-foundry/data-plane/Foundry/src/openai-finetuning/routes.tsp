@@ -9,15 +9,11 @@ namespace Azure.AI.Projects;
 @route("openai/v1/fine_tuning")
 @tag("Fine-tuning")
 interface FineTuning {
+  /** Returns the permissions for the specified fine-tuned model checkpoint. This operation requires an admin API key. */
   @list
   @route("checkpoints/{fine_tuned_model_checkpoint}/permissions")
   @get
-  @summary("""
-    **NOTE:** This endpoint requires an [admin API key](../admin-api-keys).
-    
-    Organization owners can use this endpoint to view all permissions for a fine-tuned model checkpoint.
-    
-    """)
+  @summary("List checkpoint permissions")
   listFineTuningCheckpointPermissions is OpenAIOperation<
     {
       /** The ID of the fine-tuned model checkpoint to get permissions for. */
@@ -45,14 +41,10 @@ interface FineTuning {
     OpenAI.ListFineTuningCheckpointPermissionResponse
   >;
 
+  /** Creates a permission for the specified fine-tuned model checkpoint. This operation requires an admin API key. */
   @route("checkpoints/{fine_tuned_model_checkpoint}/permissions")
   @post
-  @summary("""
-    **NOTE:** Calling this endpoint requires an [admin API key](../admin-api-keys).
-    
-    This enables organization owners to share fine-tuned models with other projects in their organization.
-    
-    """)
+  @summary("Create a checkpoint permission")
   createFineTuningCheckpointPermission is OpenAIOperation<
     {
       /** The ID of the fine-tuned model checkpoint to create a permission for. */
@@ -65,14 +57,10 @@ interface FineTuning {
     OpenAI.ListFineTuningCheckpointPermissionResponse
   >;
 
+  /** Deletes the specified permission from the fine-tuned model checkpoint. This operation requires an admin API key. */
   @route("checkpoints/{fine_tuned_model_checkpoint}/permissions/{permission_id}")
   @delete
-  @summary("""
-    **NOTE:** This endpoint requires an [admin API key](../admin-api-keys).
-    
-    Organization owners can use this endpoint to delete a permission for a fine-tuned model checkpoint.
-    
-    """)
+  @summary("Delete a checkpoint permission")
   deleteFineTuningCheckpointPermission is OpenAIOperation<
     {
       /** The ID of the fine-tuned model checkpoint to delete a permission for. */
@@ -86,13 +74,11 @@ interface FineTuning {
     OpenAI.DeleteFineTuningCheckpointPermissionResponse
   >;
 
+  /** Returns the fine-tuning jobs available to the current organization. */
   @list
   @route("jobs")
   @get
-  @summary("""
-    List your organization's fine-tuning jobs
-    
-    """)
+  @summary("List fine-tuning jobs")
   listPaginatedFineTuningJobs is OpenAIOperation<
     {
       /** Identifier for the last job from the previous pagination request. */
@@ -112,16 +98,10 @@ interface FineTuning {
     OpenAI.ListPaginatedFineTuningJobsResponse
   >;
 
+  /** Creates a fine-tuning job from the provided dataset and returns the enqueued job details. */
   @route("jobs")
   @post
-  @summary("""
-    Creates a fine-tuning job which begins the process of creating a new model from a given dataset.
-    
-    Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
-    
-    [Learn more about fine-tuning](/docs/guides/model-optimization)
-    
-    """)
+  @summary("Create a fine-tuning job")
   createFineTuningJob is OpenAIOperation<
     {
       @body
@@ -130,14 +110,10 @@ interface FineTuning {
     OpenAI.FineTuningJob
   >;
 
+  /** Retrieves the specified fine-tuning job and its current status. */
   @route("jobs/{fine_tuning_job_id}")
   @get
-  @summary("""
-    Get info about a fine-tuning job.
-    
-    [Learn more about fine-tuning](/docs/guides/model-optimization)
-    
-    """)
+  @summary("Get a fine-tuning job")
   retrieveFineTuningJob is OpenAIOperation<
     {
       /** The ID of the fine-tuning job. */
@@ -147,12 +123,10 @@ interface FineTuning {
     OpenAI.FineTuningJob
   >;
 
+  /** Cancels the specified fine-tuning job and returns its updated state. */
   @route("jobs/{fine_tuning_job_id}/cancel")
   @post
-  @summary("""
-    Immediately cancel a fine-tune job.
-    
-    """)
+  @summary("Cancel a fine-tuning job")
   cancelFineTuningJob is OpenAIOperation<
     {
       /** The ID of the fine-tuning job to cancel. */
@@ -162,13 +136,11 @@ interface FineTuning {
     OpenAI.FineTuningJob
   >;
 
+  /** Returns the checkpoints for the specified fine-tuning job. */
   @list
   @route("jobs/{fine_tuning_job_id}/checkpoints")
   @get
-  @summary("""
-    List checkpoints for a fine-tuning job.
-    
-    """)
+  @summary("List fine-tuning checkpoints")
   listFineTuningJobCheckpoints is OpenAIOperation<
     {
       /** The ID of the fine-tuning job to get checkpoints for. */
@@ -188,13 +160,11 @@ interface FineTuning {
     OpenAI.ListFineTuningJobCheckpointsResponse
   >;
 
+  /** Returns the status events for the specified fine-tuning job. */
   @list
   @route("jobs/{fine_tuning_job_id}/events")
   @get
-  @summary("""
-    Get status updates for a fine-tuning job.
-    
-    """)
+  @summary("List fine-tuning events")
   listFineTuningEvents is OpenAIOperation<
     {
       /** The ID of the fine-tuning job to get events for. */
@@ -214,12 +184,10 @@ interface FineTuning {
     OpenAI.ListFineTuningJobEventsResponse
   >;
 
+  /** Pauses the specified fine-tuning job and returns its updated state. */
   @route("jobs/{fine_tuning_job_id}/pause")
   @post
-  @summary("""
-    Pause a fine-tune job.
-    
-    """)
+  @summary("Pause a fine-tuning job")
   pauseFineTuningJob is OpenAIOperation<
     {
       /** The ID of the fine-tuning job to pause. */
@@ -229,12 +197,10 @@ interface FineTuning {
     OpenAI.FineTuningJob
   >;
 
+  /** Resumes the specified fine-tuning job and returns its updated state. */
   @route("jobs/{fine_tuning_job_id}/resume")
   @post
-  @summary("""
-    Resume a fine-tune job.
-    
-    """)
+  @summary("Resume a fine-tuning job")
   resumeFineTuningJob is OpenAIOperation<
     {
       /** The ID of the fine-tuning job to resume. */

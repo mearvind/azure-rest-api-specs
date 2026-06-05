@@ -7,14 +7,16 @@ namespace Azure.AI.Projects;
 @route("openai/v1/models")
 @tag("Models")
 interface OpenAIModels {
+  /** Returns the models currently available in the current project. */
   @list
   @get
-  @summary("Lists the currently available models, and provides basic information about each one such as the owner and availability.")
+  @summary("List models")
   listModels is OpenAIOperation<{}, OpenAI.ListModelsResponse>;
 
+  /** Deletes the specified fine-tuned model. This operation requires the Owner role in the organization. */
   @route("{model}")
   @delete
-  @summary("Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.")
+  @summary("Delete a model")
   deleteModel is OpenAIOperation<
     {
       /** The model to delete */
@@ -24,9 +26,10 @@ interface OpenAIModels {
     OpenAI.DeleteModelResponse
   >;
 
+  /** Retrieves the specified model and returns its basic metadata and permissions. */
   @route("{model}")
   @get
-  @summary("Retrieves a model instance, providing basic information about the model such as the owner and permissioning.")
+  @summary("Get a model")
   retrieveModel is OpenAIOperation<
     {
       /** The ID of the model to use for this request */

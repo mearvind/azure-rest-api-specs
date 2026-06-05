@@ -7,10 +7,11 @@ namespace Azure.AI.Projects;
 @route("openai/v1/images")
 @tag("Images")
 interface Images {
+  /** Creates an edited or extended image from the provided source images and prompt. */
   @sharedRoute
   @route("edits")
   @post
-  @summary("Creates an edited or extended image given one or more source images and a prompt. This endpoint supports GPT Image models (`gpt-image-1.5`, `gpt-image-1`, `gpt-image-1-mini`, and `chatgpt-image-latest`) and `dall-e-2`.")
+  @summary("Edit an image")
   createImageEditMultipart is OpenAIOperation<
     {
       @header
@@ -22,10 +23,11 @@ interface Images {
     OpenAI.ImagesResponse
   >;
 
+  /** Creates an edited or extended image from the provided source images and prompt. */
   @sharedRoute
   @route("edits")
   @post
-  @summary("Creates an edited or extended image given one or more source images and a prompt. This endpoint supports GPT Image models (`gpt-image-1.5`, `gpt-image-1`, `gpt-image-1-mini`, and `chatgpt-image-latest`) and `dall-e-2`.")
+  @summary("Edit an image")
   createImageEditJson is OpenAIOperation<
     {
       @body
@@ -34,12 +36,10 @@ interface Images {
     OpenAI.ImagesResponse
   >;
 
+  /** Creates an image from the provided prompt. */
   @route("generations")
   @post
-  @summary("""
-    Creates an image given a prompt. [Learn more](/docs/guides/images).
-    
-    """)
+  @summary("Create an image")
   createImage is OpenAIOperation<
     {
       @body
@@ -48,9 +48,10 @@ interface Images {
     OpenAI.ImagesResponse
   >;
 
+  /** Creates a variation of the provided image. This operation only supports `dall-e-2`. */
   @route("variations")
   @post
-  @summary("Creates a variation of a given image. This endpoint only supports `dall-e-2`.")
+  @summary("Create an image variation")
   createImageVariation is OpenAIOperation<
     {
       @header

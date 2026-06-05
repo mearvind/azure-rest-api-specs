@@ -10,9 +10,10 @@ namespace Azure.AI.Projects;
 @route("openai/v1/vector_stores")
 @tag("Vector stores")
 interface VectorStores {
+  /** Returns the vector stores available in the current project. */
   @list
   @get
-  @summary("Returns a list of vector stores.")
+  @summary("List vector stores")
   listVectorStores is OpenAIOperation<
     {
       /** A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. */
@@ -36,8 +37,9 @@ interface VectorStores {
     OpenAI.ListVectorStoresResponse
   >;
 
+  /** Creates a vector store and returns the created resource. */
   @post
-  @summary("Create a vector store.")
+  @summary("Create a vector store")
   createVectorStore is OpenAIOperation<
     {
       @body
@@ -46,9 +48,10 @@ interface VectorStores {
     OpenAI.VectorStoreObject
   >;
 
+  /** Deletes the specified vector store. */
   @route("{vector_store_id}")
   @delete
-  @summary("Delete a vector store.")
+  @summary("Delete a vector store")
   deleteVectorStore is OpenAIOperation<
     {
       /** The ID of the vector store to delete. */
@@ -58,9 +61,10 @@ interface VectorStores {
     OpenAI.DeleteVectorStoreResponse
   >;
 
+  /** Retrieves the specified vector store by ID. */
   @route("{vector_store_id}")
   @get
-  @summary("Retrieves a vector store.")
+  @summary("Get a vector store")
   getVectorStore is OpenAIOperation<
     {
       /** The ID of the vector store to retrieve. */
@@ -70,9 +74,10 @@ interface VectorStores {
     OpenAI.VectorStoreObject
   >;
 
+  /** Updates the specified vector store and returns the updated resource. */
   @route("{vector_store_id}")
   @post
-  @summary("Modifies a vector store.")
+  @summary("Update a vector store")
   modifyVectorStore is OpenAIOperation<
     {
       /** The ID of the vector store to modify. */
@@ -85,9 +90,10 @@ interface VectorStores {
     OpenAI.VectorStoreObject
   >;
 
+  /** Creates a file batch for the specified vector store. */
   @route("{vector_store_id}/file_batches")
   @post
-  @summary("Create a vector store file batch.")
+  @summary("Create a vector store file batch")
   createVectorStoreFileBatch is OpenAIOperation<
     {
       /** The ID of the vector store for which to create a File Batch. */
@@ -100,9 +106,10 @@ interface VectorStores {
     OpenAI.VectorStoreFileBatchObject
   >;
 
+  /** Retrieves the specified file batch for the vector store. */
   @route("{vector_store_id}/file_batches/{batch_id}")
   @get
-  @summary("Retrieves a vector store file batch.")
+  @summary("Get a vector store file batch")
   getVectorStoreFileBatch is OpenAIOperation<
     {
       /** The ID of the vector store that the file batch belongs to. */
@@ -116,9 +123,10 @@ interface VectorStores {
     OpenAI.VectorStoreFileBatchObject
   >;
 
+  /** Cancels the specified vector store file batch as soon as possible. */
   @route("{vector_store_id}/file_batches/{batch_id}/cancel")
   @post
-  @summary("Cancel a vector store file batch. This attempts to cancel the processing of files in this batch as soon as possible.")
+  @summary("Cancel a vector store file batch")
   cancelVectorStoreFileBatch is OpenAIOperation<
     {
       /** The ID of the vector store that the file batch belongs to. */
@@ -132,10 +140,11 @@ interface VectorStores {
     OpenAI.VectorStoreFileBatchObject
   >;
 
+  /** Returns the files in the specified vector store file batch. */
   @list
   @route("{vector_store_id}/file_batches/{batch_id}/files")
   @get
-  @summary("Returns a list of vector store files in a batch.")
+  @summary("List vector store batch files")
   listFilesInVectorStoreBatch is OpenAIOperation<
     {
       /** The ID of the vector store that the files belong to. */
@@ -171,10 +180,11 @@ interface VectorStores {
     OpenAI.ListVectorStoreFilesResponse
   >;
 
+  /** Returns the files attached to the specified vector store. */
   @list
   @route("{vector_store_id}/files")
   @get
-  @summary("Returns a list of vector store files.")
+  @summary("List vector store files")
   listVectorStoreFiles is OpenAIOperation<
     {
       /** The ID of the vector store that the files belong to. */
@@ -206,9 +216,10 @@ interface VectorStores {
     OpenAI.ListVectorStoreFilesResponse
   >;
 
+  /** Attaches a file to the specified vector store and returns the created file resource. */
   @route("{vector_store_id}/files")
   @post
-  @summary("Create a vector store file by attaching a [File](/docs/api-reference/files) to a [vector store](/docs/api-reference/vector-stores/object).")
+  @summary("Create a vector store file")
   createVectorStoreFile is OpenAIOperation<
     {
       /** The ID of the vector store for which to create a File. */
@@ -221,9 +232,10 @@ interface VectorStores {
     OpenAI.VectorStoreFileObject
   >;
 
+  /** Removes the specified file from the vector store without deleting the underlying file. */
   @route("{vector_store_id}/files/{file_id}")
   @delete
-  @summary("Delete a vector store file. This will remove the file from the vector store but the file itself will not be deleted. To delete the file, use the [delete file](/docs/api-reference/files/delete) endpoint.")
+  @summary("Delete a vector store file")
   deleteVectorStoreFile is OpenAIOperation<
     {
       /** The ID of the vector store that the file belongs to. */
@@ -237,9 +249,10 @@ interface VectorStores {
     OpenAI.DeleteVectorStoreFileResponse
   >;
 
+  /** Retrieves the specified file attachment from the vector store. */
   @route("{vector_store_id}/files/{file_id}")
   @get
-  @summary("Retrieves a vector store file.")
+  @summary("Get a vector store file")
   getVectorStoreFile is OpenAIOperation<
     {
       /** The ID of the vector store that the file belongs to. */
@@ -253,9 +266,10 @@ interface VectorStores {
     OpenAI.VectorStoreFileObject
   >;
 
+  /** Updates the attributes of the specified vector store file. */
   @route("{vector_store_id}/files/{file_id}")
   @post
-  @summary("Update attributes on a vector store file.")
+  @summary("Update a vector store file")
   updateVectorStoreFileAttributes is OpenAIOperation<
     {
       /** The ID of the vector store the file belongs to. */
@@ -272,9 +286,10 @@ interface VectorStores {
     OpenAI.VectorStoreFileObject
   >;
 
+  /** Returns the parsed content for the specified vector store file. */
   @route("{vector_store_id}/files/{file_id}/content")
   @get
-  @summary("Retrieve the parsed contents of a vector store file.")
+  @summary("Get vector store file content")
   retrieveVectorStoreFileContent is OpenAIOperation<
     {
       /** The ID of the vector store. */
@@ -288,9 +303,10 @@ interface VectorStores {
     OpenAI.VectorStoreFileContentResponse
   >;
 
+  /** Searches the specified vector store for chunks relevant to the provided query and filters. */
   @route("{vector_store_id}/search")
   @post
-  @summary("Search a vector store for relevant chunks based on a query and file attributes filter.")
+  @summary("Search a vector store")
   searchVectorStore is OpenAIOperation<
     {
       /** The ID of the vector store to search. */

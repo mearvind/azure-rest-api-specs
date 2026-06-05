@@ -10,10 +10,11 @@ namespace Azure.AI.Projects;
 @route("openai/v1/conversations")
 @tag("Conversations")
 interface Conversations {
+  /** Returns the items in the specified conversation. */
   @list
   @route("{conversation_id}/items")
   @get
-  @summary("List all items for a conversation with the given ID.")
+  @summary("List conversation items")
   listConversationItems is OpenAIAgentOperation<
     {
       /** The ID of the conversation to list items for. */
@@ -51,9 +52,10 @@ interface Conversations {
     OpenAI.ConversationItemList
   >;
 
+  /** Creates items in the specified conversation and returns the created items. */
   @route("{conversation_id}/items")
   @post
-  @summary("Create items in a conversation with the given ID.")
+  @summary("Create conversation items")
   createConversationItems is OpenAIAgentOperation<
     {
       /** The ID of the conversation to add the item to. */
@@ -71,9 +73,10 @@ interface Conversations {
     OpenAI.ConversationItemList
   >;
 
+  /** Deletes the specified item from the conversation. */
   @route("{conversation_id}/items/{item_id}")
   @delete
-  @summary("Delete an item from a conversation with the given IDs.")
+  @summary("Delete a conversation item")
   deleteConversationItem is OpenAIAgentOperation<
     {
       /** The ID of the conversation that contains the item. */
@@ -87,9 +90,10 @@ interface Conversations {
     OpenAI.ConversationResource
   >;
 
+  /** Retrieves the specified item from the conversation. */
   @route("{conversation_id}/items/{item_id}")
   @get
-  @summary("Get a single item from a conversation with the given IDs.")
+  @summary("Get a conversation item")
   getConversationItem is OpenAIAgentOperation<
     {
       /** The ID of the conversation that contains the item. */
@@ -108,8 +112,9 @@ interface Conversations {
     OpenAI.ConversationItem
   >;
 
+  /** Creates a conversation and returns the created resource. */
   @post
-  @summary("Create a conversation.")
+  @summary("Create a conversation")
   createConversation is OpenAIAgentOperation<
     {
       @body
@@ -118,9 +123,10 @@ interface Conversations {
     OpenAI.ConversationResource
   >;
 
+  /** Deletes the specified conversation without deleting its items. */
   @route("{conversation_id}")
   @delete
-  @summary("Delete a conversation. Items in the conversation will not be deleted.")
+  @summary("Delete a conversation")
   deleteConversation is OpenAIAgentOperation<
     {
       /** The ID of the conversation to delete. */
@@ -130,6 +136,7 @@ interface Conversations {
     OpenAI.DeletedConversationResource
   >;
 
+  /** Retrieves the specified conversation by ID. */
   @route("{conversation_id}")
   @get
   @summary("Get a conversation")
@@ -142,6 +149,7 @@ interface Conversations {
     OpenAI.ConversationResource
   >;
 
+  /** Updates the specified conversation and returns the updated resource. */
   @route("{conversation_id}")
   @post
   @summary("Update a conversation")
@@ -157,8 +165,10 @@ interface Conversations {
     OpenAI.ConversationResource
   >;
 
+  /** Returns conversations filtered by the provided agent criteria. */
   @operationId("listConversations")
   @get
+  @summary("List conversations")
   listConversations is OpenAIAgentFilteredPagedOperation<
     {
       /** Filter by agent name. If provided, only items associated with the specified agent will be returned. */

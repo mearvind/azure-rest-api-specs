@@ -7,8 +7,9 @@ namespace Azure.AI.Projects;
 @route("openai/v1/embeddings")
 @tag("Embeddings")
 interface Embeddings {
+  /** Creates an embedding vector for the provided input. */
   @post
-  @summary("Creates an embedding vector representing the input text.")
+  @summary("Create an embedding")
   createEmbedding is OpenAIOperation<
     {
       @body

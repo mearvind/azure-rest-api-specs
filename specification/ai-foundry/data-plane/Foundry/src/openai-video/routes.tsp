@@ -10,9 +10,10 @@ namespace Azure.AI.Projects;
 @route("openai/v1/videos")
 @tag("Videos")
 interface VideoGeneration {
+  /** Returns the recently generated videos for the current project. */
   @list
   @get
-  @summary("List recently generated videos for the current project.")
+  @summary("List videos")
   ListVideos is OpenAIOperation<
     {
       /** Number of items to retrieve */
@@ -34,8 +35,9 @@ interface VideoGeneration {
     OpenAI.VideoListResource
   >;
 
+  /** Creates a video generation job from the provided prompt and reference assets. */
   @post
-  @summary("Create a new video generation job from a prompt and optional reference assets.")
+  @summary("Create a video")
   createVideo is OpenAIOperation<
     {
       @header
@@ -47,9 +49,10 @@ interface VideoGeneration {
     OpenAI.VideoResource
   >;
 
+  /** Creates a reusable character from an uploaded video. */
   @route("characters")
   @post
-  @summary("Create a character from an uploaded video.")
+  @summary("Create a video character")
   CreateVideoCharacter is OpenAIOperation<
     {
       @header
@@ -61,9 +64,10 @@ interface VideoGeneration {
     OpenAI.VideoCharacterResource
   >;
 
+  /** Retrieves the specified video character by ID. */
   @route("characters/{character_id}")
   @get
-  @summary("Fetch a character.")
+  @summary("Get a video character")
   GetVideoCharacter is OpenAIOperation<
     {
       /** The identifier of the character to retrieve. */
@@ -73,10 +77,11 @@ interface VideoGeneration {
     OpenAI.VideoCharacterResource
   >;
 
+  /** Creates a video generation job by editing a source video or an existing generated video. */
   @sharedRoute
   @route("edits")
   @post
-  @summary("Create a new video generation job by editing a source video or existing generated video.")
+  @summary("Edit a video")
   CreateVideoEditMultipart is OpenAIOperation<
     {
       @header
@@ -88,10 +93,11 @@ interface VideoGeneration {
     OpenAI.VideoResource
   >;
 
+  /** Creates a video generation job by editing a source video or an existing generated video. */
   @sharedRoute
   @route("edits")
   @post
-  @summary("Create a new video generation job by editing a source video or existing generated video.")
+  @summary("Edit a video")
   CreateVideoEditJson is OpenAIOperation<
     {
       @body
@@ -100,10 +106,11 @@ interface VideoGeneration {
     OpenAI.VideoResource
   >;
 
+  /** Creates an extension of the specified completed video. */
   @sharedRoute
   @route("extensions")
   @post
-  @summary("Create an extension of a completed video.")
+  @summary("Extend a video")
   CreateVideoExtendMultipart is OpenAIOperation<
     {
       @header
@@ -115,10 +122,11 @@ interface VideoGeneration {
     OpenAI.VideoResource
   >;
 
+  /** Creates an extension of the specified completed video. */
   @sharedRoute
   @route("extensions")
   @post
-  @summary("Create an extension of a completed video.")
+  @summary("Extend a video")
   CreateVideoExtendJson is OpenAIOperation<
     {
       @body
@@ -127,9 +135,10 @@ interface VideoGeneration {
     OpenAI.VideoResource
   >;
 
+  /** Permanently deletes the specified completed or failed video and its stored assets. */
   @route("{video_id}")
   @delete
-  @summary("Permanently delete a completed or failed video and its stored assets.")
+  @summary("Delete a video")
   DeleteVideo is OpenAIOperation<
     {
       /** The identifier of the video to delete. */
@@ -139,9 +148,10 @@ interface VideoGeneration {
     OpenAI.DeletedVideoResource
   >;
 
+  /** Retrieves the latest metadata for the specified generated video. */
   @route("{video_id}")
   @get
-  @summary("Fetch the latest metadata for a generated video.")
+  @summary("Get a video")
   GetVideo is OpenAIOperation<
     {
       /** The identifier of the video to retrieve. */
@@ -151,13 +161,10 @@ interface VideoGeneration {
     OpenAI.VideoResource
   >;
 
+  /** Streams the rendered content or preview asset for the specified video. */
   @route("{video_id}/content")
   @get
-  @summary("""
-    Download the generated video bytes or a derived preview asset.
-    
-    Streams the rendered video content for the specified video job.
-    """)
+  @summary("Get video content")
   RetrieveVideoContent is OpenAIOperation<
     {
       /** The identifier of the video whose media to download. */
@@ -177,9 +184,10 @@ interface VideoGeneration {
     }
   >;
 
+  /** Creates a remix of the specified completed video using a refreshed prompt. */
   @route("{video_id}/remix")
   @post
-  @summary("Create a remix of a completed video using a refreshed prompt.")
+  @summary("Create a video remix")
   CreateVideoRemix is OpenAIOperation<
     {
       /** The identifier of the completed video to remix. */

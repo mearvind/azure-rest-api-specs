@@ -10,9 +10,10 @@ namespace Azure.AI.Projects;
 @route("openai/v1/files")
 @tag("Files")
 interface Files {
+  /** Returns the files available in the current project. */
   @list
   @get
-  @summary("Returns a list of files.")
+  @summary("List files")
   listFiles is OpenAIOperation<
     {
       /** Only return files with the given purpose. */
@@ -36,35 +37,9 @@ interface Files {
     OpenAI.ListFilesResponse
   >;
 
+  /** Uploads a file for use with supported APIs and returns the created file resource. */
   @post
-  @summary("""
-    Upload a file that can be used across various endpoints. Individual files
-    can be up to 512 MB, and each project can store up to 2.5 TB of files in
-    total. There is no organization-wide storage limit. Uploads to this
-    endpoint are rate-limited to 1,000 requests per minute per authenticated
-    user.
-    
-    - The Assistants API supports files up to 2 million tokens and of specific
-      file types. See the [Assistants Tools guide](/docs/assistants/tools) for
-      details.
-    - The Fine-tuning API only supports `.jsonl` files. The input also has
-      certain required formats for fine-tuning
-      [chat](/docs/api-reference/fine-tuning/chat-input) or
-      [completions](/docs/api-reference/fine-tuning/completions-input) models.
-    - The Batch API only supports `.jsonl` files up to 200 MB in size. The input
-      also has a specific required
-      [format](/docs/api-reference/batch/request-input).
-    - For Retrieval or `file_search` ingestion, upload files here first. If
-      you need to attach multiple uploaded files to the same vector store, use
-      [`/vector_stores/{vector_store_id}/file_batches`](/docs/api-reference/vector-stores-file-batches/createBatch)
-      instead of attaching them one by one. Vector store attachment has separate
-      limits from file upload, including 2,000 attached files per minute per
-      organization.
-    
-    Please [contact us](https://help.openai.com/) if you need to increase these
-    storage limits.
-    
-    """)
+  @summary("Upload a file")
   createFile is OpenAIOperation<
     {
       @header
@@ -76,9 +51,10 @@ interface Files {
     OpenAI.OpenAIFile
   >;
 
+  /** Deletes the specified file and removes it from any vector stores. */
   @route("{file_id}")
   @delete
-  @summary("Delete a file and remove it from all vector stores.")
+  @summary("Delete a file")
   deleteFile is OpenAIOperation<
     {
       /** The ID of the file to use for this request. */
@@ -88,9 +64,10 @@ interface Files {
     OpenAI.DeleteFileResponse
   >;
 
+  /** Retrieves metadata for the specified file. */
   @route("{file_id}")
   @get
-  @summary("Returns information about a specific file.")
+  @summary("Get a file")
   retrieveFile is OpenAIOperation<
     {
       /** The ID of the file to use for this request. */
@@ -100,9 +77,10 @@ interface Files {
     OpenAI.OpenAIFile
   >;
 
+  /** Returns the content of the specified file. */
   @route("{file_id}/content")
   @get
-  @summary("Returns the contents of the specified file.")
+  @summary("Get file content")
   downloadFile is OpenAIOperation<
     {
       /** The ID of the file to use for this request. */

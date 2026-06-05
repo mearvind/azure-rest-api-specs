@@ -10,9 +10,10 @@ namespace Azure.AI.Projects;
 @route("openai/v1/containers")
 @tag("Containers")
 interface Containers {
+  /** Returns the containers available in the current project. */
   @list
   @get
-  @summary("List Containers")
+  @summary("List containers")
   ListContainers is OpenAIOperation<
     {
       /** A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20. */
@@ -36,8 +37,9 @@ interface Containers {
     OpenAI.ContainerListResource
   >;
 
+  /** Creates a container and returns the created resource. */
   @post
-  @summary("Create Container")
+  @summary("Create a container")
   CreateContainer is OpenAIOperation<
     {
       @body
@@ -46,9 +48,10 @@ interface Containers {
     OpenAI.ContainerResource
   >;
 
+  /** Deletes the specified container. */
   @route("{container_id}")
   @delete
-  @summary("Delete Container")
+  @summary("Delete a container")
   DeleteContainer is OpenAIOperation<
     {
       /** The ID of the container to delete. */
@@ -58,9 +61,10 @@ interface Containers {
     TypeSpec.Http.OkResponse
   >;
 
+  /** Retrieves the specified container by ID. */
   @route("{container_id}")
   @get
-  @summary("Retrieve Container")
+  @summary("Get a container")
   RetrieveContainer is OpenAIOperation<
     {
       @path
@@ -69,10 +73,11 @@ interface Containers {
     OpenAI.ContainerResource
   >;
 
+  /** Returns the files associated with the specified container. */
   @list
   @route("{container_id}/files")
   @get
-  @summary("List Container files")
+  @summary("List container files")
   ListContainerFiles is OpenAIOperation<
     {
       @path
@@ -95,15 +100,11 @@ interface Containers {
     OpenAI.ContainerFileListResource
   >;
 
+  /** Adds a file to the specified container by uploading content or referencing an existing file ID. */
   @sharedRoute
   @route("{container_id}/files")
   @post
-  @summary("""
-    Create a Container File
-    
-    You can send either a multipart/form-data request with the raw file content, or a JSON request with a file ID.
-    
-    """)
+  @summary("Create a container file")
   CreateContainerFileMultipart is OpenAIOperation<
     {
       @path
@@ -118,15 +119,11 @@ interface Containers {
     OpenAI.ContainerFileResource
   >;
 
+  /** Adds a file to the specified container by uploading content or referencing an existing file ID. */
   @sharedRoute
   @route("{container_id}/files")
   @post
-  @summary("""
-    Create a Container File
-    
-    You can send either a multipart/form-data request with the raw file content, or a JSON request with a file ID.
-    
-    """)
+  @summary("Create a container file")
   CreateContainerFileJson is OpenAIOperation<
     {
       @path
@@ -138,9 +135,10 @@ interface Containers {
     OpenAI.ContainerFileResource
   >;
 
+  /** Deletes the specified file association from the container. */
   @route("{container_id}/files/{file_id}")
   @delete
-  @summary("Delete Container File")
+  @summary("Delete a container file")
   DeleteContainerFile is OpenAIOperation<
     {
       @path
@@ -152,9 +150,10 @@ interface Containers {
     TypeSpec.Http.OkResponse
   >;
 
+  /** Retrieves the specified file association from the container. */
   @route("{container_id}/files/{file_id}")
   @get
-  @summary("Retrieve Container File")
+  @summary("Get a container file")
   RetrieveContainerFile is OpenAIOperation<
     {
       @path
@@ -166,9 +165,10 @@ interface Containers {
     OpenAI.ContainerFileResource
   >;
 
+  /** Returns the content for the specified file in the container. */
   @route("{container_id}/files/{file_id}/content")
   @get
-  @summary("Retrieve Container File Content")
+  @summary("Get container file content")
   RetrieveContainerFileContent is OpenAIOperation<
     {
       @path

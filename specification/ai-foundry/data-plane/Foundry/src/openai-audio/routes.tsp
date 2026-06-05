@@ -7,14 +7,10 @@ namespace Azure.AI.Projects;
 @route("openai/v1/audio")
 @tag("Audio")
 interface Audio {
+  /** Generates spoken audio from the provided text and returns audio content or streamed audio events. */
   @route("speech")
   @post
-  @summary("""
-    Generates audio from the input text.
-    
-    Returns the audio file content, or a stream of audio events.
-    
-    """)
+  @summary("Create speech")
   createSpeech is OpenAIOperation<
     {
       @body
@@ -32,15 +28,10 @@ interface Audio {
     }
   >;
 
+  /** Transcribes the uploaded audio into the input language and returns a transcription payload or transcript events. */
   @route("transcriptions")
   @post
-  @summary("""
-    Transcribes audio into the input language.
-    
-    Returns a transcription object in `json`, `diarized_json`, or `verbose_json`
-    format, or a stream of transcript events.
-    
-    """)
+  @summary("Create a transcription")
   createTranscription is OpenAIOperation<
     {
       @header
@@ -55,9 +46,10 @@ interface Audio {
       | OpenAI.CreateTranscriptionResponseVerboseJson>
   >;
 
+  /** Translates the uploaded audio into English and returns the translated transcript. */
   @route("translations")
   @post
-  @summary("Translates audio into English.")
+  @summary("Create a translation")
   createTranslation is OpenAIOperation<
     {
       @header

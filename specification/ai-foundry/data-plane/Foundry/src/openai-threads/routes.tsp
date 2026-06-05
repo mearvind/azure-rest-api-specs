@@ -12,9 +12,10 @@ namespace Azure.AI.Projects;
 @route("openai/v1/threads")
 @tag("Threads")
 interface Threads {
+  /** Creates a thread and returns the created resource. */
   @tag("Assistants")
   @post
-  @summary("Create a thread.")
+  @summary("Create a thread")
   createThread is OpenAIOperation<
     {
       @body
@@ -23,10 +24,11 @@ interface Threads {
     OpenAI.ThreadObject
   >;
 
+  /** Creates a thread, starts a run, and returns the created run. */
   @tag("Assistants")
   @route("runs")
   @post
-  @summary("Create a thread and run it in one request.")
+  @summary("Create a thread and run")
   createThreadAndRun is OpenAIOperation<
     {
       @body
@@ -35,10 +37,11 @@ interface Threads {
     OpenAI.RunObject
   >;
 
+  /** Deletes the specified thread. */
   @tag("Assistants")
   @route("{thread_id}")
   @delete
-  @summary("Delete a thread.")
+  @summary("Delete a thread")
   deleteThread is OpenAIOperation<
     {
       /** The ID of the thread to delete. */
@@ -48,10 +51,11 @@ interface Threads {
     OpenAI.DeleteThreadResponse
   >;
 
+  /** Retrieves the specified thread by ID. */
   @tag("Assistants")
   @route("{thread_id}")
   @get
-  @summary("Retrieves a thread.")
+  @summary("Get a thread")
   getThread is OpenAIOperation<
     {
       /** The ID of the thread to retrieve. */
@@ -61,10 +65,11 @@ interface Threads {
     OpenAI.ThreadObject
   >;
 
+  /** Updates the specified thread metadata and returns the updated resource. */
   @tag("Assistants")
   @route("{thread_id}")
   @post
-  @summary("Modifies a thread.")
+  @summary("Update a thread")
   modifyThread is OpenAIOperation<
     {
       /** The ID of the thread to modify. Only the `metadata` can be modified. */
@@ -77,11 +82,12 @@ interface Threads {
     OpenAI.ThreadObject
   >;
 
+  /** Returns the messages in the specified thread. */
   @tag("Assistants")
   @list
   @route("{thread_id}/messages")
   @get
-  @summary("Returns a list of messages for a given thread.")
+  @summary("List messages")
   listMessages is OpenAIOperation<
     {
       /** The ID of the [thread](/docs/api-reference/threads) the messages belong to. */
@@ -113,10 +119,11 @@ interface Threads {
     OpenAI.ListMessagesResponse
   >;
 
+  /** Creates a message in the specified thread. */
   @tag("Assistants")
   @route("{thread_id}/messages")
   @post
-  @summary("Create a message.")
+  @summary("Create a message")
   createMessage is OpenAIOperation<
     {
       /** The ID of the [thread](/docs/api-reference/threads) to create a message for. */
@@ -129,10 +136,11 @@ interface Threads {
     OpenAI.MessageObject
   >;
 
+  /** Deletes the specified message from the thread. */
   @tag("Assistants")
   @route("{thread_id}/messages/{message_id}")
   @delete
-  @summary("Deletes a message.")
+  @summary("Delete a message")
   deleteMessage is OpenAIOperation<
     {
       /** The ID of the thread to which this message belongs. */
@@ -146,10 +154,11 @@ interface Threads {
     OpenAI.DeleteMessageResponse
   >;
 
+  /** Retrieves the specified message from the thread. */
   @tag("Assistants")
   @route("{thread_id}/messages/{message_id}")
   @get
-  @summary("Retrieve a message.")
+  @summary("Get a message")
   getMessage is OpenAIOperation<
     {
       /** The ID of the [thread](/docs/api-reference/threads) to which this message belongs. */
@@ -163,10 +172,11 @@ interface Threads {
     OpenAI.MessageObject
   >;
 
+  /** Updates the specified message and returns the updated resource. */
   @tag("Assistants")
   @route("{thread_id}/messages/{message_id}")
   @post
-  @summary("Modifies a message.")
+  @summary("Update a message")
   modifyMessage is OpenAIOperation<
     {
       /** The ID of the thread to which this message belongs. */
@@ -183,11 +193,12 @@ interface Threads {
     OpenAI.MessageObject
   >;
 
+  /** Returns the runs for the specified thread. */
   @tag("Assistants")
   @list
   @route("{thread_id}/runs")
   @get
-  @summary("Returns a list of runs belonging to a thread.")
+  @summary("List runs")
   listRuns is OpenAIOperation<
     {
       /** The ID of the thread the run belongs to. */
@@ -215,10 +226,11 @@ interface Threads {
     OpenAI.ListRunsResponse
   >;
 
+  /** Creates a run for the specified thread and returns the created run. */
   @tag("Assistants")
   @route("{thread_id}/runs")
   @post
-  @summary("Create a run.")
+  @summary("Create a run")
   createRun is OpenAIOperation<
     {
       /** The ID of the thread to run. */
@@ -236,10 +248,11 @@ interface Threads {
     OpenAI.RunObject
   >;
 
+  /** Retrieves the specified run from the thread. */
   @tag("Assistants")
   @route("{thread_id}/runs/{run_id}")
   @get
-  @summary("Retrieves a run.")
+  @summary("Get a run")
   getRun is OpenAIOperation<
     {
       /** The ID of the [thread](/docs/api-reference/threads) that was run. */
@@ -253,10 +266,11 @@ interface Threads {
     OpenAI.RunObject
   >;
 
+  /** Updates the specified run and returns the updated resource. */
   @tag("Assistants")
   @route("{thread_id}/runs/{run_id}")
   @post
-  @summary("Modifies a run.")
+  @summary("Update a run")
   modifyRun is OpenAIOperation<
     {
       /** The ID of the [thread](/docs/api-reference/threads) that was run. */
@@ -273,10 +287,11 @@ interface Threads {
     OpenAI.RunObject
   >;
 
+  /** Cancels the specified in-progress run. */
   @tag("Assistants")
   @route("{thread_id}/runs/{run_id}/cancel")
   @post
-  @summary("Cancels a run that is `in_progress`.")
+  @summary("Cancel a run")
   cancelRun is OpenAIOperation<
     {
       /** The ID of the thread to which this run belongs. */
@@ -290,11 +305,12 @@ interface Threads {
     OpenAI.RunObject
   >;
 
+  /** Returns the steps for the specified run. */
   @tag("Assistants")
   @list
   @route("{thread_id}/runs/{run_id}/steps")
   @get
-  @summary("Returns a list of run steps belonging to a run.")
+  @summary("List run steps")
   listRunSteps is OpenAIOperation<
     {
       /** The ID of the thread the run and run steps belong to. */
@@ -331,10 +347,11 @@ interface Threads {
     OpenAI.ListRunStepsResponse
   >;
 
+  /** Retrieves the specified run step. */
   @tag("Assistants")
   @route("{thread_id}/runs/{run_id}/steps/{step_id}")
   @get
-  @summary("Retrieves a run step.")
+  @summary("Get a run step")
   getRunStep is OpenAIOperation<
     {
       /** The ID of the thread to which the run and run step belongs. */
@@ -357,13 +374,11 @@ interface Threads {
     OpenAI.RunStepObject
   >;
 
+  /** Submits tool outputs for a run that is waiting on `submit_tool_outputs`. */
   @tag("Assistants")
   @route("{thread_id}/runs/{run_id}/submit_tool_outputs")
   @post
-  @summary("""
-    When a run has the `status: "requires_action"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request.
-    
-    """)
+  @summary("Submit tool outputs")
   submitToolOuputsToRun is OpenAIOperation<
     {
       /** The ID of the [thread](/docs/api-reference/threads) to which this run belongs. */

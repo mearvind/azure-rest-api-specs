@@ -7,12 +7,10 @@ namespace Azure.AI.Projects;
 @route("openai/v1/realtime")
 @tag("Realtime")
 interface Realtime {
+  /** Creates a WebRTC realtime call and returns the SDP answer needed to complete the peer connection. */
   @route("calls")
   @post
-  @summary("""
-    Create a new Realtime API call over WebRTC and receive the SDP answer needed
-    to complete the peer connection.
-    """)
+  @summary("Create a realtime call")
   `create-realtime-call` is OpenAIOperation<
     {
       @header
@@ -36,12 +34,10 @@ interface Realtime {
     }
   >;
 
+  /** Accepts an incoming SIP call and applies the provided realtime session configuration. */
   @route("calls/{call_id}/accept")
   @post
-  @summary("""
-    Accept an incoming SIP call and configure the realtime session that will
-    handle it.
-    """)
+  @summary("Accept a realtime call")
   `accept-realtime-call` is OpenAIOperation<
     {
       /**The identifier for the call provided in the
@@ -57,12 +53,10 @@ interface Realtime {
     TypeSpec.Http.OkResponse
   >;
 
+  /** Ends the specified realtime call, whether it was started over SIP or WebRTC. */
   @route("calls/{call_id}/hangup")
   @post
-  @summary("""
-    End an active Realtime API call, whether it was initiated over SIP or
-    WebRTC.
-    """)
+  @summary("Hang up a realtime call")
   `hangup-realtime-call` is OpenAIOperation<
     {
       /**The identifier for the call. For SIP calls, use the value provided in the
@@ -76,9 +70,10 @@ interface Realtime {
     TypeSpec.Http.OkResponse
   >;
 
+  /** Transfers the specified SIP call to a new destination by issuing a SIP REFER request. */
   @route("calls/{call_id}/refer")
   @post
-  @summary("Transfer an active SIP call to a new destination using the SIP REFER verb.")
+  @summary("Refer a realtime call")
   `refer-realtime-call` is OpenAIOperation<
     {
       /**The identifier for the call provided in the
@@ -94,9 +89,10 @@ interface Realtime {
     TypeSpec.Http.OkResponse
   >;
 
+  /** Rejects an incoming SIP call with the specified SIP status response. */
   @route("calls/{call_id}/reject")
   @post
-  @summary("Decline an incoming SIP call by returning a SIP status code to the caller.")
+  @summary("Reject a realtime call")
   `reject-realtime-call` is OpenAIOperation<
     {
       /**The identifier for the call provided in the
@@ -113,24 +109,10 @@ interface Realtime {
     TypeSpec.Http.OkResponse
   >;
 
+  /** Creates a short-lived client secret and returns the effective realtime session configuration. */
   @route("client_secrets")
   @post
-  @summary("""
-    Create a Realtime client secret with an associated session configuration.
-    
-    Client secrets are short-lived tokens that can be passed to a client app,
-    such as a web frontend or mobile client, which grants access to the Realtime API without
-    leaking your main API key. You can configure a custom TTL for each client secret.
-    
-    You can also attach session configuration options to the client secret, which will be
-    applied to any sessions created using that client secret, but these can also be overridden
-    by the client connection.
-    
-    [Learn more about authentication with client secrets over WebRTC](/docs/guides/realtime-webrtc).
-    
-    Returns the created client secret and the effective session object. The client secret is a string that looks like `ek_1234`.
-    
-    """)
+  @summary("Create a realtime client secret")
   `create-realtime-client-secret` is OpenAIOperation<
     {
       /** Create a client secret with the given session configuration. */
@@ -140,20 +122,10 @@ interface Realtime {
     OpenAI.RealtimeCreateClientSecretResponse
   >;
 
+  /** Creates an ephemeral API token for a client-side realtime session and returns the session details. */
   @route("sessions")
   @post
-  @summary("""
-    Create an ephemeral API token for use in client-side applications with the
-    Realtime API. Can be configured with the same session parameters as the
-    `session.update` client event.
-    
-    It responds with a session object, plus a `client_secret` key which contains
-    a usable ephemeral API token that can be used to authenticate browser clients
-    for the Realtime API.
-    
-    Returns the created Realtime session object, plus an ephemeral key.
-    
-    """)
+  @summary("Create a realtime session")
   `create-realtime-session` is OpenAIOperation<
     {
       /** Create an ephemeral API key with the given session configuration. */
@@ -163,20 +135,10 @@ interface Realtime {
     OpenAI.RealtimeSessionCreateResponse
   >;
 
+  /** Creates an ephemeral API token for a client-side realtime transcription session and returns the session details. */
   @route("transcription_sessions")
   @post
-  @summary("""
-    Create an ephemeral API token for use in client-side applications with the
-    Realtime API specifically for realtime transcriptions.
-    Can be configured with the same session parameters as the `transcription_session.update` client event.
-    
-    It responds with a session object, plus a `client_secret` key which contains
-    a usable ephemeral API token that can be used to authenticate browser clients
-    for the Realtime API.
-    
-    Returns the created Realtime transcription session object, plus an ephemeral key.
-    
-    """)
+  @summary("Create a realtime transcription session")
   `create-realtime-transcription-session` is OpenAIOperation<
     {
       /** Create an ephemeral API key with the given session configuration. */
@@ -186,20 +148,10 @@ interface Realtime {
     OpenAI.RealtimeTranscriptionSessionCreateResponse
   >;
 
+  /** Creates a short-lived client secret for the Realtime Translation API and returns the effective translation session configuration. */
   @route("translations/client_secrets")
   @post
-  @summary("""
-    Create a Realtime translation client secret with an associated translation session configuration.
-    
-    Client secrets are short-lived tokens that can be passed to a client app,
-    such as a web frontend or mobile client, which grants access to the Realtime
-    Translation API without leaking your main API key. You can configure a custom
-    TTL for each client secret.
-    
-    Returns the created client secret and the effective translation session object.
-    The client secret is a string that looks like `ek_1234`.
-    
-    """)
+  @summary("Create a realtime translation client secret")
   `create-realtime-translation-client-secret` is OpenAIOperation<
     {
       /** Create a client secret with the given translation session configuration. */

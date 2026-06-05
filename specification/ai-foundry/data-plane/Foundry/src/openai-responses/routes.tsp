@@ -10,17 +10,9 @@ namespace Azure.AI.Projects;
 @route("openai/v1/responses")
 @tag("Responses")
 interface Responses {
+  /** Creates a model response from the provided input and tools configuration. */
   @post
-  @summary("""
-    Creates a model response. Provide [text](/docs/guides/text) or
-    [image](/docs/guides/images) inputs to generate [text](/docs/guides/text)
-    or [JSON](/docs/guides/structured-outputs) outputs. Have the model call
-    your own [custom code](/docs/guides/function-calling) or use built-in
-    [tools](/docs/guides/tools) like [web search](/docs/guides/tools-web-search)
-    or [file search](/docs/guides/tools-file-search) to use your own data
-    as input for the model's response.
-    
-    """)
+  @summary("Create a response")
   createResponse is OpenAIAgentSessionOperation<
     {
       @body
@@ -29,12 +21,10 @@ interface Responses {
     OpenAI.Response
   >;
 
+  /** Deletes the specified model response. */
   @route("{response_id}")
   @delete
-  @summary("""
-    Deletes a model response with the given ID.
-    
-    """)
+  @summary("Delete a response")
   deleteResponse is OpenAIAgentSessionOperation<
     {
       /** The ID of the response to delete. */
@@ -44,12 +34,10 @@ interface Responses {
     OpenAI.DeleteResponseResponse
   >;
 
+  /** Retrieves the specified model response. */
   @route("{response_id}")
   @get
-  @summary("""
-    Retrieves a model response with the given ID.
-    
-    """)
+  @summary("Get a response")
   getResponse is OpenAIAgentSessionOperation<
     {
       /** The ID of the response to retrieve. */
@@ -85,14 +73,10 @@ interface Responses {
     OpenAI.Response
   >;
 
+  /** Cancels the specified background model response and returns its updated state. */
   @route("{response_id}/cancel")
   @post
-  @summary("""
-    Cancels a model response with the given ID. Only responses created with
-    the `background` parameter set to `true` can be cancelled.
-    [Learn more](/docs/guides/background).
-    
-    """)
+  @summary("Cancel a response")
   cancelResponse is OpenAIAgentSessionOperation<
     {
       /** The ID of the response to cancel. */
@@ -102,10 +86,11 @@ interface Responses {
     OpenAI.Response
   >;
 
+  /** Returns the input items for the specified response. */
   @list
   @route("{response_id}/input_items")
   @get
-  @summary("Returns a list of input items for a given response.")
+  @summary("List response input items")
   listInputItems is OpenAIAgentPagedOperation<
     {
       /** The ID of the response to retrieve input items for. */
@@ -137,13 +122,10 @@ interface Responses {
     OpenAI.ResponseItemList
   >;
 
+  /** Compacts a conversation and returns the compacted response object. */
   @route("compact")
   @post
-  @summary("""
-    Compact a conversation. Returns a compacted response object.
-    
-    Learn when and how to compact long-running conversations in the [conversation state guide](/docs/guides/conversation-state#managing-the-context-window). For ZDR-compatible compaction details, see [Compaction (advanced)](/docs/guides/conversation-state#compaction-advanced).
-    """)
+  @summary("Compact a conversation")
   Compactconversation is OpenAISharedOperation<
     {
       @header
@@ -155,8 +137,10 @@ interface Responses {
     OpenAI.CompactResource
   >;
 
+  /** Starts a streaming response for the provided input and returns server-sent events. */
   @operationId("createResponseStream")
   @post
+  @summary("Create a response stream")
   createResponseStream is OpenAIAgentStreamingOperation<
     {
       @body
@@ -165,9 +149,11 @@ interface Responses {
     OpenAI.ResponseAudioDeltaEvent
   >;
 
+  /** Streams events for the specified response starting after the requested sequence number. */
   @operationId("getResponseStream")
   @get
   @route("{response_id}")
+  @summary("Get a response stream")
   getResponseStream is OpenAIAgentStreamingOperation<
     {
       @path
@@ -185,8 +171,10 @@ interface Responses {
     OpenAI.ResponseAudioDeltaEvent
   >;
 
+  /** Returns responses filtered by the provided agent or conversation criteria. */
   @operationId("listResponses")
   @get
+  @summary("List responses")
   listResponses is OpenAIAgentFilteredPagedOperation<
     {
       /** Filter by agent name. If provided, only items associated with the specified agent will be returned. */
@@ -204,9 +192,11 @@ interface Responses {
     OpenAI.Response
   >;
 
+  /** Compacts the current session conversation and returns the compacted response object. */
   @operationId("compactResponseConversation")
   @post
   @route("compact")
+  @summary("Compact a session conversation")
   compactResponseConversation is OpenAIAgentSessionOperation<
     {
       @body
