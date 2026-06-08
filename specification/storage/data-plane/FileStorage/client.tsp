@@ -469,6 +469,7 @@ model FileClientParameters {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Custom internal client parameter"
   allowSourceTrailingDot?: boolean;
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Custom internal client parameter"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   fileRangeWriteFromUrl: FileRangeWriteFromUrlType;
 }
 

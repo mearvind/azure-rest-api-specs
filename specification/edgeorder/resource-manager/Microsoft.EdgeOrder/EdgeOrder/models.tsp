@@ -1222,6 +1222,7 @@ model Link {
    * Url of the link.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   linkUrl?: string;
 }
 
@@ -1409,6 +1410,7 @@ model ImageInformation {
    * Url of the image.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   imageUrl?: string;
 }
 
@@ -1427,6 +1429,7 @@ model CostInformation {
    * Default url to display billing information.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   billingInfoUrl?: string;
 }
 
@@ -2271,6 +2274,7 @@ model ForwardShippingDetails {
    * TrackingUrl of the package.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   trackingUrl?: string;
 }
 
@@ -2306,6 +2310,7 @@ model ReverseShippingDetails {
    * TrackingUrl of the package.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   trackingUrl?: string;
 }
 

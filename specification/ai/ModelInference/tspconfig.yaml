@@ -23,3 +23,5 @@ options:
   "@typespec/openapi3":
     emitter-output-dir: "{project-root}/.."
     output-file: "{output-folder-base}/openapi/{version}/openapi.yaml"
+imports:
+  - ./client.tsp

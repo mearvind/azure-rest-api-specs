@@ -627,6 +627,7 @@ model CommonPostActionResponseForDeviceROCommandsDeprecated
   configurationState?: ConfigurationState;
 
   @doc("Predefined link containing Device RO Command output.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   outputUrl?: string;
 }
 
@@ -638,6 +639,7 @@ model CommonPostActionResponseForDeviceROCommands {
   configurationState?: ConfigurationState;
 
   @doc("Predefined link containing Device RO Command output.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   outputUrl?: string;
 
   @doc("Device RO command Response limited to 4000 characters.")
@@ -652,6 +654,7 @@ model DeviceRwCommand {
 
   @doc("Specify the commands file URL.")
   @added(Versions.v2025_07_15)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   commandUrl?: url;
 }
 
@@ -664,6 +667,7 @@ model CommonPostActionResponseForDeviceRWCommands extends CommonErrorResponse {
   configurationState?: ConfigurationState;
 
   @doc("Predefined link containing Device Rw Command output.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   outputUrl?: string;
 }
 

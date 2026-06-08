@@ -870,6 +870,7 @@ model KeyVaultAndSecretReference {
   /**
    * Url pointing to a key or secret in KeyVault
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   secretUrl: string;
 }
 
@@ -895,6 +896,7 @@ model KeyVaultAndKeyReference {
   /**
    * Url pointing to a key or secret in KeyVault
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   keyUrl: string;
 }
 
@@ -1391,6 +1393,7 @@ model KeyForDiskEncryptionSet {
   /**
    * Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   keyUrl: string;
 }
 

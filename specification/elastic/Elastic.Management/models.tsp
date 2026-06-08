@@ -422,6 +422,7 @@ model ElasticCloudUser {
    * Elastic cloud default dashboard sso URL of the Elastic user account.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   elasticCloudSsoDefaultUrl?: string;
 }
 
@@ -457,18 +458,21 @@ model ElasticCloudDeployment {
    * Elasticsearch ingestion endpoint of the Elastic deployment.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   elasticsearchServiceUrl?: string;
 
   /**
    * Kibana endpoint of the Elastic deployment.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   kibanaServiceUrl?: string;
 
   /**
    * Kibana dashboard sso URL of the Elastic deployment.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   kibanaSsoUrl?: string;
 }
 
@@ -828,6 +832,7 @@ model DeploymentInfoResponse {
    * Deployment URL of the elasticsearch in Elastic cloud deployment.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   deploymentUrl?: string;
 
   /**

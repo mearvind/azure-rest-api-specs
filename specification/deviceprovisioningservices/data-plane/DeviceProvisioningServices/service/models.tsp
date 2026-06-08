@@ -642,6 +642,7 @@ model CustomAllocationDefinition {
    */
   @added(Versions.v2025_07_01_preview)
   @minLength(1)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   webhookUrl: string;
 
   /**

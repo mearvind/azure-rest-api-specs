@@ -671,6 +671,7 @@ model DnsResolverDomainListProperties {
    * The URL for bulk upload or download for domain lists containing larger set of domains. This will be populated if domains is empty or null.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   domainsUrl?: string;
 
   /**
@@ -734,6 +735,7 @@ model DnsResolverDomainListBulkProperties {
   /**
    * The storage account blob file URL to be used in the bulk upload or download request of DNS resolver domain list.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   storageUrl: string;
 
   /**

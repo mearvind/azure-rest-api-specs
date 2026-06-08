@@ -166,6 +166,7 @@ model MCPToolDefinition extends ToolDefinition {
 
   @doc("The endpoint for the MCP server")
   @encodedName("application/json", "server_url")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   serverUrl: string;
 
   @doc("List of allowed tools for MCP server")
@@ -1468,5 +1469,6 @@ model ComputerScreenshot {
 
   @doc("The URL of the screenshot image.")
   @encodedName("application/json", "image_url")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   imageUrl?: string;
 }

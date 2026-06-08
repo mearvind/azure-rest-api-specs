@@ -2552,6 +2552,7 @@ model AutomationAccountProperties {
   /**
    * URL of automation hybrid service which is used for hybrid worker on-boarding.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   automationHybridServiceUrl?: string;
 }
 
@@ -5755,6 +5756,7 @@ model SourceControlCreateOrUpdateProperties {
    * The repo url of the source control.
    */
   @maxLength(2000)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   repoUrl?: string;
 
   /**
@@ -5824,6 +5826,7 @@ model SourceControlProperties {
   /**
    * The repo url of the source control.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   repoUrl?: string;
 
   /**

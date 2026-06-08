@@ -168,6 +168,7 @@ model SingleSignOnProperties {
   enterpriseAppId?: string;
 
   @doc("URL for SSO to be used by the partner to redirect the user to their system")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   singleSignOnUrl?: Uri;
 
   @doc("List of AAD domains fetched from Microsoft Graph for user.")

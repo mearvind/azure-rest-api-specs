@@ -11,6 +11,7 @@ model AccessControlListProperties {
   configurationType: ConfigurationType;
 
   @doc("Access Control List file URL.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   aclsUrl?: url;
 
   @doc("Default action that needs to be applied when no condition is matched. Example: Permit | Deny.")
@@ -242,6 +243,7 @@ model AccessControlListPatchProperties {
   configurationType?: ConfigurationType;
 
   @doc("Access Control List file URL.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   aclsUrl?: url;
 
   @doc("Default action that needs to be applied when no condition is matched. Example: Permit | Deny.")

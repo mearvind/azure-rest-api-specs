@@ -58,6 +58,7 @@ model Oauth2
   is OAuth2Auth<[
     {
       type: OAuth2FlowType.implicit;
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "OAuth2 flow metadata uses the standards-defined URL field and has no generated C# client property to rename."
       authorizationUrl: "https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
       scopes: ["https://cnt-prod.loadtesting.azure.com/.default"];
     }

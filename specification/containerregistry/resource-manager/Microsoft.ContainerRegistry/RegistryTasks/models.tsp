@@ -708,6 +708,7 @@ model SourceTriggerDescriptor {
   /**
    * The repository URL.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   repositoryUrl?: string;
 
   /**
@@ -800,6 +801,7 @@ model SourceUploadDefinition {
   /**
    * The URL where the client can upload the source.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   uploadUrl?: string;
 
   /**
@@ -1157,6 +1159,7 @@ model SourceProperties {
   /**
    * The full URL to the source code repository
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   repositoryUrl: string;
 
   /**
@@ -1506,6 +1509,7 @@ model SourceUpdateParameters {
   /**
    * The full URL to the source code repository
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   repositoryUrl?: string;
 
   /**

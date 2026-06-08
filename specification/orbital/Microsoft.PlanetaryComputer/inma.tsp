@@ -132,10 +132,12 @@ model IngestionDefinition {
   displayName?: string;
 
   @doc("Source catalog URL. Required for StaticCatalog ingestion type")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   sourceCatalogUrl?: url;
 
   @added(Versions.v2026_04_15)
   @doc("Parquet catalog URL. Required for StacGeoparquet ingestion type")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   stacGeoparquetUrl?: url;
 
   @doc("Skip processing existing items in the catalog")
@@ -239,6 +241,7 @@ model IngestionRun {
   creationTime: utcDateTime;
 
   @doc("URL of the source catalog")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   sourceCatalogUrl?: url;
 
   @doc("Skip any item that already exist in the GeoCatalog")

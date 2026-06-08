@@ -1145,7 +1145,9 @@ model PageAsset extends InventoryAsset {
   finalIpBlocks?: IpBlock[];
   responseBodies?: ObservedString[];
   domainAsset?: DomainAsset;
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   rootUrl?: ObservedBoolean;
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   isRootUrl?: boolean;
   location?: ObservedLocation[];
   services?: Service[];
@@ -1428,6 +1430,7 @@ model SubResourceIntegrityCheck {
   firstSeen?: utcDateTime;
   lastSeen?: utcDateTime;
   count?: int64;
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   causePageUrl?: string;
   crawlGuid?: string;
   pageGuid?: string;

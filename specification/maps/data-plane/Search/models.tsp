@@ -1143,6 +1143,7 @@ model BoundaryProperties {
   /**
    * A URL that lists many of the data providers for Azure Maps and their related copyright information.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   copyrightUrl?: string;
 
   /**

@@ -217,6 +217,7 @@ model NetworkDeviceUpgradeRequest {
   version: string;
 
   @doc("URL to the file containing Read-write configuration to be applied on the device during upgrade.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   rwDeviceConfigUrl?: url;
 }
 
@@ -243,5 +244,6 @@ model NetworkDeviceRwCommandResponseProperties {
   configurationState?: ConfigurationState;
 
   @doc("Predefined link containing Device Rw Command output.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   outputUrl?: url;
 }

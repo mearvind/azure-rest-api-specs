@@ -5287,6 +5287,7 @@ model BEKDetails {
   /**
    * Secret is BEK.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   secretUrl?: string;
 
   /**
@@ -5666,11 +5667,13 @@ model EncryptionDetails {
   /**
    * Key Url.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   kekUrl?: string;
 
   /**
    * Secret Url.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   secretKeyUrl?: string;
 
   /**
@@ -5691,6 +5694,7 @@ model ExportJobsOperationResultInfo extends OperationResultInfoBase {
   /**
    * URL of the blob into which the serialized string of list of jobs is exported.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   blobUrl?: string;
 
   /**
@@ -5702,6 +5706,7 @@ model ExportJobsOperationResultInfo extends OperationResultInfoBase {
   /**
    * URL of the blob into which the ExcelFile is uploaded.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   excelFileBlobUrl?: string;
 
   /**
@@ -6058,6 +6063,7 @@ model KEKDetails {
   /**
    * Key is KEK.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   keyUrl?: string;
 
   /**

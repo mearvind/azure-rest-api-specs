@@ -901,6 +901,7 @@ model RemoteConnection {
 
   @added(APIVersions.v2024_05_01_preview)
   @doc("Link to open a remote desktop session via a dev box's underlying Cloud PC (This will default to Windows App).")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   cloudPcConnectionUrl?: url;
 }
 
@@ -1321,6 +1322,7 @@ model DevBoxTunnel extends DevBoxAddOn {
 
   @doc("The code tunnel's url.")
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   codeTunnelUrl: url;
 
   @doc("""

@@ -389,6 +389,7 @@ model WinRMListener {
    * or the [Azure Key Vault virtual machine extension for
    * Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   certificateUrl?: url;
 }
 
@@ -557,6 +558,7 @@ model VaultCertificate {
    * or the [Azure Key Vault virtual machine extension for
    * Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   certificateUrl?: url;
 
   /**
@@ -1480,6 +1482,7 @@ model KeyVaultSecretReference {
   /**
    * The URL referencing a secret in a Key Vault.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   secretUrl: url;
 
   /**

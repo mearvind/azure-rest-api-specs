@@ -467,36 +467,43 @@ model ConnectionUrlType {
   @doc("Oracle Application Express (APEX) URL.")
   @minLength(10)
   @maxLength(512)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   apexUrl?: string;
 
   @doc("The URL of the Database Transforms for the Autonomous Database.")
   @minLength(10)
   @maxLength(512)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   databaseTransformsUrl?: string;
 
   @doc("The URL of the Graph Studio for the Autonomous Database.")
   @minLength(10)
   @maxLength(512)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   graphStudioUrl?: string;
 
   @doc("The URL of the Oracle Machine Learning (OML) Notebook for the Autonomous Database.")
   @minLength(10)
   @maxLength(512)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   machineLearningNotebookUrl?: string;
 
   @doc("The URL of the MongoDB API for the Autonomous Database.")
   @minLength(10)
   @maxLength(512)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   mongoDbUrl?: string;
 
   @doc("The Oracle REST Data Services (ORDS) URL of the Web Access for the Autonomous Database.")
   @minLength(10)
   @maxLength(512)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   ordsUrl?: string;
 
   @doc("Oracle SQL Developer Web URL.")
   @minLength(10)
   @maxLength(512)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   sqlDevWebUrl?: string;
 }
 
@@ -1015,6 +1022,7 @@ model AutonomousDatabaseBaseProperties {
 
   @doc("HTTPS link to OCI resources exposed to Azure Customer via Azure Interface.")
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   ociUrl?: string;
 
   @doc("Client subnet")
@@ -1127,12 +1135,14 @@ model AutonomousDatabaseBaseProperties {
   @visibility(Lifecycle.Read)
   @minLength(10)
   @maxLength(255)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   serviceConsoleUrl?: string;
 
   @doc("The SQL Web Developer URL for the Oracle Autonomous Database.")
   @visibility(Lifecycle.Read)
   @minLength(10)
   @maxLength(2048)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   sqlWebDeveloperUrl?: string;
 
   @doc("The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.")

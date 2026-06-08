@@ -693,6 +693,7 @@ model AdditionalCacheNodeProperties {
 
   @doc("Cache node resource Mcc proxy Url")
   @removed(Versions.v2024_11_30_preview)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   proxyUrl?: string;
 
   @doc("Cache node resource requires a proxy")
@@ -795,6 +796,7 @@ model BgpConfiguration {
 @doc("ProxyUrl configuration of cache node")
 model ProxyUrlConfiguration {
   @doc("Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   proxyUrl?: string;
 }
 

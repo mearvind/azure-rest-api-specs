@@ -4139,6 +4139,7 @@ model SearchField {
 
   /** A value indicating whether the field contains a SharePoint site URL used for SharePoint group-based filtering. */
   @added(Versions.v2026_05_01_preview)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   sharepointSiteUrl?: boolean;
 
   /** The name of the analyzer to use for the field. This option can be used only with searchable fields and it can't be set together with either searchAnalyzer or indexAnalyzer. Once the analyzer is chosen, it cannot be changed for the field. Must be null for complex fields. */
@@ -6503,6 +6504,7 @@ model AIServicesAccountKey extends CognitiveServicesAccount {
   key: string;
 
   /** The subdomain/Azure AI Services endpoint url for the corresponding AI Service. */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   subdomainUrl: string;
 
   /** A URI fragment specifying the type of Azure AI service resource attached to a skillset. */

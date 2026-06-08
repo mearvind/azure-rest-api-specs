@@ -463,11 +463,13 @@ model OidcIssuerProfile {
    * The issuer url for hybrid clusters connected to Arc used for the workload identity feature.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   issuerUrl?: string;
 
   /**
    * The issuer url for public cloud clusters - AKS, EKS, GKE - used for the workload identity feature.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   selfHostedIssuerUrl?: string;
 }
 

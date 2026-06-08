@@ -886,6 +886,7 @@ model DicomServiceProperties {
    * The url of the Dicom Services.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   serviceUrl?: string;
 
   /**
@@ -986,6 +987,7 @@ model EncryptionCustomerManagedKeyEncryption {
   /**
    * The URL of the key to use for encryption
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   keyEncryptionKeyUrl?: string;
 }
 

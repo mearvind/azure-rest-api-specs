@@ -810,6 +810,7 @@ model NotificationSettings {
   /**
    * The webhook URL to which the notification will be sent.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   webhookUrl?: string;
 
   /**
@@ -2100,6 +2101,7 @@ model NotificationChannelProperties {
   /**
    * The webhook URL to send notifications to.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   webHookUrl?: string;
 
   /**
@@ -2350,6 +2352,7 @@ model IdentityProperties {
   /**
    * The client secret URL of the identity.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   clientSecretUrl?: string;
 }
 
@@ -3380,6 +3383,7 @@ model ShutdownNotificationContent {
   /**
    * The URL to skip auto-shutdown.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   skipUrl?: string;
 
   /**
@@ -3410,6 +3414,7 @@ model ShutdownNotificationContent {
   /**
    * The URL of the virtual machine.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   vmUrl?: string;
 
   /**

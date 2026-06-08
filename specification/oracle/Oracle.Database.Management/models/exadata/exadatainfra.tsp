@@ -234,6 +234,7 @@ model CloudExadataInfrastructureProperties {
 
   @doc("HTTPS link to OCI resources exposed to Azure Customer via Azure Interface.")
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   ociUrl?: url;
 
   @doc("The total number of CPU cores allocated.")

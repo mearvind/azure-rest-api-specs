@@ -109,6 +109,7 @@ model CustomerManagedKeyEncryption {
   keyEncryptionKeyIdentity?: KeyEncryptionKeyIdentity;
 
   /** key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek. */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   keyEncryptionKeyUrl?: url;
 }
 

@@ -46,3 +46,5 @@ options:
     generate-tests: false
     service-name: Microsoft Playwright Service
     flavor: azure
+imports:
+  - ./client.tsp

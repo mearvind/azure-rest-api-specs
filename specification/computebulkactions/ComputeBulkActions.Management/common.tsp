@@ -48,6 +48,7 @@ model SubResource {
 @doc("Describes a reference to Key Vault Secret")
 model KeyVaultSecretReference {
   @doc("The URL referencing a secret in a Key Vault.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   secretUrl: string;
 
   @doc("The relative URL of the Key Vault containing the secret.")

@@ -5339,6 +5339,7 @@ model VulnerabilityDetails {
    * CVE url.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Existing API contract allows null values"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   cveUrl?: string | null;
 
   /**
@@ -5406,6 +5407,7 @@ model VulnerabilityDetails {
    * Vendor vulnerability url.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Existing API contract allows null values"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   vendorUrl?: string | null;
 }
 
@@ -7754,6 +7756,7 @@ model RegistryProperties {
    * Discovery URL for the Registry
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Existing API contract allows null values"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   discoveryUrl?: string | null;
 
   /**
@@ -8180,6 +8183,7 @@ model WorkspaceProperties {
   /**
    * Url for the discovery service to identify regional endpoints for machine learning experimentation services
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   discoveryUrl?: string;
 
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
@@ -11232,6 +11236,7 @@ model DatabricksProperties {
   /**
    * Workspace Url
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   workspaceUrl?: string;
 }
 
@@ -12361,6 +12366,7 @@ model CertificateDatastoreCredentials extends DatastoreCredentials {
    * Authority URL used for authentication.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Existing API contract allows null values"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   authorityUrl?: string | null;
 
   /**
@@ -12373,6 +12379,7 @@ model CertificateDatastoreCredentials extends DatastoreCredentials {
    * Resource the service principal has access to.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Existing API contract allows null values"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   resourceUrl?: string | null;
 
   /**
@@ -15468,6 +15475,7 @@ model ServicePrincipalDatastoreCredentials extends DatastoreCredentials {
    * Authority URL used for authentication.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Existing API contract allows null values"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   authorityUrl?: string | null;
 
   /**
@@ -15480,6 +15488,7 @@ model ServicePrincipalDatastoreCredentials extends DatastoreCredentials {
    * Resource the service principal has access to.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Existing API contract allows null values"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   resourceUrl?: string | null;
 
   /**
@@ -16449,6 +16458,7 @@ model WorkspaceConnectionOAuth2 {
   /**
    * Required by Concur connection category
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   authUrl?: url;
 
   /**

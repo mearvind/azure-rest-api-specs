@@ -390,6 +390,7 @@ model AnalyzeBatchDocumentsRequest {
   azureBlobFileListSource?: AzureBlobFileListContentSource;
 
   @doc("Azure Blob Storage container URL where analyze result files will be stored.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   resultContainerUrl: url;
 
   @doc("Blob name prefix of result files.")
@@ -515,9 +516,11 @@ model AnalyzeBatchOperationDetail {
   status: DocumentIntelligenceOperationStatus;
 
   @doc("URL of the source document.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   sourceUrl: url;
 
   @doc("URL of the analyze result JSON.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   resultUrl?: url;
 
   @doc("Encountered error.")
@@ -1188,6 +1191,7 @@ model BuildDocumentModelRequest {
 @doc("Azure Blob Storage content.")
 model AzureBlobContentSource {
   @doc("Azure Blob Storage container URL.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   containerUrl: url;
 
   @doc("Blob name prefix.")
@@ -1197,6 +1201,7 @@ model AzureBlobContentSource {
 @doc("File list in Azure Blob Storage.")
 model AzureBlobFileListContentSource {
   @doc("Azure Blob Storage container URL.")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   containerUrl: url;
 
   @doc("Path to a JSONL file within the container specifying a subset of documents.")

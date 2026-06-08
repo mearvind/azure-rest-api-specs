@@ -286,6 +286,7 @@ model BotProperties {
   /**
    * The Icon Url of the bot
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   iconUrl?: string = "";
 
   /**
@@ -315,6 +316,7 @@ model BotProperties {
   /**
    * The bot's manifest url
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   manifestUrl?: string;
 
   /**
@@ -388,6 +390,7 @@ model BotProperties {
   /**
    * The CMK Url
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   cmekKeyVaultUrl?: string;
 
   /**
@@ -981,6 +984,7 @@ model ChannelSettings {
   /**
    * The bot icon url
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   botIconUrl?: string;
 
   /**
@@ -1299,11 +1303,13 @@ model ServiceProviderProperties {
    * URL of Dev Portal
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   devPortalUrl?: string;
 
   /**
    * The URL of icon
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   iconUrl?: string = "";
 
   /**
@@ -1344,6 +1350,7 @@ model ServiceProviderParameter {
    * Help Url for the  Service Provider
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   helpUrl?: string;
 
   /**
@@ -1514,12 +1521,14 @@ model HostSettingsResponse {
    * For in-conversation bot user authentication
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   OAuthUrl?: string;
 
   /**
    * For verifying incoming tokens from the channels
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   ToBotFromChannelOpenIdMetadataUrl?: string;
 
   /**
@@ -1532,12 +1541,14 @@ model HostSettingsResponse {
    * For verifying incoming tokens from bot emulator
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   ToBotFromEmulatorOpenIdMetadataUrl?: string;
 
   /**
    * For getting access token to channels from bot host
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   ToChannelFromBotLoginUrl?: string;
 
   /**
@@ -1744,6 +1755,7 @@ model FacebookChannelProperties {
    * Callback Url
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   callbackUrl?: string;
 
   /**
@@ -2201,6 +2213,7 @@ model SlackChannelProperties {
   /**
    * The Slack landing page Url
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   landingPageUrl?: string;
 
   /**
@@ -2269,6 +2282,7 @@ model LineChannelProperties {
    * Callback Url to enter in line registration.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   callbackUrl?: string;
 
   /**

@@ -8773,6 +8773,7 @@ model AzureBlobSourceSinkDetails {
    * Azure Blob container endpoint.
    */
   @pattern("^https?://[^/$.?# ]+.[^ ]*$")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   endpointUrl: string;
 }
 /**
@@ -9264,6 +9265,7 @@ model AzureBlobDataTransferDataSourceSink extends DataTransferDataSourceSink {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   containerName: string;
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   endpointUrl?: string;
   component: DataTransferComponent.AzureBlobStorage;
 }

@@ -168,6 +168,7 @@ model BatchRequest {
 @doc("Source of the input documents")
 model SourceInput {
   @doc("Location of the folder / container or single file with your documents")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   sourceUrl: string;
 
   @doc("Document filter")
@@ -204,6 +205,7 @@ model DocumentFilter {
 @doc("Destination for the finished translated documents")
 model TargetInput {
   @doc("Location of the folder / container with your documents")
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   targetUrl: string;
 
   @doc("Category / custom system for translation request")
@@ -229,6 +231,7 @@ model Glossary {
     If the translation
     language pair is not present in the glossary, it will not be applied
     """)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   glossaryUrl: string;
 
   @doc("Format")

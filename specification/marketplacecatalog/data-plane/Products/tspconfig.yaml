@@ -13,3 +13,5 @@ options:
 linter:
   extends:
     - "@azure-tools/typespec-azure-rulesets/data-plane"
+imports:
+  - ./client.tsp

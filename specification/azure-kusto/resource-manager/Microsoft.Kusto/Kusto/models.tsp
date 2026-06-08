@@ -2703,6 +2703,7 @@ model ScriptProperties {
   /**
    * The url to the KQL script blob file. Must not be used together with scriptContent property
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   scriptUrl?: string;
 
   /**

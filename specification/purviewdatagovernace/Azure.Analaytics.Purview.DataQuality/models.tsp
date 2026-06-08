@@ -2545,6 +2545,7 @@ model DataSourceEntity {
 
     // ---------- Azure Databricks Unity Catalog ----------
     @doc("Databricks workspace URL.")
+    #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
     workspaceUrl?: string;
 
     @doc("HTTP path for Databricks SQL warehouse.")

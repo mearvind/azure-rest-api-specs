@@ -2108,6 +2108,7 @@ model ApiContractProperties extends ApiEntityBaseContract {
    */
   @maxLength(2000)
   @minLength(0)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   serviceUrl?: string;
 
   /**
@@ -2244,6 +2245,7 @@ model ApiEntityBaseContract {
   /**
    *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   termsOfServiceUrl?: string;
 
   /**
@@ -2458,6 +2460,7 @@ model ApiContractUpdateProperties extends ApiEntityBaseContract {
    */
   @maxLength(2000)
   @minLength(1)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   serviceUrl?: string;
 
   /**
@@ -2541,6 +2544,7 @@ model ApiRevisionContract {
    * Gateway URL for accessing the non-current API Revision.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   privateUrl?: string;
 
   /**
@@ -3701,6 +3705,7 @@ model TagDescriptionBaseProperties {
    * Absolute URL of external resources describing the tag.
    */
   @maxLength(2000)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   externalDocsUrl?: string;
 
   /**
@@ -3806,6 +3811,7 @@ model ApiTagResourceContractProperties extends ApiEntityBaseContract {
    */
   @maxLength(2000)
   @minLength(1)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   serviceUrl?: string;
 
   /**
@@ -4160,6 +4166,7 @@ model AuthorizationProviderOAuth2Settings {
   /**
    * Redirect URL to be set in the OAuth application.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   redirectUrl?: string;
 
   /**
@@ -4358,6 +4365,7 @@ model AuthorizationLoginRequestContract {
   /**
    * The redirect URL after login has completed.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   postLoginRedirectUrl?: string;
 }
 
@@ -5956,36 +5964,42 @@ model ApiManagementServiceBaseProperties {
    * Gateway URL of the API Management service.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   gatewayUrl?: string;
 
   /**
    * Gateway URL of the API Management service in the Default Region.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   gatewayRegionalUrl?: string;
 
   /**
    * Publisher portal endpoint Url of the API Management service.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   portalUrl?: string;
 
   /**
    * Management API endpoint URL of the API Management service.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   managementApiUrl?: string;
 
   /**
    * SCM endpoint URL of the API Management service.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   scmUrl?: string;
 
   /**
    * DEveloper Portal endpoint URL of the API Management service.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   developerPortalUrl?: string;
 
   /**
@@ -6276,6 +6290,7 @@ model AdditionalLocation {
    * Gateway URL of the API Management service in the Region.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   gatewayRegionalUrl?: string;
 
   /**
@@ -8617,6 +8632,7 @@ model PortalConfigDelegationProperties {
   /**
    * A delegation endpoint URL.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   delegationUrl?: string;
 
   /**
