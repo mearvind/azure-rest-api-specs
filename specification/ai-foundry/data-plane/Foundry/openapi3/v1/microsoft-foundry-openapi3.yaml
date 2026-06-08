@@ -22365,7 +22365,9 @@ paths:
             }
   /openai/v1/responses:
     post:
-      operationId: Responses_createResponse_createResponseStream
+      operationId: createResponse
+      summary: Create a model response
+      description: Creates a model response. Provide text or image inputs to generate text or JSON outputs. Have the model call your own custom code or use built-in tools like web search or file search to use your own data as input for the model’s response.
       parameters:
         - name: x-ms-user-isolation-key
           in: header
@@ -22373,8 +22375,6 @@ paths:
           description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
           schema:
             type: string
-      description: Creates a model response from the provided input and tools configuration. Starts a streaming response for the provided input and returns server-sent events.
-      summary: Create a response Create a response stream
       responses:
         '200':
           description: The request has succeeded.
@@ -22568,7 +22568,7 @@ paths:
                   - agent_reference
             text/event-stream:
               schema:
-                $ref: '#/components/schemas/OpenAI.ResponseAudioDeltaEvent'
+                $ref: '#/components/schemas/OpenAI.CreateResponseStreamingResponse'
         4XX:
           description: Client error
           content:
@@ -22581,6 +22581,148 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Responses
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  anyOf:
+                    - $ref: '#/components/schemas/OpenAI.Metadata'
+                    - type: 'null'
+                top_logprobs:
+                  anyOf:
+                    - $ref: '#/components/schemas/OpenAI.integer'
+                    - type: 'null'
+                temperature:
+                  anyOf:
+                    - $ref: '#/components/schemas/OpenAI.numeric'
+                    - type: 'null'
+                  default: 1
+                top_p:
+                  anyOf:
+                    - $ref: '#/components/schemas/OpenAI.numeric'
+                    - type: 'null'
+                  default: 1
+                user:
+                  type: string
+                  description: |-
+                    This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.
+                      A stable identifier for your end-users.
+                      Used to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
+                  deprecated: true
+                safety_identifier:
+                  type: string
+                  maxLength: 64
+                  description: |-
+                    A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
+                      The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
+                prompt_cache_key:
+                  type: string
+                  description: Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
+                service_tier:
+                  $ref: '#/components/schemas/OpenAI.ServiceTier'
+                prompt_cache_retention:
+                  anyOf:
+                    - type: string
+                      enum:
+                        - in_memory
+                        - 24h
+                    - type: 'null'
+                previous_response_id:
+                  anyOf:
+                    - type: string
+                    - type: 'null'
+                model:
+                  type: string
+                  description: The model deployment to use for the creation of this response.
+                reasoning:
+                  anyOf:
+                    - $ref: '#/components/schemas/OpenAI.Reasoning'
+                    - type: 'null'
+                background:
+                  anyOf:
+                    - type: boolean
+                    - type: 'null'
+                max_tool_calls:
+                  anyOf:
+                    - $ref: '#/components/schemas/OpenAI.integer'
+                    - type: 'null'
+                text:
+                  $ref: '#/components/schemas/OpenAI.ResponseTextParam'
+                tools:
+                  $ref: '#/components/schemas/OpenAI.ToolsArray'
+                tool_choice:
+                  oneOf:
+                    - $ref: '#/components/schemas/OpenAI.ToolChoiceOptions'
+                    - $ref: '#/components/schemas/OpenAI.ToolChoiceParam'
+                prompt:
+                  $ref: '#/components/schemas/OpenAI.Prompt'
+                truncation:
+                  anyOf:
+                    - type: string
+                      enum:
+                        - auto
+                        - disabled
+                    - type: 'null'
+                  default: disabled
+                input:
+                  $ref: '#/components/schemas/OpenAI.InputParam'
+                include:
+                  anyOf:
+                    - type: array
+                      items:
+                        $ref: '#/components/schemas/OpenAI.IncludeEnum'
+                    - type: 'null'
+                parallel_tool_calls:
+                  anyOf:
+                    - type: boolean
+                    - type: 'null'
+                  default: true
+                store:
+                  anyOf:
+                    - type: boolean
+                    - type: 'null'
+                  default: true
+                instructions:
+                  anyOf:
+                    - type: string
+                    - type: 'null'
+                stream:
+                  anyOf:
+                    - type: boolean
+                    - type: 'null'
+                stream_options:
+                  anyOf:
+                    - $ref: '#/components/schemas/OpenAI.ResponseStreamOptions'
+                    - type: 'null'
+                conversation:
+                  anyOf:
+                    - $ref: '#/components/schemas/OpenAI.ConversationParam'
+                    - type: 'null'
+                context_management:
+                  anyOf:
+                    - type: array
+                      items:
+                        $ref: '#/components/schemas/OpenAI.ContextManagementParam'
+                    - type: 'null'
+                  description: Context management configuration for this request.
+                max_output_tokens:
+                  anyOf:
+                    - $ref: '#/components/schemas/OpenAI.integer'
+                    - type: 'null'
+                agent_reference:
+                  allOf:
+                    - $ref: '#/components/schemas/AgentReference'
+                  description: The agent to use for generating the response.
+                structured_inputs:
+                  type: object
+                  unevaluatedProperties: {}
+                  description: The structured inputs to the response that can participate in prompt template substitution or tool argument bindings.
       x-oaiMeta:
         name: Create a model response
         group: responses
@@ -24174,27 +24316,11 @@ paths:
                 "user": null,
                 "metadata": {}
               }
-      tags:
-        - Responses
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              anyOf:
-                - $ref: '#/components/schemas/OpenAI.CreateResponse'
-                - $ref: '#/components/schemas/OpenAI.CreateResponse'
     get:
       operationId: listResponses
       summary: List responses
-      description: Returns responses filtered by the provided agent or conversation criteria.
+      description: Returns a collection of all stored responses matching specified filter criteria.
       parameters:
-        - name: x-ms-user-isolation-key
-          in: header
-          required: false
-          description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
-          schema:
-            type: string
         - name: limit
           in: query
           required: false
@@ -24256,6 +24382,12 @@ paths:
           schema:
             type: string
           explode: false
+        - name: x-ms-user-isolation-key
+          in: header
+          required: false
+          description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
+          schema:
+            type: string
       responses:
         '200':
           description: The request has succeeded.
@@ -24298,31 +24430,17 @@ paths:
         - Responses
   /openai/v1/responses/compact:
     post:
-      operationId: Responses_Compactconversation_compactResponseConversation
-      parameters:
-        - name: x-ms-user-isolation-key
-          in: header
-          required: false
-          description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
-          schema:
-            type: string
-      description: Compacts a conversation and returns the compacted response object. Compacts the current session conversation and returns the compacted response object.
-      summary: Compact a conversation Compact a session conversation
+      operationId: compactResponseConversation
+      summary: Compact a conversation
+      description: Compacts a conversation into a response object suitable for long-running and zero-data-retention scenarios.
+      parameters: []
       responses:
         '200':
           description: The request has succeeded.
           content:
             application/json:
               schema:
-                anyOf:
-                  - $ref: '#/components/schemas/OpenAI.CompactResource'
-                  - $ref: '#/components/schemas/OpenAI.CompactResource'
-          headers:
-            x-agent-session-id:
-              required: false
-              description: Session ID for this request. Only present for hosted agent responses. Returns the provided session ID or an auto-generated one if not provided in the request.
-              schema:
-                type: string
+                $ref: '#/components/schemas/OpenAI.CompactResource'
         4XX:
           description: Client error
           content:
@@ -24335,6 +24453,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Responses
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAI.CompactResponseMethodPublicBody'
       x-oaiMeta:
         name: Compact a response
         group: responses
@@ -24510,200 +24636,17 @@ paths:
                 "total_tokens": 577
               }
             }
-      tags:
-        - Responses
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              anyOf:
-                - $ref: '#/components/schemas/OpenAI.CompactResponseMethodPublicBody'
-                - $ref: '#/components/schemas/OpenAI.CompactResponseMethodPublicBody'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/OpenAI.CompactResponseMethodPublicBody'
   /openai/v1/responses/{response_id}:
-    delete:
-      operationId: Responses_deleteResponse
-      summary: Delete a response
-      description: Deletes the specified model response.
-      parameters:
-        - name: x-ms-user-isolation-key
-          in: header
-          required: false
-          description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
-          schema:
-            type: string
-        - name: response_id
-          in: path
-          required: true
-          description: The ID of the response to delete.
-          schema:
-            type: string
-      responses:
-        '200':
-          description: The request has succeeded.
-          headers:
-            x-agent-session-id:
-              required: false
-              description: Session ID for this request. Only present for hosted agent responses. Returns the provided session ID or an auto-generated one if not provided in the request.
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OpenAI.DeleteResponseResponse'
-        4XX:
-          description: Client error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-        5XX:
-          description: Server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-      tags:
-        - Responses
-      x-oaiMeta:
-        name: Delete a model response
-        group: responses
-        examples:
-          request:
-            curl: |
-              curl -X DELETE https://api.openai.com/v1/responses/resp_123 \
-                  -H "Content-Type: application/json" \
-                  -H "Authorization: Bearer $OPENAI_API_KEY"
-            javascript: |
-              import OpenAI from "openai";
-              const client = new OpenAI();
-
-              const response = await client.responses.delete("resp_123");
-              console.log(response);
-            python: |-
-              import os
-              from openai import OpenAI
-
-              client = OpenAI(
-                  api_key=os.environ.get("OPENAI_API_KEY"),  # This is the default and can be omitted
-              )
-              client.responses.delete(
-                  "resp_677efb5139a88190b512bc3fef8e535d",
-              )
-            node.js: |-
-              import OpenAI from 'openai';
-
-              const client = new OpenAI({
-                apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
-              });
-
-              await client.responses.delete('resp_677efb5139a88190b512bc3fef8e535d');
-            go: |
-              package main
-
-              import (
-              	"context"
-
-              	"github.com/openai/openai-go"
-              	"github.com/openai/openai-go/option"
-              )
-
-              func main() {
-              	client := openai.NewClient(
-              		option.WithAPIKey("My API Key"),
-              	)
-              	err := client.Responses.Delete(context.TODO(), "resp_677efb5139a88190b512bc3fef8e535d")
-              	if err != nil {
-              		panic(err.Error())
-              	}
-              }
-            java: |-
-              package com.openai.example;
-
-              import com.openai.client.OpenAIClient;
-              import com.openai.client.okhttp.OpenAIOkHttpClient;
-              import com.openai.models.responses.ResponseDeleteParams;
-
-              public final class Main {
-                  private Main() {}
-
-                  public static void main(String[] args) {
-                      OpenAIClient client = OpenAIOkHttpClient.fromEnv();
-
-                      client.responses().delete("resp_677efb5139a88190b512bc3fef8e535d");
-                  }
-              }
-            ruby: |-
-              require "openai"
-
-              openai = OpenAI::Client.new(api_key: "My API Key")
-
-              result = openai.responses.delete("resp_677efb5139a88190b512bc3fef8e535d")
-
-              puts(result)
-          response: |
-            {
-              "id": "resp_6786a1bec27481909a17d673315b29f6",
-              "object": "response",
-              "deleted": true
-            }
     get:
-      operationId: Responses_getResponse_getResponseStream
+      operationId: getResponse
+      summary: Retrieve a model response
+      description: Retrieves a model response with the given ID.
       parameters:
-        - name: x-ms-user-isolation-key
-          in: header
-          required: false
-          description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
-          schema:
-            type: string
         - name: response_id
           in: path
           required: true
-          description: The ID of the response to retrieve.
           schema:
             type: string
-        - name: include
-          in: query
-          required: false
-          description: |-
-            Additional fields to include in the response. See the `include`
-              parameter for Response creation above for more information.
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/OpenAI.IncludeEnum'
-        - name: stream
-          in: query
-          required: false
-          description: |-
-            If set to true, the model response data will be streamed to the client
-              as it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).
-              See the [Streaming section below](/docs/api-reference/responses-streaming)
-              for more information.
-          schema:
-            type: boolean
-        - name: starting_after
-          in: query
-          required: false
-          description: The sequence number of the event after which to start streaming.
-          schema:
-            $ref: '#/components/schemas/integer'
-        - name: include_obfuscation
-          in: query
-          required: false
-          description: |-
-            When true, stream obfuscation will be enabled. Stream obfuscation adds
-              random characters to an `obfuscation` field on streaming delta events
-              to normalize payload sizes as a mitigation to certain side-channel
-              attacks. These obfuscation fields are included by default, but add a
-              small amount of overhead to the data stream. You can set
-              `include_obfuscation` to false to optimize for bandwidth if you trust
-              the network links between your application and the OpenAI API.
-          schema:
-            type: boolean
         - name: include[]
           in: query
           required: false
@@ -24712,15 +24655,26 @@ paths:
             items:
               $ref: '#/components/schemas/OpenAI.IncludeEnum'
             default: []
-        - name: accept
-          in: header
+        - name: stream
+          in: query
           required: false
           schema:
+            type: boolean
+            default: false
+          explode: false
+        - name: starting_after
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+          explode: false
+        - name: x-ms-user-isolation-key
+          in: header
+          required: false
+          description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
+          schema:
             type: string
-            enum:
-              - text/event-stream
-      description: Retrieves the specified model response. Streams events for the specified response starting after the requested sequence number.
-      summary: Get a response Get a response stream
       responses:
         '200':
           description: The request has succeeded.
@@ -24733,188 +24687,10 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  metadata:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.Metadata'
-                      - type: 'null'
-                  top_logprobs:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.integer'
-                      - type: 'null'
-                  temperature:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.numeric'
-                      - type: 'null'
-                    default: 1
-                  top_p:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.numeric'
-                      - type: 'null'
-                    default: 1
-                  user:
-                    type: string
-                    description: |-
-                      This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.
-                        A stable identifier for your end-users.
-                        Used to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
-                    deprecated: true
-                  safety_identifier:
-                    type: string
-                    maxLength: 64
-                    description: |-
-                      A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
-                        The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
-                  prompt_cache_key:
-                    type: string
-                    description: Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
-                  service_tier:
-                    $ref: '#/components/schemas/OpenAI.ServiceTier'
-                  prompt_cache_retention:
-                    anyOf:
-                      - type: string
-                        enum:
-                          - in_memory
-                          - 24h
-                      - type: 'null'
-                  previous_response_id:
-                    anyOf:
-                      - type: string
-                      - type: 'null'
-                  model:
-                    type: string
-                    description: The model deployment to use for the creation of this response.
-                  reasoning:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.Reasoning'
-                      - type: 'null'
-                  background:
-                    anyOf:
-                      - type: boolean
-                      - type: 'null'
-                  max_tool_calls:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.integer'
-                      - type: 'null'
-                  text:
-                    $ref: '#/components/schemas/OpenAI.ResponseTextParam'
-                  tools:
-                    $ref: '#/components/schemas/OpenAI.ToolsArray'
-                  tool_choice:
-                    oneOf:
-                      - $ref: '#/components/schemas/OpenAI.ToolChoiceOptions'
-                      - $ref: '#/components/schemas/OpenAI.ToolChoiceParam'
-                  prompt:
-                    $ref: '#/components/schemas/OpenAI.Prompt'
-                  truncation:
-                    anyOf:
-                      - type: string
-                        enum:
-                          - auto
-                          - disabled
-                      - type: 'null'
-                    default: disabled
-                  id:
-                    type: string
-                    description: Unique identifier for this Response.
-                  object:
-                    type: string
-                    enum:
-                      - response
-                    description: The object type of this resource - always set to `response`.
-                    x-stainless-const: true
-                  status:
-                    type: string
-                    enum:
-                      - completed
-                      - failed
-                      - in_progress
-                      - cancelled
-                      - queued
-                      - incomplete
-                    description: |-
-                      The status of the response generation. One of `completed`, `failed`,
-                        `in_progress`, `cancelled`, `queued`, or `incomplete`.
-                  created_at:
-                    type: integer
-                    format: unixtime
-                    description: Unix timestamp (in seconds) of when this Response was created.
-                  completed_at:
-                    anyOf:
-                      - type: string
-                        format: date-time
-                      - type: 'null'
-                    type: integer
-                    format: unixTimestamp
-                  error:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.ResponseError'
-                      - type: 'null'
-                  incomplete_details:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.ResponseIncompleteDetails'
-                      - type: 'null'
-                  output:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/OpenAI.OutputItem'
-                    description: |-
-                      An array of content items generated by the model.
-                        - The length and order of items in the `output` array is dependent
-                        on the model's response.
-                        - Rather than accessing the first item in the `output` array and
-                        assuming it's an `assistant` message with the content generated by
-                        the model, you might consider using the `output_text` property where
-                        supported in SDKs.
-                  instructions:
-                    anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          $ref: '#/components/schemas/OpenAI.InputItem'
-                      - type: 'null'
-                  output_text:
-                    anyOf:
-                      - type: string
-                      - type: 'null'
-                  usage:
-                    $ref: '#/components/schemas/OpenAI.ResponseUsage'
-                  parallel_tool_calls:
-                    type: boolean
-                    description: Whether to allow the model to run tool calls in parallel.
-                    default: true
-                  conversation:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.ConversationReference'
-                      - type: 'null'
-                  max_output_tokens:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.integer'
-                      - type: 'null'
-                  agent_reference:
-                    anyOf:
-                      - $ref: '#/components/schemas/AgentReference'
-                      - type: 'null'
-                    description: The agent used for this response
-                  content_filters:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/ContentFilterResult'
-                    description: The content filter evaluation results.
-                required:
-                  - id
-                  - object
-                  - created_at
-                  - error
-                  - incomplete_details
-                  - output
-                  - instructions
-                  - parallel_tool_calls
-                  - agent_reference
+                $ref: '#/components/schemas/OpenAI.Response'
             text/event-stream:
               schema:
-                $ref: '#/components/schemas/OpenAI.ResponseAudioDeltaEvent'
+                $ref: '#/components/schemas/OpenAI.CreateResponseStreamingResponse'
         4XX:
           description: Client error
           content:
@@ -24927,6 +24703,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Responses
       x-oaiMeta:
         name: Get a model response
         group: responses
@@ -25075,24 +24853,21 @@ paths:
               "user": null,
               "metadata": {}
             }
-      tags:
-        - Responses
-  /openai/v1/responses/{response_id}/cancel:
-    post:
-      operationId: Responses_cancelResponse
-      summary: Cancel a response
-      description: Cancels the specified background model response and returns its updated state.
+    delete:
+      operationId: deleteResponse
+      summary: Delete a model response
+      description: Deletes a model response.
       parameters:
+        - name: response_id
+          in: path
+          required: true
+          description: The ID of the response to delete.
+          schema:
+            type: string
         - name: x-ms-user-isolation-key
           in: header
           required: false
           description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
-          schema:
-            type: string
-        - name: response_id
-          in: path
-          required: true
-          description: The ID of the response to cancel.
           schema:
             type: string
       responses:
@@ -25107,185 +24882,134 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  metadata:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.Metadata'
-                      - type: 'null'
-                  top_logprobs:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.integer'
-                      - type: 'null'
-                  temperature:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.numeric'
-                      - type: 'null'
-                    default: 1
-                  top_p:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.numeric'
-                      - type: 'null'
-                    default: 1
-                  user:
-                    type: string
-                    description: |-
-                      This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.
-                        A stable identifier for your end-users.
-                        Used to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
-                    deprecated: true
-                  safety_identifier:
-                    type: string
-                    maxLength: 64
-                    description: |-
-                      A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
-                        The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
-                  prompt_cache_key:
-                    type: string
-                    description: Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
-                  service_tier:
-                    $ref: '#/components/schemas/OpenAI.ServiceTier'
-                  prompt_cache_retention:
-                    anyOf:
-                      - type: string
-                        enum:
-                          - in_memory
-                          - 24h
-                      - type: 'null'
-                  previous_response_id:
-                    anyOf:
-                      - type: string
-                      - type: 'null'
-                  model:
-                    type: string
-                    description: The model deployment to use for the creation of this response.
-                  reasoning:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.Reasoning'
-                      - type: 'null'
-                  background:
-                    anyOf:
-                      - type: boolean
-                      - type: 'null'
-                  max_tool_calls:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.integer'
-                      - type: 'null'
-                  text:
-                    $ref: '#/components/schemas/OpenAI.ResponseTextParam'
-                  tools:
-                    $ref: '#/components/schemas/OpenAI.ToolsArray'
-                  tool_choice:
-                    oneOf:
-                      - $ref: '#/components/schemas/OpenAI.ToolChoiceOptions'
-                      - $ref: '#/components/schemas/OpenAI.ToolChoiceParam'
-                  prompt:
-                    $ref: '#/components/schemas/OpenAI.Prompt'
-                  truncation:
-                    anyOf:
-                      - type: string
-                        enum:
-                          - auto
-                          - disabled
-                      - type: 'null'
-                    default: disabled
-                  id:
-                    type: string
-                    description: Unique identifier for this Response.
-                  object:
-                    type: string
-                    enum:
-                      - response
-                    description: The object type of this resource - always set to `response`.
-                    x-stainless-const: true
-                  status:
-                    type: string
-                    enum:
-                      - completed
-                      - failed
-                      - in_progress
-                      - cancelled
-                      - queued
-                      - incomplete
-                    description: |-
-                      The status of the response generation. One of `completed`, `failed`,
-                        `in_progress`, `cancelled`, `queued`, or `incomplete`.
-                  created_at:
-                    type: integer
-                    format: unixtime
-                    description: Unix timestamp (in seconds) of when this Response was created.
-                  completed_at:
-                    anyOf:
-                      - type: string
-                        format: date-time
-                      - type: 'null'
-                    type: integer
-                    format: unixTimestamp
-                  error:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.ResponseError'
-                      - type: 'null'
-                  incomplete_details:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.ResponseIncompleteDetails'
-                      - type: 'null'
-                  output:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/OpenAI.OutputItem'
-                    description: |-
-                      An array of content items generated by the model.
-                        - The length and order of items in the `output` array is dependent
-                        on the model's response.
-                        - Rather than accessing the first item in the `output` array and
-                        assuming it's an `assistant` message with the content generated by
-                        the model, you might consider using the `output_text` property where
-                        supported in SDKs.
-                  instructions:
-                    anyOf:
-                      - type: string
-                      - type: array
-                        items:
-                          $ref: '#/components/schemas/OpenAI.InputItem'
-                      - type: 'null'
-                  output_text:
-                    anyOf:
-                      - type: string
-                      - type: 'null'
-                  usage:
-                    $ref: '#/components/schemas/OpenAI.ResponseUsage'
-                  parallel_tool_calls:
-                    type: boolean
-                    description: Whether to allow the model to run tool calls in parallel.
-                    default: true
-                  conversation:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.ConversationReference'
-                      - type: 'null'
-                  max_output_tokens:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.integer'
-                      - type: 'null'
-                  agent_reference:
-                    anyOf:
-                      - $ref: '#/components/schemas/AgentReference'
-                      - type: 'null'
-                    description: The agent used for this response
-                  content_filters:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/ContentFilterResult'
-                    description: The content filter evaluation results.
-                required:
-                  - id
-                  - object
-                  - created_at
-                  - error
-                  - incomplete_details
-                  - output
-                  - instructions
-                  - parallel_tool_calls
-                  - agent_reference
+                $ref: '#/components/schemas/DeleteResponseResult'
+        4XX:
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        5XX:
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Responses
+      x-oaiMeta:
+        name: Delete a model response
+        group: responses
+        examples:
+          request:
+            curl: |
+              curl -X DELETE https://api.openai.com/v1/responses/resp_123 \
+                  -H "Content-Type: application/json" \
+                  -H "Authorization: Bearer $OPENAI_API_KEY"
+            javascript: |
+              import OpenAI from "openai";
+              const client = new OpenAI();
+
+              const response = await client.responses.delete("resp_123");
+              console.log(response);
+            python: |-
+              import os
+              from openai import OpenAI
+
+              client = OpenAI(
+                  api_key=os.environ.get("OPENAI_API_KEY"),  # This is the default and can be omitted
+              )
+              client.responses.delete(
+                  "resp_677efb5139a88190b512bc3fef8e535d",
+              )
+            node.js: |-
+              import OpenAI from 'openai';
+
+              const client = new OpenAI({
+                apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
+              });
+
+              await client.responses.delete('resp_677efb5139a88190b512bc3fef8e535d');
+            go: |
+              package main
+
+              import (
+              	"context"
+
+              	"github.com/openai/openai-go"
+              	"github.com/openai/openai-go/option"
+              )
+
+              func main() {
+              	client := openai.NewClient(
+              		option.WithAPIKey("My API Key"),
+              	)
+              	err := client.Responses.Delete(context.TODO(), "resp_677efb5139a88190b512bc3fef8e535d")
+              	if err != nil {
+              		panic(err.Error())
+              	}
+              }
+            java: |-
+              package com.openai.example;
+
+              import com.openai.client.OpenAIClient;
+              import com.openai.client.okhttp.OpenAIOkHttpClient;
+              import com.openai.models.responses.ResponseDeleteParams;
+
+              public final class Main {
+                  private Main() {}
+
+                  public static void main(String[] args) {
+                      OpenAIClient client = OpenAIOkHttpClient.fromEnv();
+
+                      client.responses().delete("resp_677efb5139a88190b512bc3fef8e535d");
+                  }
+              }
+            ruby: |-
+              require "openai"
+
+              openai = OpenAI::Client.new(api_key: "My API Key")
+
+              result = openai.responses.delete("resp_677efb5139a88190b512bc3fef8e535d")
+
+              puts(result)
+          response: |
+            {
+              "id": "resp_6786a1bec27481909a17d673315b29f6",
+              "object": "response",
+              "deleted": true
+            }
+  /openai/v1/responses/{response_id}/cancel:
+    post:
+      operationId: cancelResponse
+      summary: Cancel a model response
+      description: Cancels a model response with the given ID. Only responses created with the background parameter set to true can be cancelled.
+      parameters:
+        - name: response_id
+          in: path
+          required: true
+          description: The ID of the response to cancel.
+          schema:
+            type: string
+        - name: x-ms-user-isolation-key
+          in: header
+          required: false
+          description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has succeeded.
+          headers:
+            x-agent-session-id:
+              required: false
+              description: Session ID for this request. Only present for hosted agent responses. Returns the provided session ID or an auto-generated one if not provided in the request.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.Response'
         4XX:
           description: Client error
           content:
@@ -25436,65 +25160,93 @@ paths:
             }
   /openai/v1/responses/{response_id}/input_items:
     get:
-      operationId: Responses_listInputItems
-      summary: List response input items
-      description: Returns the input items for the specified response.
+      operationId: listInputItems
+      summary: List input items for a response
+      description: Retrieves the input items associated with the specified response.
       parameters:
-        - name: x-ms-user-isolation-key
-          in: header
-          required: false
-          description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
-          schema:
-            type: string
         - name: response_id
           in: path
           required: true
-          description: The ID of the response to retrieve input items for.
           schema:
             type: string
         - name: limit
           in: query
           required: false
           description: |-
-            A limit on the number of objects to be returned. Limit can range between
-              1 and 100, and the default is 20.
+            A limit on the number of objects to be returned. Limit can range between 1 and 100, and the
+            default is 20.
           schema:
-            $ref: '#/components/schemas/integer'
+            type: integer
+            format: int32
             default: 20
+          explode: false
         - name: order
           in: query
           required: false
           description: |-
-            The order to return the input items in. Default is `desc`.
-              - `asc`: Return the input items in ascending order.
-              - `desc`: Return the input items in descending order.
+            Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and`desc`
+            for descending order.
           schema:
-            $ref: '#/components/schemas/OpenAI.OrderEnum'
+            $ref: '#/components/schemas/PageOrder'
+          explode: false
         - name: after
           in: query
           required: false
-          description: An item ID to list items after, used in pagination.
+          description: |-
+            A cursor for use in pagination. `after` is an object ID that defines your place in the list.
+            For instance, if you make a list request and receive 100 objects, ending with obj_foo, your
+            subsequent call can include after=obj_foo in order to fetch the next page of the list.
           schema:
             type: string
-            x-ms-list-continuation-token: true
-          x-ms-list-continuation-token: true
-        - name: include
+          explode: false
+        - name: before
           in: query
           required: false
           description: |-
-            Additional fields to include in the response. See the `include`
-              parameter for Response creation above for more information.
+            A cursor for use in pagination. `before` is an object ID that defines your place in the list.
+            For instance, if you make a list request and receive 100 objects, ending with obj_foo, your
+            subsequent call can include before=obj_foo in order to fetch the previous page of the list.
           schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/OpenAI.IncludeEnum'
+            type: string
+          explode: false
+        - name: x-ms-user-isolation-key
+          in: header
+          required: false
+          description: Opaque per-user isolation key used to scope endpoint-scoped data (responses, conversations, sessions) to a specific end user.
+          schema:
+            type: string
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            x-agent-session-id:
+              required: false
+              description: Session ID for this request. Only present for hosted agent responses. Returns the provided session ID or an auto-generated one if not provided in the request.
+              schema:
+                type: string
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpenAI.ResponseItemList'
+                type: object
+                required:
+                  - data
+                  - has_more
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/OpenAI.ItemResource'
+                    description: The requested list of items.
+                  first_id:
+                    type: string
+                    description: The first ID represented in this list.
+                  last_id:
+                    type: string
+                    description: The last ID represented in this list.
+                  has_more:
+                    type: boolean
+                    description: A value indicating whether there are additional values available not captured in this list.
+                description: The response data for a requested list of items.
         4XX:
           description: Client error
           content:
@@ -40280,6 +40032,27 @@ components:
       x-ms-foundry-meta:
         required_previews:
           - MemoryStores=V1Preview
+    DeleteResponseResult:
+      type: object
+      required:
+        - id
+        - object
+        - deleted
+      properties:
+        id:
+          type: string
+          description: The operation ID.
+        object:
+          type: string
+          enum:
+            - response
+          description: Always return 'response'.
+        deleted:
+          type: boolean
+          enum:
+            - true
+          description: Always return true
+      description: The result of a delete response operation.
     DeleteSkillResponse:
       type: object
       required:
@@ -50184,142 +49957,61 @@ components:
           $ref: '#/components/schemas/OpenAI.numeric'
         violence/graphic:
           $ref: '#/components/schemas/OpenAI.numeric'
-    OpenAI.CreateResponse:
-      type: object
-      properties:
-        metadata:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.Metadata'
-            - type: 'null'
-        top_logprobs:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.integer'
-            - type: 'null'
-        temperature:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.numeric'
-            - type: 'null'
-          default: 1
-        top_p:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.numeric'
-            - type: 'null'
-          default: 1
-        user:
-          type: string
-          description: |-
-            This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.
-              A stable identifier for your end-users.
-              Used to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
-          deprecated: true
-        safety_identifier:
-          type: string
-          maxLength: 64
-          description: |-
-            A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
-              The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
-        prompt_cache_key:
-          type: string
-          description: Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
-        service_tier:
-          $ref: '#/components/schemas/OpenAI.ServiceTier'
-        prompt_cache_retention:
-          anyOf:
-            - type: string
-              enum:
-                - in_memory
-                - 24h
-            - type: 'null'
-        previous_response_id:
-          anyOf:
-            - type: string
-            - type: 'null'
-        model:
-          type: string
-          description: The model deployment to use for the creation of this response.
-        reasoning:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.Reasoning'
-            - type: 'null'
-        background:
-          anyOf:
-            - type: boolean
-            - type: 'null'
-        max_tool_calls:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.integer'
-            - type: 'null'
-        text:
-          $ref: '#/components/schemas/OpenAI.ResponseTextParam'
-        tools:
-          $ref: '#/components/schemas/OpenAI.ToolsArray'
-        tool_choice:
-          oneOf:
-            - $ref: '#/components/schemas/OpenAI.ToolChoiceOptions'
-            - $ref: '#/components/schemas/OpenAI.ToolChoiceParam'
-        prompt:
-          $ref: '#/components/schemas/OpenAI.Prompt'
-        truncation:
-          anyOf:
-            - type: string
-              enum:
-                - auto
-                - disabled
-            - type: 'null'
-          default: disabled
-        input:
-          $ref: '#/components/schemas/OpenAI.InputParam'
-        include:
-          anyOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/OpenAI.IncludeEnum'
-            - type: 'null'
-        parallel_tool_calls:
-          anyOf:
-            - type: boolean
-            - type: 'null'
-          default: true
-        store:
-          anyOf:
-            - type: boolean
-            - type: 'null'
-          default: true
-        instructions:
-          anyOf:
-            - type: string
-            - type: 'null'
-        stream:
-          anyOf:
-            - type: boolean
-            - type: 'null'
-        stream_options:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.ResponseStreamOptions'
-            - type: 'null'
-        conversation:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.ConversationParam'
-            - type: 'null'
-        context_management:
-          anyOf:
-            - type: array
-              items:
-                $ref: '#/components/schemas/OpenAI.ContextManagementParam'
-            - type: 'null'
-          description: Context management configuration for this request.
-        max_output_tokens:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.integer'
-            - type: 'null'
-        agent_reference:
-          allOf:
-            - $ref: '#/components/schemas/AgentReference'
-          description: The agent to use for generating the response.
-        structured_inputs:
-          type: object
-          unevaluatedProperties: {}
-          description: The structured inputs to the response that can participate in prompt template substitution or tool argument bindings.
+    OpenAI.CreateResponseStreamingResponse:
+      anyOf:
+        - $ref: '#/components/schemas/OpenAI.ResponseAudioDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseAudioTranscriptDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseCodeInterpreterCallCodeDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseCodeInterpreterCallInProgressEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseCodeInterpreterCallInterpretingEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseContentPartAddedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseCreatedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseErrorEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseFileSearchCallInProgressEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseFileSearchCallSearchingEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseFunctionCallArgumentsDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseInProgressEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseFailedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseIncompleteEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseOutputItemAddedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseReasoningSummaryPartAddedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseReasoningSummaryTextDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseReasoningTextDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseRefusalDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseTextDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseWebSearchCallInProgressEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseWebSearchCallSearchingEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseImageGenCallGeneratingEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseImageGenCallInProgressEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseImageGenCallPartialImageEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseMCPCallArgumentsDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseMCPCallFailedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseMCPCallInProgressEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseMCPListToolsFailedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseMCPListToolsInProgressEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseOutputTextAnnotationAddedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseQueuedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseCustomToolCallInputDeltaEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseAudioDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseAudioTranscriptDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseCodeInterpreterCallCodeDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseCodeInterpreterCallCompletedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseCompletedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseContentPartDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseFileSearchCallCompletedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseFunctionCallArgumentsDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseOutputItemDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseReasoningSummaryPartDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseReasoningSummaryTextDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseReasoningTextDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseRefusalDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseTextDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseWebSearchCallCompletedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseImageGenCallCompletedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseMCPCallArgumentsDoneEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseMCPCallCompletedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseMCPListToolsCompletedEvent'
+        - $ref: '#/components/schemas/OpenAI.ResponseCustomToolCallInputDoneEvent'
     OpenAI.CreateRunRequest:
       type: object
       required:
@@ -51488,22 +51180,6 @@ components:
           type: boolean
         object:
           type: string
-    OpenAI.DeleteResponseResponse:
-      type: object
-      required:
-        - id
-        - deleted
-        - object
-      properties:
-        id:
-          type: string
-        deleted:
-          type: boolean
-        object:
-          type: string
-          enum:
-            - response.deleted
-          x-stainless-const: true
     OpenAI.DeleteThreadResponse:
       type: object
       required:
@@ -64449,61 +64125,6 @@ components:
               "metadata": {}
             },
             "sequence_number": 1
-          }
-    OpenAI.ResponseItemList:
-      type: object
-      required:
-        - object
-        - data
-        - has_more
-        - first_id
-        - last_id
-      properties:
-        object:
-          type: string
-          enum:
-            - list
-          description: The type of object returned, must be `list`.
-          x-stainless-const: true
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OpenAI.ItemResource'
-          description: A list of items used to generate this response.
-          x-ms-list-page-items: true
-        has_more:
-          type: boolean
-          description: Whether there are more items available.
-        first_id:
-          type: string
-          description: The ID of the first item in the list.
-        last_id:
-          type: string
-          description: The ID of the last item in the list.
-          x-ms-list-continuation-token: true
-      description: A list of Response items.
-      x-oaiMeta:
-        name: The input item list
-        group: responses
-        example: |
-          {
-            "object": "list",
-            "data": [
-              {
-                "id": "msg_abc123",
-                "type": "message",
-                "role": "user",
-                "content": [
-                  {
-                    "type": "input_text",
-                    "text": "Tell me a three sentence bedtime story about a unicorn."
-                  }
-                ]
-              }
-            ],
-            "first_id": "msg_abc123",
-            "last_id": "msg_abc123",
-            "has_more": false
           }
     OpenAI.ResponseLogProb:
       type: object
