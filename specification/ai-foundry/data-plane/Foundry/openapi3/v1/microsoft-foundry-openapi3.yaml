@@ -3,7 +3,6 @@ info:
   title: Microsoft Foundry
   version: v1
 tags:
-  - name: Fine-Tuning
   - name: Responses Root
     description: Responses
   - name: Responses

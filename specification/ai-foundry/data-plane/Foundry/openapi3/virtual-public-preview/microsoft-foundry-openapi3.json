@@ -9,9 +9,6 @@
       "name": "EvaluationSuiteGenerationJobs"
     },
     {
-      "name": "Fine-Tuning"
-    },
-    {
       "name": "Responses Root",
       "description": "Responses"
     },

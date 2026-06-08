@@ -4,7 +4,6 @@ info:
   version: virtual-public-preview
 tags:
   - name: EvaluationSuiteGenerationJobs
-  - name: Fine-Tuning
   - name: Responses Root
     description: Responses
   - name: Responses
