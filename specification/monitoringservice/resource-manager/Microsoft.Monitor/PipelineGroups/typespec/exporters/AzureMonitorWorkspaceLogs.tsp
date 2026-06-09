@@ -27,9 +27,9 @@ model AzureMonitorWorkspaceLogsExporter {
 
 @doc("Azure Monitor Workspace Logs Api configurations.")
 model AzureMonitorWorkspaceLogsApiConfig {
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @doc("Data collection endpoint ingestion url.")
   @pattern("^(https?)://[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$")
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   dataCollectionEndpointUrl: string;
 
   @doc("Stream name in destination. Azure Monitor stream is related to the destination table.")

@@ -5935,15 +5935,15 @@ model WebHookEventSubscriptionDestinationProperties {
   /**
    * The URL that represents the endpoint of the destination of an event subscription.
    */
-  @secret
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @secret
   endpointUrl?: string;
 
   /**
    * The base URL that represents the endpoint of the destination of an event subscription.
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   endpointBaseUrl?: string;
 
   /**

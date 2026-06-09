@@ -3,11 +3,13 @@ import "@azure-tools/typespec-client-generator-core";
 
 using Azure.ClientGenerator.Core;
 
-@@clientName(ModelInference.ChatMessageAudioContentItem.audioUrl,
+@@clientName(
+  ModelInference.ChatMessageAudioContentItem.audioUrl,
   "audioUri",
   "csharp"
 );
-@@clientName(ModelInference.ChatMessageImageContentItem.imageUrl,
+@@clientName(
+  ModelInference.ChatMessageImageContentItem.imageUrl,
   "imageUri",
   "csharp"
 );

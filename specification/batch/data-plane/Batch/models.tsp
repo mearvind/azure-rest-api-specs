@@ -1535,12 +1535,12 @@ model ResourceFile {
   @doc("The storage container name in the auto storage Account. The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.")
   autoStorageContainerName?: string;
 
-  @doc("The URL of the blob container within Azure Blob Storage. The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL of the blob container within Azure Blob Storage. The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.")
   storageContainerUrl?: url;
 
-  @doc("The URL of the file to download. The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL of the file to download. The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.")
   httpUrl?: url;
 
   @doc("The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when autoStorageContainerName or storageContainerUrl is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.")
@@ -1581,8 +1581,8 @@ model OutputFileBlobContainerDestination {
   @doc("The destination blob or virtual directory within the Azure Storage container. If filePattern refers to a specific file (i.e. contains no wildcards), then path is the name of the blob to which to upload that file. If filePattern contains one or more wildcards (and therefore may match multiple files), then path is the name of the blob virtual directory (which is prepended to each blob name) to which to upload the file(s). If omitted, file(s) are uploaded to the root of the container with a blob name matching their file name.")
   path?: string;
 
-  @doc("The URL of the container within Azure Blob Storage to which to upload the file(s). If not using a managed identity, the URL must include a Shared Access Signature (SAS) granting write permissions to the container.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL of the container within Azure Blob Storage to which to upload the file(s). If not using a managed identity, the URL must include a Shared Access Signature (SAS) granting write permissions to the container.")
   containerUrl: url;
 
   @doc("The reference to the user assigned identity to use to access Azure Blob Storage specified by containerUrl. The identity must have write access to the Azure Blob Storage container.")
@@ -1965,8 +1965,8 @@ model DiskCustomerManagedKey {
   @doc("The reference of one of the pool identities to encrypt Disk. This identity will be used to access the KeyVault.")
   identityReference?: BatchPoolIdentityReference;
 
-  @doc("Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.")
   keyUrl?: string;
 
   @doc("Set this flag to true to enable auto-updating of the Disk Encryption to the latest key version. Default is false.")
@@ -2350,8 +2350,8 @@ model AzureFileShareConfiguration {
   @doc("The Azure Storage account key.")
   accountKey: string;
 
-  @doc("The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.")
   azureFileUrl: url;
 
   @doc("The relative path on the compute node where the file system will be mounted. All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.")
@@ -2729,8 +2729,8 @@ model BatchJobPreparationAndReleaseTaskStatus {
   @doc("The ID of the Compute Node to which this entry refers.")
   nodeId?: string;
 
-  @doc("The URL of the Compute Node to which this entry refers.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL of the Compute Node to which this entry refers.")
   nodeUrl?: url;
 
   @doc("Information about the execution status of the Job Preparation Task on this Compute Node.")
@@ -2758,8 +2758,8 @@ model BatchJobPreparationTaskExecutionInfo {
   @doc("The root directory of the Job Preparation Task on the Compute Node. You can use this path to retrieve files created by the Task, such as log files.")
   taskRootDirectory?: string;
 
-  @doc("The URL to the root directory of the Job Preparation Task on the Compute Node.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL to the root directory of the Job Preparation Task on the Compute Node.")
   taskRootDirectoryUrl?: url;
 
   @doc("The exit code of the program specified on the Task command line. This parameter is returned only if the Task is in the completed state. The exit code for a process reflects the specific convention implemented by the application developer for that process. If you use the exit code value to make decisions in your code, be sure that you know the exit code convention used by the application process. Note that the exit code may also be generated by the Compute Node operating system, such as when a process is forcibly terminated.")
@@ -2828,8 +2828,8 @@ model BatchJobReleaseTaskExecutionInfo {
   @doc("The root directory of the Job Release Task on the Compute Node. You can use this path to retrieve files created by the Task, such as log files.")
   taskRootDirectory?: string;
 
-  @doc("The URL to the root directory of the Job Release Task on the Compute Node.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL to the root directory of the Job Release Task on the Compute Node.")
   taskRootDirectoryUrl?: url;
 
   @doc("The exit code of the program specified on the Task command line. This parameter is returned only if the Task is in the completed state. The exit code for a process reflects the specific convention implemented by the application developer for that process. If you use the exit code value to make decisions in your code, be sure that you know the exit code convention used by the application process. Note that the exit code may also be generated by the Compute Node operating system, such as when a process is forcibly terminated.")
@@ -3543,8 +3543,8 @@ model BatchNodeInfo {
   @doc("An identifier for the Node on which the Task ran, which can be passed when adding a Task to request that the Task be scheduled on this Compute Node.")
   affinityId?: string;
 
-  @doc("The URL of the Compute Node on which the Task ran.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL of the Compute Node on which the Task ran.")
   nodeUrl?: url;
 
   @doc("The ID of the Pool on which the Task ran.")
@@ -3556,8 +3556,8 @@ model BatchNodeInfo {
   @doc("The root directory of the Task on the Compute Node.")
   taskRootDirectory?: string;
 
-  @doc("The URL to the root directory of the Task on the Compute Node.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL to the root directory of the Task on the Compute Node.")
   taskRootDirectoryUrl?: url;
 }
 
@@ -3934,8 +3934,8 @@ model BatchNode {
 @doc("Information about a Task running on a Compute Node.")
 @clientName("BatchTaskDetails", "java")
 model BatchTaskInfo {
-  @doc("The URL of the Task.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL of the Task.")
   taskUrl?: url;
 
   @doc("The ID of the Job to which the Task belongs.")
@@ -4088,8 +4088,8 @@ model BatchNodeRemoteLoginSettings {
 
 @doc("The Azure Batch service log files upload parameters for a Compute Node.")
 model UploadBatchServiceLogsOptions {
-  @doc("The URL of the container within Azure Blob Storage to which to upload the Batch Service log file(s). If a user assigned managed identity is not being used, the URL must include a Shared Access Signature (SAS) granting write permissions to the container. The SAS duration must allow enough time for the upload to finish. The start time for SAS is optional and recommended to not be specified.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The URL of the container within Azure Blob Storage to which to upload the Batch Service log file(s). If a user assigned managed identity is not being used, the URL must include a Shared Access Signature (SAS) granting write permissions to the container. The SAS duration must allow enough time for the upload to finish. The start time for SAS is optional and recommended to not be specified.")
   containerUrl: url;
 
   @doc("The start of the time range from which to upload Batch Service log file(s). Any log file containing a log message in the time range will be uploaded. This means that the operation might retrieve more logs than have been requested since the entire log file is always uploaded, but the operation should not retrieve fewer logs than have been requested.")

@@ -1752,15 +1752,15 @@ model AsyncOperationStatusProperties {
   /**
    * Sas url to the async benefit utilization summaries report. Will be empty if the report is in Running or Failed state.
    */
-  @secret
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @secret
   reportUrl?: BenefitUtilizationSummaryReportSchema;
 
   /**
    * Sas url to async benefit utilization summaries report in secondary storage in case of primary outage. Will be empty if the report is in Running or Failed state.
    */
-  @secret
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @secret
   secondaryReportUrl?: BenefitUtilizationSummaryReportSchema;
 
   /**
@@ -4079,8 +4079,8 @@ model EAPricesheetDownloadProperties {
   /**
    * The link (url) to download the pricesheet.
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   downloadUrl?: string;
 
   /**

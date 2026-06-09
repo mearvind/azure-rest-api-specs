@@ -9415,8 +9415,8 @@ model StaticSiteUserInvitationResponseResourceProperties {
   /**
    * The url for the invitation link
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   invitationUrl?: string;
 }
 
@@ -10069,8 +10069,8 @@ model BackupItemProperties {
   /**
    * SAS URL for the storage account container which contains this backup.
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   storageAccountUrl?: string;
 
   /**
@@ -13930,8 +13930,8 @@ model SiteSourceControlProperties {
   /**
    * Repository or source control URL.
    */
-  @visibility(Lifecycle.Read, Lifecycle.Create)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read, Lifecycle.Create)
   repoUrl?: string;
 
   /**

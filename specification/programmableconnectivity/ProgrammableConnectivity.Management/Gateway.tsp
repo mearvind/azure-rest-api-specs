@@ -43,8 +43,8 @@ model GatewayProperties {
   /**
    * Base URL of the Gateway resource. This is the URL that the users would use to make Network API requests to the Operators via Azure.
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   gatewayBaseUrl?: string;
 
   /**
@@ -199,8 +199,8 @@ model ApplicationProperties {
   /**
    * URL for the organization's privacy policy.
    */
-  @TypeSpec.Versioning.added(Versions.v2025_03_30_preview)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @TypeSpec.Versioning.added(Versions.v2025_03_30_preview)
   privacyPolicyUrl: url;
 
   /**

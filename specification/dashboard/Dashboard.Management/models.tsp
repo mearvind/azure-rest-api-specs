@@ -836,8 +836,8 @@ model ManagedPrivateEndpointModelProperties {
   /**
    * The URL of the data store behind the private link service. It would be the URL in the Grafana data source configuration page without the protocol and port.
    */
-  @visibility(Lifecycle.Read, Lifecycle.Create)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read, Lifecycle.Create)
   privateLinkServiceUrl?: string;
 
   /**

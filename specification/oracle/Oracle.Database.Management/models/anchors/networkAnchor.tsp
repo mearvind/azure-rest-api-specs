@@ -85,22 +85,22 @@ model NetworkAnchorProperties {
   @visibility(Lifecycle.Read)
   dnsForwardingEndpointIpAddress?: string;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @added(Versions.v20250701_preview)
   @doc("Deep link to OCI console DNS Forwarding rules page")
   @visibility(Lifecycle.Read)
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   dnsForwardingRulesUrl?: string;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @added(Versions.v20250701_preview)
   @doc("Deep link to OCI console DNS Listening endpoint NSG rules")
   @visibility(Lifecycle.Read)
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   dnsListeningEndpointNsgRulesUrl?: string;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @added(Versions.v20250701_preview)
   @doc("Deep link to OCI console DNS Forwarding endpoint NSG rules")
   @visibility(Lifecycle.Read)
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   dnsForwardingEndpointNsgRulesUrl?: string;
 }
 

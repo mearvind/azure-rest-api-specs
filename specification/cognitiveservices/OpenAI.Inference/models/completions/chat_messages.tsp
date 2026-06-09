@@ -79,9 +79,9 @@ model ChatMessageImageContentItem extends ChatMessageContentItem {
   /** The discriminated object type: always 'image_url' for this type. */
   type: "image_url";
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @doc("An internet location, which must be accessible to the model,from which the image may be retrieved.")
   @encodedName("application/json", "image_url")
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   imageUrl: ChatMessageImageUrl;
 }
 

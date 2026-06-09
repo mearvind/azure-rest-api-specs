@@ -3,7 +3,8 @@ import "@azure-tools/typespec-client-generator-core";
 
 using Azure.ClientGenerator.Core;
 
-@@clientName(Microsoft.MachineLearningServices.DatasetDataplane.DatasetPath.httpUrl,
+@@clientName(
+  Microsoft.MachineLearningServices.DatasetDataplane.DatasetPath.httpUrl,
   "httpUri",
   "csharp"
 );

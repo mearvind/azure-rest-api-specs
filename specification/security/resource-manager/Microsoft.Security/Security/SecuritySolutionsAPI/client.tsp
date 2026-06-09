@@ -3,7 +3,8 @@ import "@azure-tools/typespec-client-generator-core";
 
 using Azure.ClientGenerator.Core;
 
-@@clientName(SecuritySolutionsAPI.securitySolutionsReferenceDataProperties.packageInfoUrl,
+@@clientName(
+  SecuritySolutionsAPI.securitySolutionsReferenceDataProperties.packageInfoUrl,
   "packageInfoUri",
   "csharp"
 );

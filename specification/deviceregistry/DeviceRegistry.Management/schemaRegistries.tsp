@@ -50,9 +50,9 @@ model SchemaRegistryProperties {
   @doc("Human-readable description of the schema registry.")
   description?: string;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @doc("The Storage Account's Container URL where schemas will be stored.")
   @visibility(Lifecycle.Read, Lifecycle.Create)
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   storageAccountContainerUrl: string;
 
   @doc("Provisioning state of the resource.")

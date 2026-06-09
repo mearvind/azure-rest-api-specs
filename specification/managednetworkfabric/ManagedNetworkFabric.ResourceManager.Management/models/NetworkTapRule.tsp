@@ -12,8 +12,8 @@ model NetworkTapRuleProperties {
   @doc("Input method to configure Network Tap Rule.")
   configurationType: ConfigurationType;
 
-  @doc("Network Tap Rules file URL.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Network Tap Rules file URL.")
   tapRulesUrl?: url;
 
   @doc("The selection of the managed identity to use with this storage account. The identity type must be either system assigned or user assigned.")
@@ -208,8 +208,8 @@ model NetworkTapRulePatchableProperties {
   @doc("Input method to configure Network Tap Rule.")
   configurationType?: ConfigurationType;
 
-  @doc("Network Tap Rules file URL.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Network Tap Rules file URL.")
   tapRulesUrl?: url;
 
   @doc("List of match configurations.")

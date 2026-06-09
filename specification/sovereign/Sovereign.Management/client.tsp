@@ -3,7 +3,8 @@ import "@azure-tools/typespec-client-generator-core";
 
 using Azure.ClientGenerator.Core;
 
-@@clientName(Microsoft.Sovereign.GenerateLandingZoneResponse.generatedCodeUrl,
+@@clientName(
+  Microsoft.Sovereign.GenerateLandingZoneResponse.generatedCodeUrl,
   "generatedCodeUri",
   "csharp"
 );

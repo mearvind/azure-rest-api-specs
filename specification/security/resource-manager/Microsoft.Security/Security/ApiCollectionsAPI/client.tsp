@@ -3,7 +3,8 @@ import "@azure-tools/typespec-client-generator-core";
 
 using Azure.ClientGenerator.Core;
 
-@@clientName(ApiCollectionsAPI.ApiCollectionProperties.baseUrl,
+@@clientName(
+  ApiCollectionsAPI.ApiCollectionProperties.baseUrl,
   "baseUri",
   "csharp"
 );

@@ -3,7 +3,8 @@ import "@azure-tools/typespec-client-generator-core";
 
 using Azure.ClientGenerator.Core;
 
-@@clientName(WebTestsApi.WebTestPropertiesRequest.RequestUrl,
+@@clientName(
+  WebTestsApi.WebTestPropertiesRequest.RequestUrl,
   "RequestUri",
   "csharp"
 );

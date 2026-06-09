@@ -98,8 +98,8 @@ model Datastore {
   @doc("The name of a Kusto database.")
   kustoDatabaseName: string;
 
-  @doc("The Kusto management URL.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("The Kusto management URL.")
   kustoManagementUrl: string;
 
   @doc("The type of a Kusto offering.")

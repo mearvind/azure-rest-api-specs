@@ -101,9 +101,9 @@ model ValidationIssue {
   @doc("The recommendation for resolving the issue.")
   recommendationMessage: string;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @visibility(Lifecycle.Read)
   @doc("The URL related to resolving the issue.")
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   recommendationUrl?: url;
 
   @visibility(Lifecycle.Read)

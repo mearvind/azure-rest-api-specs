@@ -5895,8 +5895,8 @@ model IncidentProperties {
   /**
    * The deep-link url to the incident in Azure portal
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   incidentUrl?: string;
 
   /**
@@ -6006,8 +6006,8 @@ model IncidentAdditionalData {
   /**
    * The provider incident url to the incident in Microsoft 365 Defender portal
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   providerIncidentUrl?: string;
 
   /**
@@ -6019,8 +6019,8 @@ model IncidentAdditionalData {
   /**
    * The URL to the incident that the current incident was merged into
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   mergedIncidentUrl?: string;
 }
 
@@ -6037,8 +6037,8 @@ model TeamInformation {
   /**
    * The primary channel URL of the team
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   primaryChannelUrl?: string;
 
   /**
@@ -7139,8 +7139,8 @@ model Repository {
   /**
    * Url to access repository action logs.
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   deploymentLogsUrl?: string;
 }
 
@@ -7243,8 +7243,8 @@ model Webhook {
   /**
    * URL that gets invoked by the webhook.
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   webhookUrl?: string;
 
   /**

@@ -410,8 +410,8 @@ model InformaticaProperties {
   @doc("Informatica organization region")
   informaticaRegion?: string;
 
-  @doc("Single sing on URL for informatica organization")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Single sing on URL for informatica organization")
   singleSignOnUrl?: url;
 }
 

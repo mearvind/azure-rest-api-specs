@@ -190,14 +190,14 @@ model TranslationInput {
   @doc("Translation voice kind.")
   voiceKind: VoiceKind;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @doc("Translation video file Azure blob url, .mp4 file format, maxmum 5GB file size and 4 hours video duration. Provide the input media file using either videoFileUrl or audioFileUrl, these parameters are mutually exclusive—only one of them is required. If both are provided, the request will be considered invalid.")
   @madeOptional(ApiVersions.v2025_05_20)
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   videoFileUrl?: url;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @added(ApiVersions.v2025_05_20)
   @doc("Translation audio file Azure blob url, .mp3 or .wav file format, maxmum 5GB file size and 4 hours video duration. Provide the input media file using either videoFileUrl or audioFileUrl, these parameters are mutually exclusive—only one of them is required. If both are provided, the request will be considered invalid.")
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   audioFileUrl?: url;
 
   @doc("Number of speakers in the video, if not provided, it will be auto-detected from the video file.")
@@ -228,34 +228,34 @@ model TranslationInput {
 
 @doc("Iteration result.")
 model IterationResult {
-  @doc("Translated video file URL.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Translated video file URL.")
   translatedVideoFileUrl?: url;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @added(ApiVersions.v2025_05_20)
   @doc("Translated audio file URL.")
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   translatedAudioFileUrl?: url;
 
-  @doc("Source locale subtitle file URL.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Source locale subtitle file URL.")
   sourceLocaleSubtitleWebvttFileUrl?: url;
 
-  @doc("Target locale subtitle file URL.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Target locale subtitle file URL.")
   targetLocaleSubtitleWebvttFileUrl?: url;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @added(ApiVersions.v2025_05_20)
   @doc("This property provides the URL of the target locale Advanced SubStation Alpha (ASS) subtitle file. It is populated only when exportTargetLocaleAdvancedSubtitleFile is set to true during iteration creation; otherwise, this property will not be included in the response.")
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   targetLocaleAdvancedSubtitleFileUrl?: url;
 
-  @doc("Metadata json webvtt file URL.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Metadata json webvtt file URL.")
   metadataJsonWebvttFileUrl?: url;
 
-  @doc("Report file URL.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Report file URL.")
   reportFileUrl?: url;
 }
 
@@ -273,9 +273,9 @@ model IterationInput {
   @doc("Export subtitle in video, if not specified, it will inherit the value defined in the input of translation creation.")
   exportSubtitleInVideo?: boolean;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @added(ApiVersions.v2025_05_20)
   @doc("Translate with TTS custom lexicon for speech synthesis. Provide the custom lexicon file using either ttsCustomLexiconFileUrl or ttsCustomLexiconFileIdInAudioContentCreation. These parameters are mutually exclusive—only one of them is required. If both are provided, the request will be considered invalid.")
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   ttsCustomLexiconFileUrl?: url;
 
   @added(ApiVersions.v2025_05_20)
@@ -330,9 +330,9 @@ model IterationInput {
   @maxValue(1)
   adjustBackgroundVolumeMultiplier?: float64;
 
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   @added(ApiVersions.v2026_03_01)
   @doc("Azure storage blob directory URL to push iteration results to. When specified, the API will push the translation results to the specified Azure storage blob directory.")
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
   pushResultToAzureStorageBlobDirUrl?: url;
 
   @added(ApiVersions.v2026_03_01)

@@ -359,8 +359,8 @@ model ResourceGroupCarbonEmissionTopItemsSummaryData
   @doc("Subscription Id")
   subscriptionId: string;
 
-  @doc("Resource Group url, value format is '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroup}'")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Resource Group url, value format is '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroup}'")
   resourceGroupUrl: string;
 }
 
@@ -422,8 +422,8 @@ model ResourceGroupCarbonEmissionTopItemMonthlySummaryData
   @doc("Subscription Id")
   subscriptionId: string;
 
-  @doc("Resource Group url, the format is '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroup}'")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Resource Group url, the format is '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroup}'")
   resourceGroupUrl: string;
 }
 
@@ -480,8 +480,8 @@ model ResourceGroupCarbonEmissionItemDetailData extends CarbonEmissionData {
   @doc("Subscription Id")
   subscriptionId: string;
 
-  @doc("Resource Group url, value format is '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroup}'")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Resource Group url, value format is '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroup}'")
   resourceGroupUrl: string;
 }
 

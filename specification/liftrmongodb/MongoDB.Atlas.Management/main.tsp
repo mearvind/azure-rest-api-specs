@@ -78,8 +78,8 @@ model PartnerProperties {
   @doc("Organization Id in MongoDB system")
   organizationId?: string;
 
-  @doc("Redirect URL for the MongoDB")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Redirect URL for the MongoDB")
   redirectUrl?: string;
 
   @doc("Organization name in MongoDB system")

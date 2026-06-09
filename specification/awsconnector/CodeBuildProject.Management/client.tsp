@@ -3,11 +3,13 @@ import "@azure-tools/typespec-client-generator-core";
 
 using Azure.ClientGenerator.Core;
 
-@@clientName(Microsoft.AwsConnector.BuildStatusConfig.targetUrl,
+@@clientName(
+  Microsoft.AwsConnector.BuildStatusConfig.targetUrl,
   "targetUri",
   "csharp"
 );
-@@clientName(Microsoft.AwsConnector.ProjectBadge.badgeRequestUrl,
+@@clientName(
+  Microsoft.AwsConnector.ProjectBadge.badgeRequestUrl,
   "badgeRequestUri",
   "csharp"
 );

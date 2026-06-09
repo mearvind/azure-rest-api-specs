@@ -1302,8 +1302,8 @@ model ServiceProviderProperties {
   /**
    * URL of Dev Portal
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   devPortalUrl?: string;
 
   /**
@@ -1349,8 +1349,8 @@ model ServiceProviderParameter {
   /**
    * Help Url for the  Service Provider
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   helpUrl?: string;
 
   /**
@@ -1754,8 +1754,8 @@ model FacebookChannelProperties {
   /**
    * Callback Url
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   callbackUrl?: string;
 
   /**
@@ -2281,8 +2281,8 @@ model LineChannelProperties {
   /**
    * Callback Url to enter in line registration.
    */
-  @visibility(Lifecycle.Read)
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @visibility(Lifecycle.Read)
   callbackUrl?: string;
 
   /**

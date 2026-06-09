@@ -628,8 +628,8 @@ model FeatureFlagProperties {
 @doc("Arm Configuration Diff Response.")
 @added(Versions.v2024_06_15_preview)
 model ArmConfigurationDiffResponse extends CommonErrorResponse {
-  @doc("Storage URL to the diff file.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Storage URL to the diff file.")
   configurationDiffUrl?: string;
 }
 
@@ -644,8 +644,8 @@ model ArmConfigurationDiffOperationResponse {
 
 @doc("Arm Configuration Diff Response Properties.")
 model ArmConfigurationDiffResponseProperties {
-  @doc("Storage URL to the diff file.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Storage URL to the diff file.")
   configurationDiffUrl?: string;
 }
 
@@ -653,8 +653,8 @@ model ArmConfigurationDiffResponseProperties {
 @doc("View Device Configuration Response.")
 @added(Versions.v2024_06_15_preview)
 model ViewDeviceConfigurationResponse extends CommonErrorResponse {
-  @doc("Storage URL to the device configuration file.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Storage URL to the device configuration file.")
   deviceConfigurationUrl?: string;
 }
 
@@ -669,8 +669,8 @@ model ViewDeviceConfigurationOperationResponse {
 
 @doc("View Device Configuration Response Properties.")
 model ViewDeviceConfigurationResponseProperties {
-  @doc("Storage URL to the device configuration file.")
   #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  @doc("Storage URL to the device configuration file.")
   deviceConfigurationUrl?: string;
 }
 
