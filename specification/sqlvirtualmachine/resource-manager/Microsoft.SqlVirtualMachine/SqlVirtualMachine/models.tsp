@@ -872,7 +872,6 @@ model AutoBackupSettings {
   /**
    * Storage account url where backup will be taken to.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   storageAccountUrl?: string;
 
   /**
@@ -947,7 +946,6 @@ model KeyVaultCredentialSettings {
   /**
    * Azure Key Vault url.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   azureKeyVaultUrl?: string;
 
   /**

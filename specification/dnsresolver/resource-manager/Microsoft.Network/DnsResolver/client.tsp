@@ -144,3 +144,9 @@ namespace Azure.ResourceManager.Models {
   Azure.ResourceManager.Models.WritableSubResource[],
   "csharp"
 );
+
+@@clientName(
+  Microsoft.Network.DnsResolverDomainListBulkProperties.storageUrl,
+  "storageUri",
+  "csharp"
+);

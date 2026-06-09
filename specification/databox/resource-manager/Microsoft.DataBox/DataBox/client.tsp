@@ -482,3 +482,5 @@ op mitigateCustomized(
 @@override(mitigate, mitigateCustomized);
 
 @@alternateType(OperationProperties, Record<unknown>, "javascript");
+
+@@clientName(Microsoft.DataBox.KeyEncryptionKey.kekUrl, "kekUri", "csharp");

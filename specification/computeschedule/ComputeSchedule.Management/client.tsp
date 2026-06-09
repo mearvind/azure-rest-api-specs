@@ -630,3 +630,24 @@ namespace Azure.ResourceManager.Models {
   "VirtualMachineDiskSecurityProfile",
   "csharp"
 );
+
+@@clientName(
+  Microsoft.ComputeSchedule.KeyVaultSecretReference.secretUrl,
+  "secretUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.ComputeSchedule.KeyVaultKeyReference.keyUrl,
+  "keyUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.ComputeSchedule.WinRMListener.certificateUrl,
+  "certificateUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.ComputeSchedule.VaultCertificate.certificateUrl,
+  "certificateUri",
+  "csharp"
+);

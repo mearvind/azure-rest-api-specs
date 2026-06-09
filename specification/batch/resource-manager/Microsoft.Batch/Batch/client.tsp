@@ -741,3 +741,5 @@ namespace Azure.ResourceManager.Models {
     id?: Azure.Core.armResourceIdentifier;
   }
 }
+
+@@clientName(Microsoft.Batch.DiskCustomerManagedKey.keyUrl, "keyUri", "csharp");

@@ -384,3 +384,14 @@ using PaloAltoNetworks.Cloudngfw;
   LocalRulestackResources.listPredefinedUrlCategories,
   "POST"
 );
+
+@@clientName(
+  PaloAltoNetworks.Cloudngfw.SupportInfoModel.hubUrl,
+  "hubUri",
+  "csharp"
+);
+@@clientName(
+  PaloAltoNetworks.Cloudngfw.StrataCloudManagerInfo.hubUrl,
+  "hubUri",
+  "csharp"
+);

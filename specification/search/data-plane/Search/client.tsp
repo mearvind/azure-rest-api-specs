@@ -5102,3 +5102,10 @@ namespace KnowledgeBaseRetrievalClient {
 );
 #suppress "@azure-tools/typespec-client-generator-core/client-option" "clientRequired for java"
 @@clientOption(Search.acceptHeaderNone.accept, "clientRequired", true, "java");
+
+@@clientName(
+  Search.KnowledgeBaseRemoteSharePointReference.webUrl,
+  "webUri",
+  "csharp"
+);
+@@clientName(Search.WorkIQAttribution.seeMoreWebUrl, "seeMoreWebUri", "csharp");

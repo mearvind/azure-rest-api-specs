@@ -164,7 +164,6 @@ model MCPToolDefinition extends ToolDefinition {
   @encodedName("application/json", "server_label")
   serverLabel: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The endpoint for the MCP server")
   @encodedName("application/json", "server_url")
   serverUrl: string;

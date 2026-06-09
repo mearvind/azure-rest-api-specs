@@ -1589,7 +1589,6 @@ model PolicySettings {
   /**
    * If action type is redirect, this field represents redirect URL for the client.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   redirectUrl?: string;
 
   /**

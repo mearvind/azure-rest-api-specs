@@ -663,3 +663,14 @@ using Microsoft.AzureStackHCI;
   DeploymentMode | null,
   "csharp"
 );
+
+@@clientName(
+  Microsoft.AzureStackHCI.OsImageProperties.composedImageIsoUrl,
+  "composedImageIsoUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.AzureStackHCI.PlatformPayload.payloadUrl,
+  "payloadUri",
+  "csharp"
+);

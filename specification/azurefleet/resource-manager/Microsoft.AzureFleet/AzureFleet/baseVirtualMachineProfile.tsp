@@ -389,7 +389,6 @@ model WinRMListener {
    * or the [Azure Key Vault virtual machine extension for
    * Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   certificateUrl?: url;
 }
 
@@ -558,7 +557,6 @@ model VaultCertificate {
    * or the [Azure Key Vault virtual machine extension for
    * Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   certificateUrl?: url;
 
   /**
@@ -1482,7 +1480,6 @@ model KeyVaultSecretReference {
   /**
    * The URL referencing a secret in a Key Vault.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   secretUrl: url;
 
   /**

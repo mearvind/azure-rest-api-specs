@@ -331,3 +331,6 @@ interface SingleDocumentTranslationClient {
   "totalImagesChargedCount",
   "java"
 );
+
+@@clientName(DocumentTranslation.SourceInput.sourceUrl, "sourceUri", "csharp");
+@@clientName(DocumentTranslation.TargetInput.targetUrl, "targetUri", "csharp");

@@ -1932,7 +1932,6 @@ model KeyEncryptionKey {
   /**
    * Key encryption key. It is required in case of Customer managed KekType.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   kekUrl?: string;
 
   /**

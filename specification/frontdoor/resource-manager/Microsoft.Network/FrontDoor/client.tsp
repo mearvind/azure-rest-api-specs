@@ -584,3 +584,9 @@ namespace Azure.ResourceManager.Models {
   "GetManagedRuleSets",
   "csharp"
 );
+
+@@clientName(
+  Microsoft.Network.PolicySettings.redirectUrl,
+  "redirectUri",
+  "csharp"
+);

@@ -145,3 +145,9 @@ using Azure.ClientGenerator.Core;
   "KeyEncryptionKeyUri",
   "csharp"
 );
+
+@@clientName(
+  Microsoft.Maps.EncryptionCustomerManagedKeyEncryption.keyEncryptionKeyUrl,
+  "keyEncryptionKeyUri",
+  "csharp"
+);

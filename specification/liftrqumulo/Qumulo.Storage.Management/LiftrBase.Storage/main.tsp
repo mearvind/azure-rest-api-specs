@@ -55,7 +55,6 @@ model FileSystemResourceProperties {
   /**
    * File system Id of the resource
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   clusterLoginUrl?: string;
 
   /**

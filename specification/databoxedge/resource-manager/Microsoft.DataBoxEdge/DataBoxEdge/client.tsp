@@ -2412,3 +2412,24 @@ op DataBoxEdgeDevicesTriggerSupportPackageCustomized(
 
 @@clientName(DataBoxEdgeSku, "ResourceTypeSku", "java");
 @@clientLocation(AvailableSkusOperationGroup.list, "Skus", "java");
+
+@@clientName(
+  Microsoft.DataBoxEdge.DataBoxEdgeDeviceExtendedInfoProperties.clientSecretStoreUrl,
+  "clientSecretStoreUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.DataBoxEdge.TrackingInfo.trackingUrl,
+  "trackingUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.DataBoxEdge.DataBoxEdgeDeviceExtendedInfoPatch.clientSecretStoreUrl,
+  "clientSecretStoreUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.DataBoxEdge.ImageRepositoryCredential.imageRepositoryUrl,
+  "imageRepositoryUri",
+  "csharp"
+);

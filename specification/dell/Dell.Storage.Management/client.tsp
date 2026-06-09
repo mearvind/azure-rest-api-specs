@@ -92,3 +92,11 @@ using LiftrBase.Storage;
   Azure.ResourceManager.Foundations.ManagedServiceIdentity,
   "csharp"
 );
+
+@@clientName(
+  LiftrBase.Storage.FileSystemResourceProperties.oneFsUrl,
+  "oneFsUri",
+  "csharp"
+);
+@@clientName(LiftrBase.EncryptionProperties.keyUrl, "keyUri", "csharp");
+@@clientName(LiftrBase.EncryptionUpdateProperties.keyUrl, "keyUri", "csharp");

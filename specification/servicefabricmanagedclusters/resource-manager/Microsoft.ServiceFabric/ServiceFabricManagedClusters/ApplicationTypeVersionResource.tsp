@@ -110,7 +110,6 @@ model ApplicationTypeVersionResourceProperties {
   /**
    * The URL to the application package
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   appPackageUrl: string;
 }
 

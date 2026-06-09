@@ -705,3 +705,9 @@ using Microsoft.AVS;
   ServiceComponents.checkAvailability,
   "!(python,javascript,go,java,csharp)"
 );
+
+@@clientName(
+  Microsoft.AVS.EncryptionKeyVaultProperties.keyVaultUrl,
+  "keyVaultUri",
+  "csharp"
+);

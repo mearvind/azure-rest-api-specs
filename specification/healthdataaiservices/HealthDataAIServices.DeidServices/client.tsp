@@ -17,3 +17,14 @@ namespace HealthDataAIServices.DeidServices {
     "csharp,java,python"
   );
 }
+
+@@clientName(
+  HealthDataAIServices.DeidServices.AadToken.authorizationUrl,
+  "authorizationUri",
+  "csharp"
+);
+@@clientName(
+  HealthDataAIServices.DeidServices.AadToken.tokenUrl,
+  "tokenUri",
+  "csharp"
+);

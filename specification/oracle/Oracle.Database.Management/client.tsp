@@ -832,3 +832,31 @@ using Oracle.Database;
   "listByCloudVMCluster",
   "go"
 );
+
+@@clientName(Oracle.Database.ConnectionUrlType.apexUrl, "apexUri", "csharp");
+@@clientName(
+  Oracle.Database.ConnectionUrlType.databaseTransformsUrl,
+  "databaseTransformsUri",
+  "csharp"
+);
+@@clientName(
+  Oracle.Database.ConnectionUrlType.graphStudioUrl,
+  "graphStudioUri",
+  "csharp"
+);
+@@clientName(
+  Oracle.Database.ConnectionUrlType.machineLearningNotebookUrl,
+  "machineLearningNotebookUri",
+  "csharp"
+);
+@@clientName(
+  Oracle.Database.ConnectionUrlType.mongoDbUrl,
+  "mongoDbUri",
+  "csharp"
+);
+@@clientName(Oracle.Database.ConnectionUrlType.ordsUrl, "ordsUri", "csharp");
+@@clientName(
+  Oracle.Database.ConnectionUrlType.sqlDevWebUrl,
+  "sqlDevWebUri",
+  "csharp"
+);

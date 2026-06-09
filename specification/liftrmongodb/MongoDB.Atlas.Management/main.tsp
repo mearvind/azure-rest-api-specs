@@ -78,7 +78,6 @@ model PartnerProperties {
   @doc("Organization Id in MongoDB system")
   organizationId?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("Redirect URL for the MongoDB")
   redirectUrl?: string;
 

@@ -597,3 +597,28 @@ using Microsoft.DevTestLab;
 @@alternateType(ArmTemplateInfo.template, unknown, "java");
 @@alternateType(ArmTemplateInfo.parameters, unknown, "java");
 @@alternateType(ParametersValueFileInfo.parametersValueInfo, unknown, "java");
+@@clientName(
+  Microsoft.DevTestLab.NotificationSettings.webhookUrl,
+  "webhookUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.DevTestLab.NotificationChannelProperties.webHookUrl,
+  "webHookUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.DevTestLab.IdentityProperties.clientSecretUrl,
+  "clientSecretUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.DevTestLab.ShutdownNotificationContent.skipUrl,
+  "skipUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.DevTestLab.ShutdownNotificationContent.vmUrl,
+  "vmUri",
+  "csharp"
+);

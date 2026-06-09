@@ -107,3 +107,9 @@ enum OldMarketplaceSubscriptionStatus {
   Azure.Core.armResourceIdentifier,
   "csharp"
 );
+
+@@clientName(
+  LiftrBase.Storage.FileSystemResourceProperties.clusterLoginUrl,
+  "clusterLoginUri",
+  "csharp"
+);

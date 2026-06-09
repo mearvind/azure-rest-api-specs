@@ -742,3 +742,9 @@ model ScheduleUpdatePropertiesReplacement {
   ProjectEnvironmentTypeUpdateProperties.creatorRoleAssignment,
   "csharp"
 );
+
+@@clientName(
+  Microsoft.DevCenter.DevCenterEncryptionSetUpdateProperties.keyEncryptionKeyUrl,
+  "keyEncryptionKeyUri",
+  "csharp"
+);

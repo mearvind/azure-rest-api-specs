@@ -468,7 +468,6 @@ model EncryptionKeyVaultProperties {
   @visibility(Lifecycle.Read)
   autoDetectedKeyVersion?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL of the vault.")
   keyVaultUrl?: string;
 

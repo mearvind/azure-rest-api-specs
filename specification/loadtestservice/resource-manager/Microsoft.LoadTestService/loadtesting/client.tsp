@@ -184,3 +184,9 @@ model QuotaBucketRequestReplacement
   LoadTestResourceUpdate.properties,
   "csharp"
 );
+
+@@clientName(
+  Microsoft.LoadTestService.EncryptionProperties.keyUrl,
+  "keyUri",
+  "csharp"
+);

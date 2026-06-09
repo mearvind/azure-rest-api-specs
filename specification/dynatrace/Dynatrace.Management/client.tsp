@@ -229,3 +229,19 @@ using Dynatrace.Observability;
 @@clientName(AppServiceInfo.hostName, "hostname", "java");
 @@clientName(VMInfo.hostName, "hostname", "java");
 @@clientName(MonitorResources.getSSODetails, "getSsoDetails", "java");
+
+@@clientName(
+  Dynatrace.Observability.DynatraceSingleSignOnProperties.singleSignOnUrl,
+  "singleSignOnUri",
+  "csharp"
+);
+@@clientName(
+  Dynatrace.Observability.SSODetailsResponse.metadataUrl,
+  "metadataUri",
+  "csharp"
+);
+@@clientName(
+  Dynatrace.Observability.SSODetailsResponse.singleSignOnUrl,
+  "singleSignOnUri",
+  "csharp"
+);

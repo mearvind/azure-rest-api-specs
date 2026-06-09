@@ -2114,7 +2114,6 @@ model ActiveSessionHostConfigurationProperties {
   /**
    * The uri to the storage blob containing the arm template to be run on the virtual machine after provisioning.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   customConfigurationScriptUrl?: url;
 
   /**
@@ -5095,7 +5094,6 @@ model SessionHostConfigurationProperties {
   /**
    * The uri to the storage blob containing the arm template to be run on the virtual machine after provisioning.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   customConfigurationScriptUrl?: url;
 
   /**
@@ -5182,7 +5180,6 @@ model SessionHostConfigurationPatchProperties {
   /**
    * The uri to the storage blob containing the arm template to be run on the virtual machine after provisioning.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   customConfigurationScriptUrl?: url;
 
   /**

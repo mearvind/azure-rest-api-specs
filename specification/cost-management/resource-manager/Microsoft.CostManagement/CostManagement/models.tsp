@@ -2721,7 +2721,6 @@ model DownloadURL {
    * The URL to download the generated report.
    */
   #suppress "@azure-tools/typespec-client-generator-core/property-name-conflict" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   downloadUrl?: string;
 }
 
@@ -3857,7 +3856,6 @@ model ReportURL {
    * The CSV file from the reportUrl blob link consists of reservation usage data with the following schema at daily granularity
    */
   #suppress "@azure-tools/typespec-client-generator-core/property-name-conflict" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   reportUrl?: ReservationReportSchema;
 
   /**
@@ -3881,7 +3879,6 @@ model PricesheetDownloadProperties {
   /**
    * The URL to download the generated report.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   downloadUrl?: string;
 
   /**

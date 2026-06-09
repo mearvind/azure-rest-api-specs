@@ -3623,3 +3623,30 @@ op protectionPolicyOperationStatusesGet(
 @@clientName(SourceSideScanStatus, "BackupSourceSideScanStatus", "csharp");
 @@clientName(SourceSideScanSummary, "BackupSourceSideScanSummary", "csharp");
 @@clientName(VMWorkloadPolicyType, "VmWorkloadPolicyType", "csharp");
+
+@@clientName(
+  Microsoft.RecoveryServices.BEKDetails.secretUrl,
+  "secretUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.RecoveryServices.EncryptionDetails.kekUrl,
+  "kekUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.RecoveryServices.EncryptionDetails.secretKeyUrl,
+  "secretKeyUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.RecoveryServices.ExportJobsOperationResultInfo.blobUrl,
+  "blobUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.RecoveryServices.ExportJobsOperationResultInfo.excelFileBlobUrl,
+  "excelFileBlobUri",
+  "csharp"
+);
+@@clientName(Microsoft.RecoveryServices.KEKDetails.keyUrl, "keyUri", "csharp");

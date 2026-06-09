@@ -290,3 +290,14 @@ using Microsoft.SqlVirtualMachine;
   "sqlAuthUpdateUsername",
   "java"
 );
+
+@@clientName(
+  Microsoft.SqlVirtualMachine.AutoBackupSettings.storageAccountUrl,
+  "storageAccountUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.SqlVirtualMachine.KeyVaultCredentialSettings.azureKeyVaultUrl,
+  "azureKeyVaultUri",
+  "csharp"
+);

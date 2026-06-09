@@ -1086,3 +1086,18 @@ using Microsoft.DesktopVirtualization;
   "ScalingScheduleDaysOfWeekItem",
   "java"
 );
+@@clientName(
+  Microsoft.DesktopVirtualization.ActiveSessionHostConfigurationProperties.customConfigurationScriptUrl,
+  "customConfigurationScriptUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.DesktopVirtualization.SessionHostConfigurationProperties.customConfigurationScriptUrl,
+  "customConfigurationScriptUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.DesktopVirtualization.SessionHostConfigurationPatchProperties.customConfigurationScriptUrl,
+  "customConfigurationScriptUri",
+  "csharp"
+);

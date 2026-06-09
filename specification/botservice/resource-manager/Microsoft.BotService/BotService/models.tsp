@@ -286,7 +286,6 @@ model BotProperties {
   /**
    * The Icon Url of the bot
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   iconUrl?: string = "";
 
   /**
@@ -316,7 +315,6 @@ model BotProperties {
   /**
    * The bot's manifest url
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   manifestUrl?: string;
 
   /**
@@ -390,7 +388,6 @@ model BotProperties {
   /**
    * The CMK Url
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   cmekKeyVaultUrl?: string;
 
   /**
@@ -984,7 +981,6 @@ model ChannelSettings {
   /**
    * The bot icon url
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   botIconUrl?: string;
 
   /**
@@ -1309,7 +1305,6 @@ model ServiceProviderProperties {
   /**
    * The URL of icon
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   iconUrl?: string = "";
 
   /**
@@ -1521,14 +1516,12 @@ model HostSettingsResponse {
    * For in-conversation bot user authentication
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   OAuthUrl?: string;
 
   /**
    * For verifying incoming tokens from the channels
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   ToBotFromChannelOpenIdMetadataUrl?: string;
 
   /**
@@ -1541,14 +1534,12 @@ model HostSettingsResponse {
    * For verifying incoming tokens from bot emulator
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   ToBotFromEmulatorOpenIdMetadataUrl?: string;
 
   /**
    * For getting access token to channels from bot host
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   ToChannelFromBotLoginUrl?: string;
 
   /**
@@ -2213,7 +2204,6 @@ model SlackChannelProperties {
   /**
    * The Slack landing page Url
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   landingPageUrl?: string;
 
   /**

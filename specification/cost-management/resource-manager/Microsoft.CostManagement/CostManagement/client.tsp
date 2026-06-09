@@ -547,3 +547,19 @@ model ExportRunReplacement extends Azure.ResourceManager.CommonTypes.Resource {
 // to free the original names for non-nullable [Obsolete] backward-compat shims.
 @@clientName(BudgetProperties.category, "BudgetCategory", "csharp");
 @@clientName(BudgetProperties.timeGrain, "BudgetTimeGrain", "csharp");
+
+@@clientName(
+  Microsoft.CostManagement.DownloadURL.downloadUrl,
+  "downloadUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.CostManagement.ReportURL.reportUrl,
+  "reportUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.CostManagement.PricesheetDownloadProperties.downloadUrl,
+  "downloadUri",
+  "csharp"
+);

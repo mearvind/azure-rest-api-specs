@@ -382,3 +382,14 @@ using Microsoft.ContainerInstance;
 @@clientName(AzureFileVolume.readOnly, "IsReadOnly", "csharp");
 @@clientName(VolumeMount.readOnly, "IsReadOnly", "csharp");
 @@clientName(SecurityContextDefinition.privileged, "IsPrivileged", "csharp");
+
+@@clientName(
+  Microsoft.ContainerInstance.ImageRegistryCredential.identityUrl,
+  "identityUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.ContainerInstance.EncryptionProperties.vaultBaseUrl,
+  "vaultBaseUri",
+  "csharp"
+);

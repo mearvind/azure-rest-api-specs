@@ -735,7 +735,6 @@ model DnsResolverDomainListBulkProperties {
   /**
    * The storage account blob file URL to be used in the bulk upload or download request of DNS resolver domain list.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   storageUrl: string;
 
   /**

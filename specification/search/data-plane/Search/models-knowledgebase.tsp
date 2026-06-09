@@ -955,7 +955,6 @@ model KnowledgeBaseRemoteSharePointReference extends KnowledgeBaseReference {
   type: KnowledgeBaseReferenceType.remoteSharePoint;
 
   /** The url the reference data originated from. */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   webUrl?: url;
 
   /** Information about the sensitivity label applied to the SharePoint document. */
@@ -986,7 +985,6 @@ model KnowledgeBaseWorkIQReference extends KnowledgeBaseReference {
 @added(Versions.v2026_05_01_preview)
 model WorkIQAttribution {
   /** The URL for the attribution. */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   seeMoreWebUrl?: url;
 }
 

@@ -535,3 +535,19 @@ model ComputeFleetVmss extends Azure.ResourceManager.CommonTypes.Resource {
 
 @@apiVersion(VirtualMachineScaleSetNetworkProfile.networkApiVersion, false);
 @@apiVersion(ComputeProfile.computeApiVersion, false);
+
+@@clientName(
+  Microsoft.AzureFleet.WinRMListener.certificateUrl,
+  "certificateUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.AzureFleet.VaultCertificate.certificateUrl,
+  "certificateUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.AzureFleet.KeyVaultSecretReference.secretUrl,
+  "secretUri",
+  "csharp"
+);

@@ -1487,3 +1487,9 @@ namespace Azure.ResourceManager.Models {
     id?: Azure.Core.armResourceIdentifier;
   }
 }
+
+@@clientName(
+  Microsoft.Cdn.PolicySettingsAfd.redirectUrl,
+  "redirectUri",
+  "csharp"
+);

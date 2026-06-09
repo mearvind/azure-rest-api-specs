@@ -262,3 +262,9 @@ op analyzeCustomSignature(
 // ============================================================================
 // JavaScript-specific customizations
 // ============================================================================
+
+@@clientName(
+  ContentUnderstanding.LabeledDataKnowledgeSource.containerUrl,
+  "containerUri",
+  "csharp"
+);

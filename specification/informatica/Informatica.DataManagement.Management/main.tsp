@@ -410,7 +410,6 @@ model InformaticaProperties {
   @doc("Informatica organization region")
   informaticaRegion?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("Single sing on URL for informatica organization")
   singleSignOnUrl?: url;
 }

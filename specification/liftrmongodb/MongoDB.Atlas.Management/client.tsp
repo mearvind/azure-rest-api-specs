@@ -38,3 +38,9 @@ using MongoDB.Atlas;
   "MongoDBAtlasResourceProvisioningState",
   "csharp"
 );
+
+@@clientName(
+  MongoDB.Atlas.PartnerProperties.redirectUrl,
+  "redirectUri",
+  "csharp"
+);

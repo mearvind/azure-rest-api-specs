@@ -319,3 +319,9 @@ namespace Azure.ResourceManager.Models {
 @@usage(AccountProperties, Usage.input | Usage.output, "csharp");
 @@usage(OrganizationProperties, Usage.input | Usage.output, "csharp");
 @@usage(PlanDataProperties, Usage.input | Usage.output, "csharp");
+
+@@clientName(
+  NewRelic.Observability.NewRelicSingleSignOnProperties.singleSignOnUrl,
+  "singleSignOnUri",
+  "csharp"
+);

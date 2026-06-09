@@ -2537,7 +2537,6 @@ model DiskCustomerManagedKey {
   /**
    * Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   keyUrl?: url;
 
   /**

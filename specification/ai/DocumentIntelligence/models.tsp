@@ -389,7 +389,6 @@ model AnalyzeBatchDocumentsRequest {
     """)
   azureBlobFileListSource?: AzureBlobFileListContentSource;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("Azure Blob Storage container URL where analyze result files will be stored.")
   resultContainerUrl: url;
 
@@ -515,11 +514,9 @@ model AnalyzeBatchOperationDetail {
   @doc("Analyze status.  succeeded, failed, or skipped")
   status: DocumentIntelligenceOperationStatus;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("URL of the source document.")
   sourceUrl: url;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("URL of the analyze result JSON.")
   resultUrl?: url;
 
@@ -1190,7 +1187,6 @@ model BuildDocumentModelRequest {
 
 @doc("Azure Blob Storage content.")
 model AzureBlobContentSource {
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("Azure Blob Storage container URL.")
   containerUrl: url;
 
@@ -1200,7 +1196,6 @@ model AzureBlobContentSource {
 
 @doc("File list in Azure Blob Storage.")
 model AzureBlobFileListContentSource {
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("Azure Blob Storage container URL.")
   containerUrl: url;
 

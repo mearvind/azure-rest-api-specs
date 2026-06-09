@@ -789,3 +789,14 @@ namespace Azure.ResourceManager.Models {
 // Note: the flattened/inner `name` property is renamed in csharp via [CodeGenMember]
 // in custom code (to `ManagedClustersSkuName`), with an [Obsolete] shim preserving the
 // previous public surface.
+
+@@clientName(
+  Microsoft.ServiceFabric.ApplicationTypeVersionResourceProperties.appPackageUrl,
+  "appPackageUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.ServiceFabric.VaultCertificate.certificateUrl,
+  "certificateUri",
+  "csharp"
+);

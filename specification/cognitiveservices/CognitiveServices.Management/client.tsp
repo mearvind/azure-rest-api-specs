@@ -1012,3 +1012,24 @@ op regenerateKeyCustom(
 @@access(SkuChangeInfo, Access.public, "csharp");
 @@access(UserOwnedAmlWorkspace, Access.public, "csharp");
 @@access(UserOwnedStorage, Access.public, "csharp");
+
+@@clientName(
+  Microsoft.CognitiveServices.RaiTopicProperties.sampleBlobUrl,
+  "sampleBlobUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.CognitiveServices.AgenticApplicationProperties.baseUrl,
+  "baseUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.CognitiveServices.ConnectionOAuth2.authUrl,
+  "authUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.CognitiveServices.AgentCard.documentationUrl,
+  "documentationUri",
+  "csharp"
+);

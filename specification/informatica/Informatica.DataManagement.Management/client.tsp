@@ -121,3 +121,9 @@ namespace Informatica.DataManagement {
     "csharp"
   );
 }
+
+@@clientName(
+  Informatica.DataManagement.InformaticaProperties.singleSignOnUrl,
+  "singleSignOnUri",
+  "csharp"
+);

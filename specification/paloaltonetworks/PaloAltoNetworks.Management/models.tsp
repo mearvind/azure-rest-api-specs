@@ -1722,7 +1722,6 @@ model SupportInfoModel {
   /**
    * URL for Strata Cloud Manager
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   hubUrl?: string;
 
   /**
@@ -2165,7 +2164,6 @@ model StrataCloudManagerInfo {
   /**
    * URL for Strata Cloud Manager
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   hubUrl?: string;
 }
 

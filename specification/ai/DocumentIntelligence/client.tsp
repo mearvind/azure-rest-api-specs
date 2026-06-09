@@ -300,3 +300,29 @@ interface DocumentIntelligenceAdministrationClient {
 @@clientName(ClassifyDocumentRequest.base64Source, "bytesSource", "python");
 @@clientName(DocumentFieldSchema.items, "itemsSchema", "python");
 @@clientName(AnalyzeFromStreamRequestParams.input, "body", "python");
+
+@@clientName(
+  DocumentIntelligence.AnalyzeBatchDocumentsRequest.resultContainerUrl,
+  "resultContainerUri",
+  "csharp"
+);
+@@clientName(
+  DocumentIntelligence.AnalyzeBatchOperationDetail.sourceUrl,
+  "sourceUri",
+  "csharp"
+);
+@@clientName(
+  DocumentIntelligence.AnalyzeBatchOperationDetail.resultUrl,
+  "resultUri",
+  "csharp"
+);
+@@clientName(
+  DocumentIntelligence.AzureBlobContentSource.containerUrl,
+  "containerUri",
+  "csharp"
+);
+@@clientName(
+  DocumentIntelligence.AzureBlobFileListContentSource.containerUrl,
+  "containerUri",
+  "csharp"
+);

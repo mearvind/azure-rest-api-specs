@@ -564,3 +564,14 @@ namespace Azure.ResourceManager.Models {
     id?: armResourceIdentifier;
   }
 }
+
+@@clientName(
+  Microsoft.Workloads.ServiceInitiatedSoftwareConfiguration.bomUrl,
+  "bomUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.Workloads.SAPInstallWithoutOSConfigSoftwareConfiguration.bomUrl,
+  "bomUri",
+  "csharp"
+);

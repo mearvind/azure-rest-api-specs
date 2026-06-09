@@ -544,3 +544,9 @@ using Azure.AI.Agents;
 @@clientName(ThreadRun.assistantId, "agentId", "python");
 @@clientName(CreateRunOptions.assistantId, "agentId", "python");
 @@clientName(CreateAndRunThreadOptions.assistantId, "agentId", "python");
+
+@@clientName(
+  Azure.AI.Agents.MCPToolDefinition.serverUrl,
+  "serverUri",
+  "csharp"
+);

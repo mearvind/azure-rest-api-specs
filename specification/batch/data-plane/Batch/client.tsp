@@ -694,3 +694,44 @@ interface BatchClient {
   "VMDiskSecurityProfile",
   "go"
 );
+
+@@clientName(
+  Azure.Batch.ResourceFile.storageContainerUrl,
+  "storageContainerUri",
+  "csharp"
+);
+@@clientName(
+  Azure.Batch.OutputFileBlobContainerDestination.containerUrl,
+  "containerUri",
+  "csharp"
+);
+@@clientName(
+  Azure.Batch.AzureFileShareConfiguration.azureFileUrl,
+  "azureFileUri",
+  "csharp"
+);
+@@clientName(
+  Azure.Batch.BatchJobPreparationAndReleaseTaskStatus.nodeUrl,
+  "nodeUri",
+  "csharp"
+);
+@@clientName(
+  Azure.Batch.BatchJobPreparationTaskExecutionInfo.taskRootDirectoryUrl,
+  "taskRootDirectoryUri",
+  "csharp"
+);
+@@clientName(
+  Azure.Batch.BatchJobReleaseTaskExecutionInfo.taskRootDirectoryUrl,
+  "taskRootDirectoryUri",
+  "csharp"
+);
+@@clientName(
+  Azure.Batch.BatchNodeInfo.taskRootDirectoryUrl,
+  "taskRootDirectoryUri",
+  "csharp"
+);
+@@clientName(
+  Azure.Batch.UploadBatchServiceLogsOptions.containerUrl,
+  "containerUri",
+  "csharp"
+);

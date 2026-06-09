@@ -700,3 +700,9 @@ using Azure.ClientGenerator.Core;
   PrivateLinkResources.listByCluster,
   "csharp"
 );
+
+@@clientName(
+  Microsoft.HDInsight.HostInfo.effectiveDiskEncryptionKeyUrl,
+  "effectiveDiskEncryptionKeyUri",
+  "csharp"
+);
