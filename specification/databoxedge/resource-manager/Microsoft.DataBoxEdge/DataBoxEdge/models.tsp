@@ -2245,7 +2245,7 @@ model DataBoxEdgeDeviceExtendedInfoProperties {
   /**
    * The url to access the Client Key Vault
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   clientSecretStoreUrl?: string;
 
   /**
@@ -2931,7 +2931,7 @@ model TrackingInfo {
   /**
    * Tracking URL of the shipment.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   trackingUrl?: string;
 }
 
@@ -3445,7 +3445,7 @@ model DataBoxEdgeDeviceExtendedInfoPatch {
   /**
    * The url to access the Client Key Vault
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   clientSecretStoreUrl?: string;
 
   /**
@@ -4060,7 +4060,7 @@ model ImageRepositoryCredential {
   /**
    * Image repository url (e.g.: mcr.microsoft.com).
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   imageRepositoryUrl: string;
 
   /**

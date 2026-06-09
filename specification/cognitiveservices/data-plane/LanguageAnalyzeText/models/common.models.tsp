@@ -18,7 +18,7 @@ model AADToken
   is OAuth2Auth<[
     {
       type: OAuth2FlowType.implicit;
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "OAuth2 flow metadata uses the standards-defined URL field and has no generated C# client property to rename."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       authorizationUrl: "https://login.microsoftonline.com/common/oauth2/authorize";
       scopes: ["https://cognitiveservices.azure.com/.default"];
     }

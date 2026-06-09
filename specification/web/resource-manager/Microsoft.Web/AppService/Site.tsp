@@ -835,7 +835,7 @@ interface Sites {
       /**
        * The Blob URL to store capture file.
        */
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "This inline or aliased property has no stable client customization target; keeping the existing C# SDK surface avoids a breaking change."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       @query("sasUrl")
       sasUrl?: string;
     },
@@ -874,7 +874,7 @@ interface Sites {
       /**
        * The Blob URL to store capture file.
        */
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "This inline or aliased property has no stable client customization target; keeping the existing C# SDK surface avoids a breaking change."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       @query("sasUrl")
       sasUrl?: string;
     },
@@ -1254,7 +1254,7 @@ interface Sites {
       /**
        * The Blob URL to store capture file.
        */
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "This inline or aliased property has no stable client customization target; keeping the existing C# SDK surface avoids a breaking change."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       @query("sasUrl")
       sasUrl?: string;
     },
@@ -2200,7 +2200,7 @@ interface WebApps {
       /**
        * The Blob URL to store capture file.
        */
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "This inline or aliased property has no stable client customization target; keeping the existing C# SDK surface avoids a breaking change."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       @query("sasUrl")
       sasUrl?: string;
     },
@@ -2239,7 +2239,7 @@ interface WebApps {
       /**
        * The Blob URL to store capture file.
        */
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "This inline or aliased property has no stable client customization target; keeping the existing C# SDK surface avoids a breaking change."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       @query("sasUrl")
       sasUrl?: string;
     },
@@ -2620,7 +2620,7 @@ interface WebApps {
       /**
        * The Blob URL to store capture file.
        */
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "This inline or aliased property has no stable client customization target; keeping the existing C# SDK surface avoids a breaking change."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       @query("sasUrl")
       sasUrl?: string;
     },

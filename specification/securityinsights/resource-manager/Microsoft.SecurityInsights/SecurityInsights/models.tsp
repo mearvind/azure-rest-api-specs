@@ -1,4 +1,4 @@
-﻿import "@typespec/rest";
+import "@typespec/rest";
 import "@typespec/http";
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
@@ -5895,7 +5895,7 @@ model IncidentProperties {
   /**
    * The deep-link url to the incident in Azure portal
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   incidentUrl?: string;
 
@@ -6006,7 +6006,7 @@ model IncidentAdditionalData {
   /**
    * The provider incident url to the incident in Microsoft 365 Defender portal
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   providerIncidentUrl?: string;
 
@@ -6019,7 +6019,7 @@ model IncidentAdditionalData {
   /**
    * The URL to the incident that the current incident was merged into
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   mergedIncidentUrl?: string;
 }
@@ -6037,7 +6037,7 @@ model TeamInformation {
   /**
    * The primary channel URL of the team
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   primaryChannelUrl?: string;
 
@@ -7133,13 +7133,13 @@ model Repository {
   /**
    * Display url of repository.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   displayUrl?: string;
 
   /**
    * Url to access repository action logs.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   deploymentLogsUrl?: string;
 }
@@ -7243,7 +7243,7 @@ model Webhook {
   /**
    * URL that gets invoked by the webhook.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   webhookUrl?: string;
 
@@ -7333,7 +7333,7 @@ model Deployment {
   /**
    * Url to access repository action logs.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   deploymentLogsUrl?: string;
 }
 
@@ -11586,7 +11586,7 @@ model RestApiPollerRequestPagingNextPageUrlConfig
   /**
    * Next page URL
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   nextPageUrl?: string;
 
   /**

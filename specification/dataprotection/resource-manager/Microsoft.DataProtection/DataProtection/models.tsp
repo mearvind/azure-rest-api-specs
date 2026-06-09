@@ -2075,7 +2075,7 @@ model AzureBackupJob {
   /**
    * Url which contains job's progress
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   progressUrl?: string;
 
@@ -2427,7 +2427,7 @@ model ExportJobsResult {
   /**
    * URL of the blob into which the serialized string of list of jobs is exported.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   blobUrl?: string;
 
@@ -2441,7 +2441,7 @@ model ExportJobsResult {
   /**
    * URL of the blob into which the ExcelFile is uploaded.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   excelFileBlobUrl?: string;
 

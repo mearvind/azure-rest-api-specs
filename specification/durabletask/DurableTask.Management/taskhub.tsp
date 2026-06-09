@@ -27,7 +27,7 @@ model TaskHubProperties {
   @doc("The status of the last operation")
   provisioningState?: ProvisioningState;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("URL of the durable task scheduler dashboard")
   @visibility(Lifecycle.Read)
   dashboardUrl?: url;

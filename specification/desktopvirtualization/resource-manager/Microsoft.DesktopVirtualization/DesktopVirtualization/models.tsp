@@ -1497,7 +1497,7 @@ model AppAttachPackageProperties {
    * Lookback url to third party control plane, is null for native app attach packages
    * @Introduced in 2024-03-06-preview
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @added(Versions.vLatestPreview)
   packageLookbackUrl?: url;
 
@@ -2114,7 +2114,7 @@ model ActiveSessionHostConfigurationProperties {
   /**
    * The uri to the storage blob containing the arm template to be run on the virtual machine after provisioning.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   customConfigurationScriptUrl?: url;
 
   /**
@@ -3224,7 +3224,7 @@ model AppAttachPackagePatchProperties {
    * Lookback url to third party control plane, is null for native app attach packages
    * @Introduced in 2024-03-06-preview
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @added(Versions.vLatestPreview)
   packageLookbackUrl?: url;
 
@@ -5095,7 +5095,7 @@ model SessionHostConfigurationProperties {
   /**
    * The uri to the storage blob containing the arm template to be run on the virtual machine after provisioning.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   customConfigurationScriptUrl?: url;
 
   /**
@@ -5182,7 +5182,7 @@ model SessionHostConfigurationPatchProperties {
   /**
    * The uri to the storage blob containing the arm template to be run on the virtual machine after provisioning.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   customConfigurationScriptUrl?: url;
 
   /**

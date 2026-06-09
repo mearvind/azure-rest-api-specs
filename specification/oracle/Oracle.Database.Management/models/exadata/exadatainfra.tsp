@@ -232,7 +232,7 @@ model CloudExadataInfrastructureProperties {
   @visibility(Lifecycle.Create, Lifecycle.Read)
   shape: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("HTTPS link to OCI resources exposed to Azure Customer via Azure Interface.")
   @visibility(Lifecycle.Read)
   ociUrl?: url;

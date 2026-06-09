@@ -3613,7 +3613,7 @@ model RaiTopicProperties {
   /**
    * Sample blob url for the custom topic.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   sampleBlobUrl?: string;
 
   /**
@@ -4539,7 +4539,7 @@ model AgenticApplicationProperties extends ResourceBase {
    * The application's dedicated invocation endpoint.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "'baseUrl' is nullable in 'AgenticApplicationProperties' for backward compatibility with existing API behavior"
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   baseUrl?: string | null;
 
   /**
@@ -5082,7 +5082,7 @@ model ConnectionOAuth2 {
   /**
    * Required by Concur connection category
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   authUrl?: url;
 
   /**
@@ -5330,7 +5330,7 @@ model AgentCard {
    * URL for the Agent's documentation.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "'documentationUrl' is nullable in 'AgentCard' for backward compatibility with existing API behavior"
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   documentationUrl?: string | null;
 
   /**

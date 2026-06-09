@@ -1416,7 +1416,7 @@ model AgentConfiguration {
   /**
    * Specifies the URL of the proxy to be used.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   proxyUrl?: string;
 

@@ -1535,11 +1535,11 @@ model ResourceFile {
   @doc("The storage container name in the auto storage Account. The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.")
   autoStorageContainerName?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL of the blob container within Azure Blob Storage. The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable from compute nodes. There are three ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, use a managed identity with read and list permissions, or set the ACL for the container to allow public access.")
   storageContainerUrl?: url;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL of the file to download. The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL points to Azure Blob Storage, it must be readable from compute nodes. There are three ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, use a managed identity with read permission, or set the ACL for the blob or its container to allow public access.")
   httpUrl?: url;
 
@@ -1581,7 +1581,7 @@ model OutputFileBlobContainerDestination {
   @doc("The destination blob or virtual directory within the Azure Storage container. If filePattern refers to a specific file (i.e. contains no wildcards), then path is the name of the blob to which to upload that file. If filePattern contains one or more wildcards (and therefore may match multiple files), then path is the name of the blob virtual directory (which is prepended to each blob name) to which to upload the file(s). If omitted, file(s) are uploaded to the root of the container with a blob name matching their file name.")
   path?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL of the container within Azure Blob Storage to which to upload the file(s). If not using a managed identity, the URL must include a Shared Access Signature (SAS) granting write permissions to the container.")
   containerUrl: url;
 
@@ -1965,7 +1965,7 @@ model DiskCustomerManagedKey {
   @doc("The reference of one of the pool identities to encrypt Disk. This identity will be used to access the KeyVault.")
   identityReference?: BatchPoolIdentityReference;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("Fully versioned Key Url pointing to a key in KeyVault. Version segment of the Url is required regardless of rotationToLatestKeyVersionEnabled value.")
   keyUrl?: string;
 
@@ -2350,7 +2350,7 @@ model AzureFileShareConfiguration {
   @doc("The Azure Storage account key.")
   accountKey: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.")
   azureFileUrl: url;
 
@@ -2729,7 +2729,7 @@ model BatchJobPreparationAndReleaseTaskStatus {
   @doc("The ID of the Compute Node to which this entry refers.")
   nodeId?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL of the Compute Node to which this entry refers.")
   nodeUrl?: url;
 
@@ -2758,7 +2758,7 @@ model BatchJobPreparationTaskExecutionInfo {
   @doc("The root directory of the Job Preparation Task on the Compute Node. You can use this path to retrieve files created by the Task, such as log files.")
   taskRootDirectory?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL to the root directory of the Job Preparation Task on the Compute Node.")
   taskRootDirectoryUrl?: url;
 
@@ -2828,7 +2828,7 @@ model BatchJobReleaseTaskExecutionInfo {
   @doc("The root directory of the Job Release Task on the Compute Node. You can use this path to retrieve files created by the Task, such as log files.")
   taskRootDirectory?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL to the root directory of the Job Release Task on the Compute Node.")
   taskRootDirectoryUrl?: url;
 
@@ -3543,7 +3543,7 @@ model BatchNodeInfo {
   @doc("An identifier for the Node on which the Task ran, which can be passed when adding a Task to request that the Task be scheduled on this Compute Node.")
   affinityId?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL of the Compute Node on which the Task ran.")
   nodeUrl?: url;
 
@@ -3556,7 +3556,7 @@ model BatchNodeInfo {
   @doc("The root directory of the Task on the Compute Node.")
   taskRootDirectory?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL to the root directory of the Task on the Compute Node.")
   taskRootDirectoryUrl?: url;
 }
@@ -3934,7 +3934,7 @@ model BatchNode {
 @doc("Information about a Task running on a Compute Node.")
 @clientName("BatchTaskDetails", "java")
 model BatchTaskInfo {
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL of the Task.")
   taskUrl?: url;
 
@@ -4088,7 +4088,7 @@ model BatchNodeRemoteLoginSettings {
 
 @doc("The Azure Batch service log files upload parameters for a Compute Node.")
 model UploadBatchServiceLogsOptions {
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("The URL of the container within Azure Blob Storage to which to upload the Batch Service log file(s). If a user assigned managed identity is not being used, the URL must include a Shared Access Signature (SAS) granting write permissions to the container. The SAS duration must allow enough time for the upload to finish. The start time for SAS is optional and recommended to not be specified.")
   containerUrl: url;
 

@@ -65,7 +65,7 @@ alias BaseKnowledgeBase = WithId & {
   @removed(Versions.`2026-02-01-preview`)
   dataAssetIds: DataAssetId[];
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "This inline or aliased property has no stable client customization target; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("URL to access the knowledge base.")
   @visibility(Lifecycle.Read)
   knowledgeBaseUrl?: string;

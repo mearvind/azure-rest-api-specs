@@ -42,9 +42,9 @@ model AADToken
   is OAuth2Auth<[
     {
       type: OAuth2FlowType.authorizationCode;
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "OAuth2 flow metadata uses the standards-defined URL field and has no generated C# client property to rename."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       authorizationUrl: "https://api.example.com/oauth2/authorize";
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "OAuth2 flow metadata uses the standards-defined URL field and has no generated C# client property to rename."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       tokenUrl: "https://api.example.com/oauth2/token";
       scopes: ["https://cognitiveservices.azure.com/.default"];
     }

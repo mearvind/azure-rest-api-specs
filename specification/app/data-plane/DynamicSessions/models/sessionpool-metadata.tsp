@@ -52,7 +52,7 @@ model JupyterKernel {
   version: string;
 
   /** Project URL of the kernel. */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   projectUrl: url;
 
   /** Description of the kernel. */

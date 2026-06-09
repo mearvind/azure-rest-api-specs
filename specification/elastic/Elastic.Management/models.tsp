@@ -421,7 +421,7 @@ model ElasticCloudUser {
   /**
    * Elastic cloud default dashboard sso URL of the Elastic user account.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   elasticCloudSsoDefaultUrl?: string;
 }
@@ -457,21 +457,21 @@ model ElasticCloudDeployment {
   /**
    * Elasticsearch ingestion endpoint of the Elastic deployment.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   elasticsearchServiceUrl?: string;
 
   /**
    * Kibana endpoint of the Elastic deployment.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   kibanaServiceUrl?: string;
 
   /**
    * Kibana dashboard sso URL of the Elastic deployment.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   kibanaSsoUrl?: string;
 }
@@ -831,7 +831,7 @@ model DeploymentInfoResponse {
   /**
    * Deployment URL of the elasticsearch in Elastic cloud deployment.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   deploymentUrl?: string;
 

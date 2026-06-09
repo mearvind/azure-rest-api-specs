@@ -1115,7 +1115,7 @@ interface File {
       @header("x-ms-source-range") sourceRange?: string;
 
       /** Only update is supported. */
-      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "This inline or aliased property has no stable client customization target; keeping the existing C# SDK surface avoids a breaking change."
+      #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
       @header("x-ms-write")
       fileRangeWriteFromUrl: FileRangeWriteFromUrlType = FileRangeWriteFromUrlType.update;
 

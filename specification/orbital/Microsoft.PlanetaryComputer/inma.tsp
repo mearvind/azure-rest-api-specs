@@ -131,11 +131,11 @@ model IngestionDefinition {
   @doc("Ingestion name")
   displayName?: string;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("Source catalog URL. Required for StaticCatalog ingestion type")
   sourceCatalogUrl?: url;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @added(Versions.v2026_04_15)
   @doc("Parquet catalog URL. Required for StacGeoparquet ingestion type")
   stacGeoparquetUrl?: url;
@@ -240,7 +240,7 @@ model IngestionRun {
   @doc("Creation time")
   creationTime: utcDateTime;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("URL of the source catalog")
   sourceCatalogUrl?: url;
 

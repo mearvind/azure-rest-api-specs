@@ -233,7 +233,7 @@ model Consent {
    * [SAS](https://learn.microsoft.com/azure/storage/common/storage-sas-overview).
    * This property is only available in request.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   audioUrl?: url;
 
   /**
@@ -378,7 +378,7 @@ model AzureBlobContentSource {
    * [SAS](https://learn.microsoft.com/azure/storage/common/storage-sas-overview).
    * Need both read and list permissions.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   containerUrl: url;
 
   /** Blob name prefix. */

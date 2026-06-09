@@ -62,7 +62,7 @@ model SubscriptionValidationEventData {
   /** The validation URL sent by Azure Event Grid (available starting version 2018-05-01-preview).
    * To complete the validation handshake, the subscriber must either respond with the validationCode as part of the validation response,
    * or perform a GET request on the validationUrl (available starting version 2018-05-01-preview). */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   validationUrl: string;
 }
 

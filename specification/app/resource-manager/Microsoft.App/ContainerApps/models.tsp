@@ -2128,7 +2128,7 @@ model CertificateKeyVaultProperties {
   /**
    * URL pointing to the Azure Key Vault secret that holds the certificate.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   keyVaultUrl?: url;
 }
 
@@ -2497,7 +2497,7 @@ model SecretKeyVaultProperties {
   /**
    * URL pointing to the Azure Key Vault secret.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   keyVaultUrl?: string;
 }
 
@@ -3107,7 +3107,7 @@ model DiskEncryptionConfigurationKeyVaultConfiguration {
   /**
    * Key URL pointing to a key in KeyVault. Version segment of the Url is required.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   keyUrl?: url;
 
   /**
@@ -6993,7 +6993,7 @@ model Secret {
   /**
    * Azure Key Vault URL pointing to the secret referenced by the container app.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   keyVaultUrl?: string;
 }
 
@@ -7873,7 +7873,7 @@ model ContainerAppSecret {
   /**
    * Azure Key Vault URL pointing to the secret referenced by the container app.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   keyVaultUrl?: string;
 }

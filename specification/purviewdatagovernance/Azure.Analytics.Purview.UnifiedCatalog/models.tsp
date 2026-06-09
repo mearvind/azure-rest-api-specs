@@ -572,7 +572,7 @@ model DataAsset {
   @doc("Schema of the asset.")
   schema?: CatalogModelDataAssetSchema[];
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("A redirection link.")
   openInUrl?: url;
 }
@@ -650,7 +650,7 @@ model DataAssetRequest {
   @doc("Contacts associated with the asset.")
   contacts?: ContactsMap;
 
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("A redirection link.")
   openInUrl?: url;
 }

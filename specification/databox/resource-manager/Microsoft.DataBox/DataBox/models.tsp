@@ -1558,7 +1558,7 @@ model PackageShippingDetails {
   /**
    * Url where shipment can be tracked.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   trackingUrl?: string;
 
@@ -1932,7 +1932,7 @@ model KeyEncryptionKey {
   /**
    * Key encryption key. It is required in case of Customer managed KekType.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   kekUrl?: string;
 
   /**

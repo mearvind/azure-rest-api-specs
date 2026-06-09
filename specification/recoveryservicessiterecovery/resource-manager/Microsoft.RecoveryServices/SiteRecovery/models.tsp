@@ -1,4 +1,4 @@
-﻿import "@typespec/rest";
+import "@typespec/rest";
 import "@typespec/http";
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
@@ -16897,7 +16897,7 @@ model ManagedRunCommandScriptInput {
   /**
    * The script url.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Importing this project's existing client.tsp would apply unrelated customizations; keeping the existing C# SDK surface avoids a breaking change."
+  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   scriptUrl: string;
 
   /**
