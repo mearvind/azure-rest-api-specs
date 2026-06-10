@@ -25,5 +25,3 @@ options:
 linter:
   extends:
     - "@azure-tools/typespec-azure-rulesets/resource-manager"
-imports:
-  - ./client.tsp
