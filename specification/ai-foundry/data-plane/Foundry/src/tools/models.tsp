@@ -695,6 +695,12 @@ namespace Azure.AI.Projects {
      * The connection stores authentication and other connection details needed to connect to the A2A server.
      */
     project_connection_id?: string;
+
+    /**
+     * When true, sends authentication credentials when fetching the remote agent's
+     * agent card. Defaults to false (unauthenticated card fetch).
+     */
+    authenticate_agent_card?: boolean;
   }
 
   /**
