@@ -243,9 +243,3 @@ interface TestRunOperations {
   updateLatestTestRunInsights is LoadTestRun.updateLatestInsights;
   generateTestRunInsights is LoadTestRun.generateInsights;
 }
-
-@@clientName(
-  Microsoft.LoadTestService.Oauth2.authorizationUrl,
-  "authorizationUri",
-  "csharp"
-);
