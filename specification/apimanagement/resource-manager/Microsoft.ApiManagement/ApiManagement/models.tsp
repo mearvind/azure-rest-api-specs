@@ -2106,7 +2106,6 @@ model ApiContractProperties extends ApiEntityBaseContract {
   /**
    * Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @maxLength(2000)
   @minLength(0)
   serviceUrl?: string;
@@ -2245,7 +2244,6 @@ model ApiEntityBaseContract {
   /**
    *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   termsOfServiceUrl?: string;
 
   /**
@@ -2458,7 +2456,6 @@ model ApiContractUpdateProperties extends ApiEntityBaseContract {
   /**
    * Absolute URL of the backend service implementing this API.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @maxLength(2000)
   @minLength(1)
   serviceUrl?: string;
@@ -2543,7 +2540,6 @@ model ApiRevisionContract {
   /**
    * Gateway URL for accessing the non-current API Revision.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   privateUrl?: string;
 
@@ -3704,7 +3700,6 @@ model TagDescriptionBaseProperties {
   /**
    * Absolute URL of external resources describing the tag.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @maxLength(2000)
   externalDocsUrl?: string;
 
@@ -3809,7 +3804,6 @@ model ApiTagResourceContractProperties extends ApiEntityBaseContract {
   /**
    * Absolute URL of the backend service implementing this API.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @maxLength(2000)
   @minLength(1)
   serviceUrl?: string;
@@ -4166,7 +4160,6 @@ model AuthorizationProviderOAuth2Settings {
   /**
    * Redirect URL to be set in the OAuth application.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   redirectUrl?: string;
 
   /**
@@ -4365,7 +4358,6 @@ model AuthorizationLoginRequestContract {
   /**
    * The redirect URL after login has completed.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   postLoginRedirectUrl?: string;
 }
 
@@ -5963,42 +5955,36 @@ model ApiManagementServiceBaseProperties {
   /**
    * Gateway URL of the API Management service.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   gatewayUrl?: string;
 
   /**
    * Gateway URL of the API Management service in the Default Region.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   gatewayRegionalUrl?: string;
 
   /**
    * Publisher portal endpoint Url of the API Management service.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   portalUrl?: string;
 
   /**
    * Management API endpoint URL of the API Management service.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   managementApiUrl?: string;
 
   /**
    * SCM endpoint URL of the API Management service.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   scmUrl?: string;
 
   /**
    * DEveloper Portal endpoint URL of the API Management service.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   developerPortalUrl?: string;
 
@@ -6289,7 +6275,6 @@ model AdditionalLocation {
   /**
    * Gateway URL of the API Management service in the Region.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @visibility(Lifecycle.Read)
   gatewayRegionalUrl?: string;
 
@@ -8632,7 +8617,6 @@ model PortalConfigDelegationProperties {
   /**
    * A delegation endpoint URL.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   delegationUrl?: string;
 
   /**
