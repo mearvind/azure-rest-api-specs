@@ -81,3 +81,9 @@ using Microsoft.DatabaseWatcher;
   Azure.Core.armResourceType,
   "csharp"
 );
+
+@@clientName(
+  Microsoft.DatabaseWatcher.Datastore.kustoManagementUrl,
+  "kustoManagementUri",
+  "csharp"
+);

@@ -469,7 +469,6 @@ model OidcIssuerProfile {
   /**
    * The issuer url for public cloud clusters - AKS, EKS, GKE - used for the workload identity feature.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   selfHostedIssuerUrl?: string;
 }
 

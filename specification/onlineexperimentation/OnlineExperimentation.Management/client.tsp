@@ -51,3 +51,9 @@ namespace Azure.ResourceManager.Models {
   Azure.ResourceManager.Models.SubResource,
   "csharp"
 );
+
+@@clientName(
+  Microsoft.OnlineExperimentation.CustomerManagedKeyEncryption.keyEncryptionKeyUrl,
+  "keyEncryptionKeyUri",
+  "csharp"
+);

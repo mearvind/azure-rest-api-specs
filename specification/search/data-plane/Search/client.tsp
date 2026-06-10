@@ -1,4 +1,4 @@
-﻿import "@azure-tools/typespec-client-generator-core";
+import "@azure-tools/typespec-client-generator-core";
 import "@typespec/versioning";
 import "./main.tsp";
 

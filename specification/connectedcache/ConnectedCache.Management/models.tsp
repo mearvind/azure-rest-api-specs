@@ -795,7 +795,6 @@ model BgpConfiguration {
 
 @doc("ProxyUrl configuration of cache node")
 model ProxyUrlConfiguration {
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   @doc("Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80")
   proxyUrl?: string;
 }

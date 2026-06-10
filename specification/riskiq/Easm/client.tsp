@@ -170,3 +170,11 @@ interface EasmClient {
   "CoreInnerError",
   "java,go,python,csharp"
 );
+
+@@clientName(Easm.PageAsset.rootUrl, "rootUri", "csharp");
+@@clientName(Easm.PageAsset.isRootUrl, "isRootUri", "csharp");
+@@clientName(
+  Easm.SubResourceIntegrityCheck.causePageUrl,
+  "causePageUri",
+  "csharp"
+);

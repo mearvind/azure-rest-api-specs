@@ -33,3 +33,9 @@ using LiftrBase;
   "csharp"
 );
 @@alternateType(CommonTypes.Resource.id, armResourceIdentifier, "csharp");
+
+@@clientName(
+  LiftrBase.SingleSignOnProperties.singleSignOnUrl,
+  "singleSignOnUri",
+  "csharp"
+);

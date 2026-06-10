@@ -265,3 +265,24 @@ using Microsoft.ContainerRegistry;
 
 // C# enum member rename: identifiers cannot start with a digit
 @@clientName(Architecture.`386`, "X386", "csharp");
+
+@@clientName(
+  Microsoft.ContainerRegistry.SourceTriggerDescriptor.repositoryUrl,
+  "repositoryUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.ContainerRegistry.SourceUploadDefinition.uploadUrl,
+  "uploadUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.ContainerRegistry.SourceProperties.repositoryUrl,
+  "repositoryUri",
+  "csharp"
+);
+@@clientName(
+  Microsoft.ContainerRegistry.SourceUpdateParameters.repositoryUrl,
+  "repositoryUri",
+  "csharp"
+);

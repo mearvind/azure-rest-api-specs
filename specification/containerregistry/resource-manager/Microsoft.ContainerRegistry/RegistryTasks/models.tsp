@@ -708,7 +708,6 @@ model SourceTriggerDescriptor {
   /**
    * The repository URL.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   repositoryUrl?: string;
 
   /**
@@ -801,7 +800,6 @@ model SourceUploadDefinition {
   /**
    * The URL where the client can upload the source.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   uploadUrl?: string;
 
   /**
@@ -1159,7 +1157,6 @@ model SourceProperties {
   /**
    * The full URL to the source code repository
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   repositoryUrl: string;
 
   /**
@@ -1509,7 +1506,6 @@ model SourceUpdateParameters {
   /**
    * The full URL to the source code repository
    */
-  #suppress "@azure-tools/typespec-client-generator-core/no-url-suffix" "Name kept for backward compatibility"
   repositoryUrl?: string;
 
   /**

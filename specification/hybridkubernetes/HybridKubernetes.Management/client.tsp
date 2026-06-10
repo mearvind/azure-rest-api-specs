@@ -110,3 +110,9 @@ namespace Microsoft.Kubernetes;
 );
 @@clientName(Microsoft.Kubernetes, "ConnectedKubernetesClient", "javascript");
 @@clientName(Microsoft.Kubernetes, "ConnectedKubernetesClient", "python");
+
+@@clientName(
+  Microsoft.Kubernetes.OidcIssuerProfile.selfHostedIssuerUrl,
+  "selfHostedIssuerUri",
+  "csharp"
+);

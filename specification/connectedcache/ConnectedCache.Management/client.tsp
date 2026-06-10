@@ -148,3 +148,9 @@ using Microsoft.ConnectedCache;
 );
 @@alternateType(ProxyUrlConfiguration.proxyUrl, url, "csharp");
 @@clientName(ProvisioningState, "ConnectedCacheProvisioningState", "csharp");
+
+@@clientName(
+  Microsoft.ConnectedCache.ProxyUrlConfiguration.proxyUrl,
+  "proxyUri",
+  "csharp"
+);

@@ -550,3 +550,5 @@ using Azure.AI.Agents;
   "serverUri",
   "csharp"
 );
+
+@@clientName(MessageInputImageUrlBlock.imageUrl, "imageUri", "csharp");
