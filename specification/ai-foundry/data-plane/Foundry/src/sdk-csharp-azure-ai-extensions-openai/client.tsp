@@ -65,8 +65,9 @@ namespace Azure.AI.Projects {
     OAuthConsentRequestOutputItem,
     "OAuthConsentRequestResponseItem"
   );
-  @@clientName(OpenAI.OutputItemType, "AgentResponseItemKind");
+  
   @@usage(OpenAI.OutputItemType, Usage.output | Usage.json | Usage.input);
+  @@alternateType(OpenAI.OutputItemType, {  identity: "OpenAI.Responses.ResponseItemType",  package: "OpenAI",  minVersion: "2.11.0"}, "csharp");
 
   // --------------------------------------------------------------------------------
   // --------------------------------------------------------------------------------
@@ -380,6 +381,72 @@ namespace Azure.AI.Projects {
   @@access(OpenAI.ToolChoiceParam, Access.internal);
   @@clientName(OpenAI.ToolChoiceParam, "InternalToolChoiceParam");
 
+  // Emit Azure-specific OutputItem subtypes as public classes
+  @@access(BingGroundingToolCall, Access.public);
+  @@usage(BingGroundingToolCall, Usage.input);
+
+  @@access(BingGroundingToolCallOutput, Access.public);
+  @@usage(BingGroundingToolCallOutput, Usage.input);
+
+  @@access(SharepointGroundingToolCall, Access.public);
+  @@usage(SharepointGroundingToolCall, Usage.input);
+
+  @@access(SharepointGroundingToolCallOutput, Access.public);
+  @@usage(SharepointGroundingToolCallOutput, Usage.input);
+
+  @@access(AzureAISearchToolCall, Access.public);
+  @@usage(AzureAISearchToolCall, Usage.input);
+
+  @@access(AzureAISearchToolCallOutput, Access.public);
+  @@usage(AzureAISearchToolCallOutput, Usage.input);
+
+  @@access(BingCustomSearchToolCall, Access.public);
+  @@usage(BingCustomSearchToolCall, Usage.input);
+
+  @@access(BingCustomSearchToolCallOutput, Access.public);
+  @@usage(BingCustomSearchToolCallOutput, Usage.input);
+
+  @@access(OpenApiToolCall, Access.public);
+  @@usage(OpenApiToolCall, Usage.input);
+
+  @@access(OpenApiToolCallOutput, Access.public);
+  @@usage(OpenApiToolCallOutput, Usage.input);
+
+  @@access(BrowserAutomationToolCall, Access.public);
+  @@usage(BrowserAutomationToolCall, Usage.input);
+
+  @@access(BrowserAutomationToolCallOutput, Access.public);
+  @@usage(BrowserAutomationToolCallOutput, Usage.input);
+
+  @@access(FabricDataAgentToolCall, Access.public);
+  @@usage(FabricDataAgentToolCall, Usage.input);
+
+  @@access(FabricDataAgentToolCallOutput, Access.public);
+  @@usage(FabricDataAgentToolCallOutput, Usage.input);
+
+  @@access(AzureFunctionToolCall, Access.public);
+  @@usage(AzureFunctionToolCall, Usage.input);
+
+  @@access(AzureFunctionToolCallOutput, Access.public);
+  @@usage(AzureFunctionToolCallOutput, Usage.input);
+
+  @@access(A2AToolCall, Access.public);
+  @@usage(A2AToolCall, Usage.input);
+
+  @@access(A2AToolCallOutput, Access.public);
+  @@usage(A2AToolCallOutput, Usage.input);
+
+  @@access(MemorySearchToolCall, Access.public);
+  @@usage(MemorySearchToolCall, Usage.input);
+
+  @@access(MemoryCommandToolCall, Access.public);
+  @@usage(MemoryCommandToolCall, Usage.input);
+
+  @@access(MemoryCommandToolCallOutput, Access.public);
+  @@usage(MemoryCommandToolCallOutput, Usage.input);
+
+
+
   @@access(CreatedBy, Access.public);
   @@usage(CreatedBy, Usage.output);
   @@clientName(CreatedBy, "AgentItemSource");
@@ -414,7 +481,7 @@ namespace Azure.AI.Projects {
 
   @@usage(OpenAI.OutputItem, Usage.input | Usage.output);
   @@access(OpenAI.OutputItem, Access.public);
-  @@clientName(OpenAI.OutputItem, "AgentResponseItem");
+  @@alternateType(OpenAI.OutputItem, {  identity: "OpenAI.Responses.ResponseItem",  package: "OpenAI",  minVersion: "2.11.0"}, "csharp");
 
   @@usage(OpenAI.CreateResponseStreamingResponse, Usage.json);
 
