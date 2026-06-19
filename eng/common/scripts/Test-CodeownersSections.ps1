@@ -48,80 +48,111 @@ param (
 Set-StrictMode -Version 3
 $ErrorActionPreference = "Stop"
 
+$codeownersHelpUrl = "https://aka.ms/azsdk/codeowners"
+$detailGroupTitle = "Protected CODEOWNERS section validation details"
+$collapseValidationDetails = Test-SupportsDevOpsLogging
+
+function getActionableCodeownersFailure([string] $Message) {
+  $nextStep = if ($collapseValidationDetails) {
+    " Expand '$detailGroupTitle' in the log for the section diffs and export output."
+  } else {
+    ""
+  }
+
+  return "See $codeownersHelpUrl. $Message$nextStep"
+}
+
+function writeValidationIssue([string] $Message) {
+  if ($collapseValidationDetails) {
+    Write-Host "[ERROR] $Message"
+  } else {
+    LogError $Message
+  }
+}
+
 # ---------------------------------------------------------------------------
 # 1. Validate inputs
 # ---------------------------------------------------------------------------
-if (-not (Test-Path $BeforeFile)) {
-  Write-Error "BeforeFile not found: $BeforeFile"
-  exit 1
-}
-if (-not (Test-Path $AfterFile)) {
-  Write-Error "AfterFile not found: $AfterFile"
-  exit 1
-}
-if (-not (Test-Path $AzsdkCliPath)) {
-  Write-Error "azsdk CLI not found: $AzsdkCliPath"
-  exit 1
-}
+$changedSections = @()
+$finalError = $null
 
-# ---------------------------------------------------------------------------
-# 2. Ensure temp directory exists
-# ---------------------------------------------------------------------------
-if (-not (Test-Path $TempDirectory)) {
-  New-Item -ItemType Directory -Path $TempDirectory -Force | Out-Null
-}
-
-# ---------------------------------------------------------------------------
-# 3. Export and compare each section
-# ---------------------------------------------------------------------------
-$failed = $false
-
-$beforePath = Resolve-Path $BeforeFile
-Write-Host "Before file: $beforePath"
-$afterPath  = Resolve-Path $AfterFile
-Write-Host "After file:  $afterPath"
-
-foreach ($section in $Sections) {
-  $safeName      = $section -replace ' ', '_'
-  $beforeSection = Join-Path $TempDirectory "before.${safeName}.txt"
-  $afterSection  = Join-Path $TempDirectory "after.${safeName}.txt"
-
-  Write-Host "Exporting section '$section' from before file..."
-  & $AzsdkCliPath config codeowners export-section --codeowners-path $beforePath --section $section --output-file $beforeSection
-  if ($LASTEXITCODE) {
-    LogError "Failed to export section '$section' from before file (exit code $LASTEXITCODE)."
-    exit 1
+try {
+  if (-not (Test-Path $BeforeFile)) {
+    throw "BeforeFile not found: $BeforeFile"
+  }
+  if (-not (Test-Path $AfterFile)) {
+    throw "AfterFile not found: $AfterFile"
+  }
+  if (-not (Test-Path $AzsdkCliPath)) {
+    throw "azsdk CLI not found: $AzsdkCliPath"
   }
 
-  Write-Host "Exporting section '$section' from after file..."
-  & $AzsdkCliPath config codeowners export-section --codeowners-path $afterPath --section $section --output-file $afterSection
-  if ($LASTEXITCODE) {
-    LogError "Failed to export section '$section' from after file (exit code $LASTEXITCODE)."
-    exit 1
+  # ---------------------------------------------------------------------------
+  # 2. Ensure temp directory exists
+  # ---------------------------------------------------------------------------
+  if (-not (Test-Path $TempDirectory)) {
+    New-Item -ItemType Directory -Path $TempDirectory -Force | Out-Null
   }
 
-  $beforeContent = Get-Content -Path $beforeSection -Raw
-  $afterContent  = Get-Content -Path $afterSection -Raw
-
-  if ($beforeContent -ne $afterContent) {
-    LogError "Protected CODEOWNERS section '$section' has been modified. Changes to this section are not allowed through normal PRs. To update CODEOWNERS, follow instructions at https://aka.ms/azsdk/codeowners"
-    Write-Host "--- Diff for section '$section' ---"
-    Write-Host ""
-    git diff --no-index -- $beforeSection $afterSection
-    $failed = $true
-  } else {
-    Write-Host "Section '$section' is unchanged."
+  # ---------------------------------------------------------------------------
+  # 3. Export and compare each section
+  # ---------------------------------------------------------------------------
+  if ($collapseValidationDetails) {
+    LogGroupStart $detailGroupTitle
   }
+
+  try {
+    $beforePath = Resolve-Path $BeforeFile
+    Write-Host "Before file: $beforePath"
+    $afterPath  = Resolve-Path $AfterFile
+    Write-Host "After file:  $afterPath"
+
+    foreach ($section in $Sections) {
+      $safeName      = $section -replace ' ', '_'
+      $beforeSection = Join-Path $TempDirectory "before.${safeName}.txt"
+      $afterSection  = Join-Path $TempDirectory "after.${safeName}.txt"
+
+      Write-Host "Exporting section '$section' from before file..."
+      & $AzsdkCliPath config codeowners export-section --codeowners-path $beforePath --section $section --output-file $beforeSection
+      if ($LASTEXITCODE) {
+        throw "Failed to export section '$section' from before file (exit code $LASTEXITCODE)."
+      }
+
+      Write-Host "Exporting section '$section' from after file..."
+      & $AzsdkCliPath config codeowners export-section --codeowners-path $afterPath --section $section --output-file $afterSection
+      if ($LASTEXITCODE) {
+        throw "Failed to export section '$section' from after file (exit code $LASTEXITCODE)."
+      }
+
+      $beforeContent = Get-Content -Path $beforeSection -Raw
+      $afterContent  = Get-Content -Path $afterSection -Raw
+
+      if ($beforeContent -ne $afterContent) {
+        $changedSections += $section
+        writeValidationIssue "Protected CODEOWNERS section '$section' has been modified. Changes to this section are not allowed through normal PRs."
+        Write-Host "--- Diff for section '$section' ---"
+        Write-Host ""
+        git diff --no-index -- $beforeSection $afterSection
+      } else {
+        Write-Host "Section '$section' is unchanged."
+      }
+    }
+  } finally {
+    if ($collapseValidationDetails) {
+      LogGroupEnd
+    }
+  }
+
+  if (@($changedSections).Count -gt 0) {
+    $sectionList = ($changedSections | ForEach-Object { "'$_'" }) -join ", "
+    $finalError = getActionableCodeownersFailure("Protected CODEOWNERS sections were modified: $sectionList. Revert those section edits or follow the CODEOWNERS update process, then rerun validation.")
+  }
+} catch {
+  $finalError = getActionableCodeownersFailure("Protected CODEOWNERS section validation could not complete: $($_.Exception.Message)")
 }
 
-# ---------------------------------------------------------------------------
-# 4. Exit
-# ---------------------------------------------------------------------------
-if ($failed) {
-  $sectionList = ($Sections | ForEach-Object { "'$_'" }) -join ", "
-
-  Write-Host ""
-  LogError "##vso[task.LogIssue type=error;]One or more protected CODEOWNERS sections have been modified. Please revert changes to the $sectionList sections."
+if ($finalError) {
+  LogError $finalError
   exit 1
 }
 
