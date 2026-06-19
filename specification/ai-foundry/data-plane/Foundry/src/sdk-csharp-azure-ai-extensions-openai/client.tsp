@@ -66,9 +66,11 @@ namespace Azure.AI.Projects {
     "OAuthConsentRequestResponseItem"
   );
   
+  @@clientName(WorkflowActionOutputItem.kind, "CSDLActionKind");
+
   @@usage(OpenAI.OutputItemType, Usage.output | Usage.json | Usage.input);
   @@alternateType(OpenAI.OutputItemType, {  identity: "OpenAI.Responses.ResponseItemType",  package: "OpenAI",  minVersion: "2.11.0"}, "csharp");
-
+  
   // --------------------------------------------------------------------------------
   // --------------------------------------------------------------------------------
   // LocalShellToolCallOutputStatus - named union to replace inline union
