@@ -43,11 +43,7 @@ interface PaymentHsmClusterPrivateEndpointConnections {
   /**
    * Creates or updates the private endpoint connection for the Payment Hsm Cluster.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "The private endpoint connection create/update is synchronous and returns 200 only, consistent with the existing CloudHsmCluster private endpoint connection resource."
-  create is ArmResourceCreateOrReplaceSync<
-    PaymentHsmClusterPrivateEndpointConnection,
-    Response = ArmResourceUpdatedResponse<PaymentHsmClusterPrivateEndpointConnection>
-  >;
+  create is ArmResourceCreateOrReplaceSync<PaymentHsmClusterPrivateEndpointConnection>;
 
   /**
    * Deletes the private endpoint connection for the Payment Hsm Cluster.
