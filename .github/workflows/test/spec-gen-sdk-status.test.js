@@ -3,7 +3,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { SdkName } from "../../shared/src/sdk-types.js";
 import { createMockSpecGenSdkArtifactInfo } from "../../shared/test/sdk-types.js";
 import * as artifacts from "../src/artifacts.js";
-import * as github from "../src/github.js";
 import { setSpecGenSdkStatusImpl } from "../src/spec-gen-sdk-status.js";
 import { createMockCore, createMockGithub } from "./mocks.js";
 
@@ -16,9 +15,6 @@ describe("spec-gen-sdk-status", () => {
 
   /** @type {import("vitest").MockInstance} */
   let getAzurePipelineArtifactMock;
-
-  /** @type {import("vitest").MockInstance} */
-  let writeToActionsSummaryMock;
 
   /** @type {import("vitest").MockInstance} */
   let appendFileSyncMock;
@@ -44,14 +40,6 @@ describe("spec-gen-sdk-status", () => {
         });
       });
 
-    writeToActionsSummaryMock = vi
-      .spyOn(github, "writeToActionsSummary")
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .mockImplementation((content, core) => {
-        // Implementation that just returns
-        return Promise.resolve();
-      });
-
     appendFileSyncMock = vi.spyOn(fs, "appendFileSync").mockImplementation(vi.fn());
 
     // Reset mock call counts
@@ -64,7 +52,6 @@ describe("spec-gen-sdk-status", () => {
   afterEach(() => {
     // Restore mocks
     getAzurePipelineArtifactMock.mockRestore();
-    writeToActionsSummaryMock.mockRestore();
     appendFileSyncMock.mockRestore();
   });
 
@@ -257,8 +244,9 @@ describe("spec-gen-sdk-status", () => {
     });
 
     // Verify summary was written
-    expect(writeToActionsSummaryMock).toHaveBeenCalled();
-    expect(writeToActionsSummaryMock.mock.calls[0][0]).toContain("SDK Validation CI Checks Result");
+    expect(mockCore.summary.addRaw).toHaveBeenCalled();
+    expect(mockCore.summary.addRaw.mock.calls[0][0]).toContain("SDK Validation CI Checks Result");
+    expect(mockCore.summary.write).toHaveBeenCalled();
   });
 
   it("should handle artifact download failures", async () => {
@@ -363,5 +351,31 @@ describe("spec-gen-sdk-status", () => {
         description: "SDK Validation CI checks succeeded",
       }),
     );
+  });
+
+  it("should skip status update when no SDK Validation checks are found", async () => {
+    // Simulates a reopened PR with no SDK-relevant changes: no SDK Validation check runs exist.
+    mockGithub.rest.checks.listForRef.mockResolvedValue({
+      data: {
+        check_runs: [],
+      },
+    });
+
+    await setSpecGenSdkStatusImpl({
+      owner: "testOwner",
+      repo: "testRepo",
+      head_sha: "testSha",
+      target_url: "https://example.com",
+      github: mockGithub,
+      core: mockCore,
+      issue_number: 123,
+    });
+
+    // No status should be set when there are no SDK Validation checks.
+    expect(mockGithub.rest.repos.createCommitStatus).not.toHaveBeenCalled();
+
+    // Outputs should still be set for downstream artifact upload steps.
+    expect(mockCore.setOutput).toBeCalledWith("head_sha", "testSha");
+    expect(mockCore.setOutput).toBeCalledWith("issue_number", 123);
   });
 });

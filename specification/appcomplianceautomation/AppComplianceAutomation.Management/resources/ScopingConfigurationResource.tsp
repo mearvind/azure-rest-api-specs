@@ -41,8 +41,6 @@ model ScopingConfigurationResource
   /**
    * ScopingConfiguration property.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Legacy flatten"
-  @Azure.ClientGenerator.Core.Legacy.flattenProperty("!java")
   properties: ScopingConfigurationProperties;
 }
 
@@ -78,15 +76,18 @@ interface ScopingConfiguration {
   list is ArmResourceListByParent<ScopingConfigurationResource>;
 }
 
-@@doc(ScopingConfiguration.createOrUpdate::parameters.resource,
+@@doc(
+  ScopingConfiguration.createOrUpdate::parameters.resource,
   "Parameters for the create or update operation, this is a singleton resource, so please make sure you're using 'default' as the name."
 );
 
 #suppress "deprecated" "LEGACY - DO NOT COPY - FIX"
-@@encodedName(ScopingConfiguration.createOrUpdate::parameters.resource,
+@@encodedName(
+  ScopingConfiguration.createOrUpdate::parameters.resource,
   "application/json",
   "parameters"
 );
-@@clientName(ScopingConfiguration.createOrUpdate::parameters.resource,
+@@clientName(
+  ScopingConfiguration.createOrUpdate::parameters.resource,
   "properties"
 );

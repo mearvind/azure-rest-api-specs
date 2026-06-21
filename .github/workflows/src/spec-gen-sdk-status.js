@@ -2,7 +2,6 @@ import { CheckStatus, CommitStatusState, PER_PAGE_MAX } from "../../shared/src/g
 import { SpecGenSdkArtifactInfoSchema } from "../../shared/src/sdk-types.js";
 import { getAdoBuildInfoFromUrl, getAzurePipelineArtifact } from "./artifacts.js";
 import { extractInputs } from "./context.js";
-import { writeToActionsSummary } from "./github.js";
 
 /**
  * @param {import('@actions/github-script').AsyncFunctionArguments} AsyncFunctionArguments
@@ -43,7 +42,7 @@ export default async function setSpecGenSdkStatus({ github, context, core }) {
  * @param {string} params.head_sha
  * @param {string} params.target_url
  * @param {number} params.issue_number
- * @param {(import("@octokit/core").Octokit & import("@octokit/plugin-rest-endpoint-methods/dist-types/types.js").Api & { paginate: import("@octokit/plugin-paginate-rest").PaginateInterface; })} params.github
+ * @param {(import("@octokit/core").Octokit & import("@octokit/plugin-rest-endpoint-methods").Api & { paginate: import("@octokit/plugin-paginate-rest").PaginateInterface; })} params.github
  * @param {typeof import("@actions/core")} params.core
  * @returns {Promise<void>}
  */
@@ -74,6 +73,14 @@ export async function setSpecGenSdkStatusImpl({
   core.info(`Found ${specGenSdkChecks.length} check runs from Azure Pipelines:`);
   for (const check of specGenSdkChecks) {
     core.info(`- ${check.name}: ${check.status} (${check.conclusion})`);
+  }
+
+  // No SDK Validation check runs exist for this commit (e.g. a PR without SDK-relevant changes that
+  // was reopened). Skip setting a status, to avoid creating a spurious "pending" status that would
+  // never be resolved, since the Azure DevOps pipelines won't run for such PRs.
+  if (specGenSdkChecks.length === 0) {
+    core.info("No SDK Validation check runs found. Skipping status update.");
+    return;
   }
 
   // Check if all SDK generation checks have completed
@@ -211,7 +218,7 @@ async function processResult({ checkRuns, core }) {
   }
 
   // Write to the summary page
-  await writeToActionsSummary(summaryContent, core);
+  await core.summary.addRaw(summaryContent).write();
 
   return {
     state,

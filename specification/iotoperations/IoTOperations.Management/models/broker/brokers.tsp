@@ -52,6 +52,18 @@ model BrokerProperties {
   @doc("This setting controls whether Kubernetes CPU resource limits are requested. Increasing the number of replicas or workers proportionally increases the amount of CPU resources requested. If this setting is enabled and there are insufficient CPU resources, an error will be emitted.")
   generateResourceLimits?: GenerateResourceLimits;
 
+  @doc("""
+      Handling of high-priority messages in the event that regular-priority messages are being backpressured.
+    
+      When set to "Accept", the broker continues to accept high-priority messages even while regular-priority messages are rejected due to backpressure.
+    
+      When set to "Reject", backpressure also affects high-priority messages.
+    
+      Defaults to "Accept".
+    """)
+  @added(Versions.`2026-07-01`)
+  highPriorityMessagesBackpressureHandling?: HighPriorityMessagesBackpressureHandling;
+
   @visibility(Lifecycle.Read, Lifecycle.Create)
   @doc("Memory profile of Broker.")
   memoryProfile?: BrokerMemoryProfile = BrokerMemoryProfile.Medium;
@@ -64,6 +76,12 @@ model BrokerProperties {
   @doc("The status of the last operation.")
   provisioningState?: ProvisioningState;
 
+  @visibility(Lifecycle.Read)
+  @doc("The status for the broker.")
+  @added(Versions.`2026-03-01`)
+  status?: BrokerStatus;
+
+  #suppress "deprecated" "ResourceHealth is deprecated, use 'status.healthState' instead."
   ...ResourceHealth;
 }
 
@@ -489,6 +507,18 @@ model GenerateResourceLimits {
   cpu?: OperationalMode = Enabled;
 }
 
+@doc("Handling of high-priority messages during backpressure state.")
+@added(Versions.`2026-07-01`)
+union HighPriorityMessagesBackpressureHandling {
+  string,
+
+  @doc("When the broker rejects regular-priority messages due to backpressure, it continues to accept high-priority messages.")
+  Accept: "Accept",
+
+  @doc("When the broker rejects regular-priority messages due to backpressure, it also rejects high-priority messages.")
+  Reject: "Reject",
+}
+
 @doc("Cert Manager Cert properties")
 model CertManagerCertOptions {
   @doc("Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.")
@@ -617,4 +647,12 @@ union SubscriberMessageDropStrategy {
 
   @doc("The oldest message is dropped.")
   DropOldest: "DropOldest",
+}
+
+/** BrokerStatus status. */
+@added(Versions.`2026-03-01`)
+model BrokerStatus {
+  /** The health state of the Broker. */
+  @visibility(Lifecycle.Read)
+  healthState?: ResourceHealthStatus;
 }

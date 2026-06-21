@@ -24,7 +24,11 @@ alias ArmProviderActionAsync<
   Response | ArmAcceptedLroResponse<"Accepted", LroHeaders>,
   BaseParameters = ApiVersionParameter,
   Parameters = Parameters,
-  LroHeaders = ArmLroLocationHeader<Azure.Core.StatusMonitorPollingOptions<ArmOperationStatus>>
+  LroHeaders = ArmLroLocationHeader<
+    Azure.Core.StatusMonitorPollingOptions<ArmOperationStatus>,
+    Response,
+    string
+  >
 >;
 
 alias ArmProviderActionSync<
@@ -76,12 +80,14 @@ interface ProviderActions {
   >;
 }
 #suppress "deprecated" "LEGACY - DO NOT COPY - FIX"
-@@encodedName(ArmProviderActionAsync::parameters.body,
+@@encodedName(
+  ArmProviderActionAsync::parameters.body,
   "application/json",
   "parameters"
 );
 #suppress "deprecated" "LEGACY - DO NOT COPY - FIX"
-@@encodedName(ArmProviderActionSync::parameters.body,
+@@encodedName(
+  ArmProviderActionSync::parameters.body,
   "application/json",
   "parameters"
 );
